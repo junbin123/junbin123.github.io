@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>数字攻略</title>
+  
+  <subtitle>分享数字生活</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-02-01T10:16:29.515Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>吾儿滨滨</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2019/02/01/hello-world/"/>
+    <id>http://yoursite.com/2019/02/01/hello-world/</id>
+    <published>2019-02-01T10:16:29.515Z</published>
+    <updated>2019-02-01T10:16:29.515Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>三个月使用双拼打字的体验</title>
+    <link href="http://yoursite.com/2019/01/17/%E4%B8%89%E4%B8%AA%E6%9C%88%E4%BD%BF%E7%94%A8%E5%8F%8C%E6%8B%BC%E6%89%93%E5%AD%97%E7%9A%84%E4%BD%93%E9%AA%8C/"/>
+    <id>http://yoursite.com/2019/01/17/三个月使用双拼打字的体验/</id>
+    <published>2019-01-16T16:00:00.000Z</published>
+    <updated>2019-02-01T22:38:12.800Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;阅读时长：3-分钟&quot;&gt;&lt;a href=&quot;#阅读时长：3-分钟&quot; class=&quot;headerlink&quot; title=&quot;阅读时长：3 分钟&quot;&gt;&lt;/a&gt;阅读时长：3 分钟&lt;/h5&gt;&lt;p&gt;使用&lt;strong&gt;双拼打字&lt;/strong&gt;⌨就是一个很完整的真香体验，从开始的笨拙到渐入佳境，最后双拼真香！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ws3.sinaimg.cn/large/006tNc79gy1fz8pgrlzvcj30cq07zjro.jpg&quot; alt=&quot;33456db59952d1468fd6e44c38df71bf1400fa26&quot;&gt;&lt;/p&gt;
+&lt;p&gt;不经历，不知道这里微妙的感受。&lt;/p&gt;
+&lt;p&gt;于是我忍不住向周围的人安利，但最终还是放弃，因为初次使用双拼的感觉就像，这么多年，对于键盘布局的肌肉记忆，在那一瞬间突然消失了。&lt;/p&gt;
+&lt;p&gt;这是入门最大的门槛，劝说别人放弃目前拥有的，不给点好处，我也不会干的，虽然可能是为我好。&lt;/p&gt;
+&lt;p&gt;但还是那句话，道理我都懂，可我做不到。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RSS 阅读入门指南</title>
+    <link href="http://yoursite.com/2019/01/03/RSS%E9%98%85%E8%AF%BB%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/"/>
+    <id>http://yoursite.com/2019/01/03/RSS阅读入门指南/</id>
+    <published>2019-01-02T16:00:00.000Z</published>
+    <updated>2019-02-01T22:38:45.716Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;阅读时长：4-分钟&quot;&gt;&lt;a href=&quot;#阅读时长：4-分钟&quot; class=&quot;headerlink&quot; title=&quot;阅读时长：4 分钟&quot;&gt;&lt;/a&gt;阅读时长：4 分钟&lt;/h5&gt;&lt;p&gt;昨天稍稍喷了一下「即刻」这个应用，谁叫这货把微信机器人给关闭了，真的是有一点成绩就开始嘚瑟了！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MarkDown 语法示例</title>
+    <link href="http://yoursite.com/2018/10/01/MarkDown%E8%AF%AD%E6%B3%95%E7%A4%BA%E4%BE%8B/"/>
+    <id>http://yoursite.com/2018/10/01/MarkDown语法示例/</id>
+    <published>2018-09-30T16:00:00.000Z</published>
+    <updated>2019-02-01T17:34:51.668Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+      <category term="学习笔记" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+</feed>
