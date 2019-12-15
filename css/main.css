@@ -2,11 +2,13 @@
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: "Source Han Serif SC";
+    font-family: "Songti SC";
+    color: #34495E;
 }
 
 a {
     text-decoration: none;
+    color: #34495E;
 }
 
 /* #################### 导航 #################### */
@@ -88,7 +90,6 @@ header {
     padding: 24px;
     margin: 0 24px;
     border-bottom: 1px solid #ececec;
-    color: #000;
 }
 
 .section:hover {
@@ -97,19 +98,21 @@ header {
 
 .section__title {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 500;
     padding-bottom: 6px;
+    color: #000;
 }
 
 .section__info {
     font-size: 14px;
-    font-weight: light;
+    font-weight: 300;
     padding-bottom: 12px;
 }
 
 .section__excerpt {
     font-size: 16px;
     color: #34495E;
+    font-weight: 300;
 }
 
 /* #################### 侧边栏 #################### */
@@ -136,7 +139,6 @@ aside {
     list-style-type: none;
     line-height: 30px;
     padding-left: 10px;
-    color: #000;
 }
 
 .tag {
@@ -156,4 +158,27 @@ aside {
 .tag:hover {
     background: #BF4033;
     color: #fff;
+}
+
+/* #################### archive.ejs #################### */
+
+.archive {
+    padding: 30px 0 0 48px;
+}
+
+.archive-item {
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+
+.archive-item:hover {
+    color: #BF4033;
+}
+
+.archive__item-title {
+    color: #000;
+}
+
+.archive__item-title:hover {
+    color: #BF4033;
 }
