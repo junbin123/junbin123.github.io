@@ -181,8 +181,49 @@ aside {
     color: #BF4033;
 }
 
-/* #################### post.ejs #################### */
+/* #################### 文章 #################### */
 
-code {
-    font-family: "dsf";
+#article {
+    font-size: 16px;
+    padding: 0 24px;
+    /* background: #efefef; */
+}
+
+#article h1, #article h2, #article h3, #article h4, #article h5, #article h6 {
+    line-height: 40px;
+    margin: 20px 0 15px;
+}
+
+/* 代码 */
+
+#article pre {
+    margin: 20px;
+    box-shadow: 0 8px 12px rgba(189, 189, 189, .25);
+}
+
+pre:before {
+    content: "                                               ";
+    position: absolute;
+    background: url('../images/dot.png') no-repeat 20px 16px;
+    height: 40px;
+}
+
+#article span {
+    font-family: "codefont";
+}
+
+#article code {
+    font-family: "codefont";
+    padding: 40px 16px 20px;
+    border-radius: 8px;
+}
+
+/* 图片 */
+
+#article img {
+    max-width: 600px;
+    max-height: 500px;
+    border-radius: 6px;
+    box-shadow: 0 8px 12px rgba(189, 189, 189, .25);
+    margin: 30px auto;
 }
