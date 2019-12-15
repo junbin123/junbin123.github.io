@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "Source Han Serif SC";
+}
+
+a {
+    text-decoration: none;
+}
+
+/* #################### 导航 #################### */
+
+header {
+    width: 100%;
+    height: 60px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.10);
+    position: fixed;
+    top: 0;
+}
+
+#header-container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.header__left {
+    float: left;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin: 10px 10px 10px 24px;
+    float: left;
+}
+
+.title {
+    font-size: 22px;
+    line-height: 60px;
+    float: left;
+    font-weight: 800;
+    color: #BF4033;
+}
+
+.header__right {
+    float: right;
+}
+
+.menu {
+    list-style-type: none;
+    float: left;
+    line-height: 60px;
+    margin-left: 14px;
+}
+
+.menu a {
+    color: #BF4033;
+}
+
+.rss {
+    width: 24px;
+    height: 24px;
+    margin: 18px 24px;
+}
+
+/* #################### 主体 #################### */
+
+#main {
+    width: 100%;
+    max-width: 1024px;
+    margin: 60px auto 0;
+    padding-top: 20px;
+}
+
+/* #################### 内容 #################### */
+
+#content {
+    width: 75%;
+    height: 100%;
+    float: left;
+}
+
+.section {
+    padding: 24px;
+    margin: 0 24px;
+    border-bottom: 1px solid #ececec;
+    color: #000;
+}
+
+.section:hover {
+    background: #ececec;
+}
+
+.section__title {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 6px;
+}
+
+.section__info {
+    font-size: 14px;
+    font-weight: light;
+    padding-bottom: 12px;
+}
+
+.section__excerpt {
+    font-size: 16px;
+    color: #34495E;
+}
+
+/* #################### 侧边栏 #################### */
+
+aside {
+    width: 25%;
+    height: 100%;
+    float: right;
+}
+
+.aside {
+    margin: 20px 24px 30px 24px;
+}
+
+.aside__title {
+    font-size: 18px;
+    padding-bottom: 6px;
+    font-weight: bold;
+    color: #BF4033;
+}
+
+.aside__item {
+    font-weight: lighter;
+    list-style-type: none;
+    line-height: 30px;
+    padding-left: 10px;
+    color: #000;
+}
+
+.tag {
+    padding-right: 10px;
+    margin: 0 10px 10px 0;
+    float: left;
+    background: #ECECEC;
+    border-radius: 2px;
+}
+
+.aside__item:hover {
+    color: #BF4033;
+    background: #ECECEC;
+    border-radius: 2px;
+}
+
+.tag:hover {
+    background: #BF4033;
+    color: #fff;
+}
