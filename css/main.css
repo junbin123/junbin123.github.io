@@ -44,8 +44,8 @@ header {
     font-size: 22px;
     line-height: 60px;
     float: left;
-    font-weight: 800;
     color: #BF4033;
+    font-weight: bold;
 }
 
 .header__right {
@@ -98,21 +98,20 @@ header {
 
 .section__title {
     font-size: 24px;
-    font-weight: 500;
+    font-weight: bold;
     padding-bottom: 6px;
     color: #000;
 }
 
 .section__info {
     font-size: 14px;
-    font-weight: 300;
     padding-bottom: 12px;
+    color: #333;
 }
 
 .section__excerpt {
     font-size: 16px;
     color: #34495E;
-    font-weight: 300;
 }
 
 /* #################### 侧边栏 #################### */
@@ -135,7 +134,6 @@ aside {
 }
 
 .aside__item {
-    font-weight: lighter;
     list-style-type: none;
     line-height: 30px;
     padding-left: 10px;
@@ -181,4 +179,10 @@ aside {
 
 .archive__item-title:hover {
     color: #BF4033;
+}
+
+/* #################### post.ejs #################### */
+
+code {
+    font-family: "dsf";
 }
