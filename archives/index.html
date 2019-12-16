@@ -16,7 +16,7 @@
 
 <body>
     <!-- 引入导航 -->
-    <header>
+    <header id="header">
         <div id="header-container">
             <div class="header__left">
     <a href="https://junbin123.github.io">
@@ -47,128 +47,12 @@
 </nav>
         </div>
     </header>
+
     <div id="main">
-        <!-- 引入侧边栏 -->
-        <aside id="aside">
-            <!-- 关注 -->
-<div class="aside">
-    <div class="aside__title">关注</div>
-    <ul>
-        
-        <a href="https://github.com/junbin123" target="_blank">
-            <li class="aside__item">GitHub</li>
-        </a>
-        
-        <a href="https://weibo.com/u/6208092799" target="_blank">
-            <li class="aside__item">微博</li>
-        </a>
-        
-    </ul>
-</div>
-
-<!-- 分类 -->
-<div class="aside">
-    <div class="aside__title">分类</div>
-    <ul>
-        
-        <a href="https://junbin123.github.io/categories/Mac/">
-            <li class="aside__item">Mac</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/categories/个人提升/">
-            <li class="aside__item">个人提升</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/categories/生活指南/">
-            <li class="aside__item">生活指南</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/categories/分享创造/">
-            <li class="aside__item">分享创造</li>
-        </a>
-        
-    </ul>
-</div>
-
-<!-- 标签 -->
-<div class="aside">
-    <div class="aside__title">标签</div>
-    <ul>
-        
-        <a href="https://junbin123.github.io/tags/markdown/">
-            <li class="aside__item tag">markdown</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/Mac/">
-            <li class="aside__item tag">Mac</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/技巧/">
-            <li class="aside__item tag">技巧</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/习惯/">
-            <li class="aside__item tag">习惯</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/生活指南/">
-            <li class="aside__item tag">生活指南</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/阅读/">
-            <li class="aside__item tag">阅读</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/RSS/">
-            <li class="aside__item tag">RSS</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/打字/">
-            <li class="aside__item tag">打字</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/双拼/">
-            <li class="aside__item tag">双拼</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/韩剧/">
-            <li class="aside__item tag">韩剧</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/Netflix/">
-            <li class="aside__item tag">Netflix</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/丧尸/">
-            <li class="aside__item tag">丧尸</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/手汗/">
-            <li class="aside__item tag">手汗</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/小程序/">
-            <li class="aside__item tag">小程序</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/前端/">
-            <li class="aside__item tag">前端</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/保险/">
-            <li class="aside__item tag">保险</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/理财/">
-            <li class="aside__item tag">理财</li>
-        </a>
-        
-    </ul>
-</div>
-        </aside>
         <!-- 引入内容 -->
-        <div id="content">
-            <section class="archive">
+        <div id="center">
+            <div id="content">
+                <section class="archive">
     <ul class="post-archive">
         
         <li class="archive-item">
@@ -212,10 +96,137 @@
         </li>
         
     </ul>
-</section>        </div>
+</section>            </div>
+        </div>
+        <!-- 引入侧边栏 -->
+        <aside id="aside">
+            <!-- 关注 -->
+<div class="aside__item">
+    <div class="aside__item--title">关注</div>
+    <ul>
+        
+        <a href="https://github.com/junbin123" target="_blank">
+            <li class="aside__item--li">GitHub</li>
+        </a>
+        
+        <a href="https://weibo.com/u/6208092799" target="_blank">
+            <li class="aside__item--li">微博</li>
+        </a>
+        
+    </ul>
+</div>
+
+<!-- 分类 -->
+<div class="aside__item">
+    <div class="aside__item--title">分类</div>
+    <ul>
+        
+        <a href="https://junbin123.github.io/categories/Mac/">
+            <li class="aside__item--li">Mac</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/categories/个人提升/">
+            <li class="aside__item--li">个人提升</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/categories/生活指南/">
+            <li class="aside__item--li">生活指南</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/categories/分享创造/">
+            <li class="aside__item--li">分享创造</li>
+        </a>
+        
+    </ul>
+</div>
+
+<!-- 标签 -->
+<div class="aside__item">
+    <div class="aside__item--title">标签</div>
+    <ul>
+        
+        <a href="https://junbin123.github.io/tags/Mac/">
+            <li class="aside__item--li tag">Mac</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/技巧/">
+            <li class="aside__item--li tag">技巧</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/习惯/">
+            <li class="aside__item--li tag">习惯</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/markdown/">
+            <li class="aside__item--li tag">markdown</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/生活指南/">
+            <li class="aside__item--li tag">生活指南</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/阅读/">
+            <li class="aside__item--li tag">阅读</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/RSS/">
+            <li class="aside__item--li tag">RSS</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/打字/">
+            <li class="aside__item--li tag">打字</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/双拼/">
+            <li class="aside__item--li tag">双拼</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/手汗/">
+            <li class="aside__item--li tag">手汗</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/韩剧/">
+            <li class="aside__item--li tag">韩剧</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/Netflix/">
+            <li class="aside__item--li tag">Netflix</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/丧尸/">
+            <li class="aside__item--li tag">丧尸</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/小程序/">
+            <li class="aside__item--li tag">小程序</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/前端/">
+            <li class="aside__item--li tag">前端</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/保险/">
+            <li class="aside__item--li tag">保险</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/理财/">
+            <li class="aside__item--li tag">理财</li>
+        </a>
+        
+    </ul>
+</div>
+        </aside>
     </div>
 
+    <!-- 引入页脚 -->
+    <footer id="footer">
+        <p class="footer-info">© 2019 <a href="https://github.com/junbin123" class="footer-link" target="_blank">Junbin123</a>
 
+    <br>
+    Theme <a href="https://github.com/junbin123/hexo-theme-binbin" class="footer-link" target="_blank">Binbin</a> |
+    Powered by <a href="https://hexo.io/zh-cn/" class="footer-link" target="_blank">Hexo</a>
+</p>
+    </footer>
 
     <!-- 引入jquery -->
     <script src="/jquery/jquery-3.4.1.min.js"></script>

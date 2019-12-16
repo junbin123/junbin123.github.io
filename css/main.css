@@ -6,14 +6,18 @@
     color: #34495E;
 }
 
+body{
+    min-width: 800px;
+}
+
 a {
     text-decoration: none;
     color: #34495E;
 }
 
-/* #################### 导航 #################### */
+/* #################### layout.ejs #################### */
 
-header {
+#header {
     width: 100%;
     height: 60px;
     background: #FFFFFF;
@@ -21,6 +25,37 @@ header {
     position: fixed;
     top: 0;
 }
+
+#footer {
+    width: 100%;
+    height: 120px;
+    background: #F4F4F4;
+    text-align: center;
+    margin-top: 120px;
+}
+
+#main {
+    max-width: 1024px;
+    margin: 80px auto;
+    overflow: hidden;
+}
+
+#center {
+    width: 100%;
+    float: left;
+}
+
+#aside {
+    width: 254px;
+    float: left;
+    margin-left: -254px;
+}
+
+#content {
+    margin-right: 254px;
+}
+
+/* #################### 导航 #################### */
 
 #header-container {
     width: 100%;
@@ -71,20 +106,7 @@ header {
 
 /* #################### 主体 #################### */
 
-#main {
-    width: 100%;
-    max-width: 1024px;
-    margin: 60px auto 0;
-    padding-top: 20px;
-}
-
 /* #################### 内容 #################### */
-
-#content {
-    width: 75%;
-    height: 100%;
-    float: left;
-}
 
 .section {
     padding: 24px;
@@ -116,24 +138,18 @@ header {
 
 /* #################### 侧边栏 #################### */
 
-aside {
-    width: 25%;
-    height: 100%;
-    float: right;
-}
-
-.aside {
+.aside__item {
     margin: 20px 24px 30px 24px;
 }
 
-.aside__title {
+.aside__item--title {
     font-size: 18px;
     padding-bottom: 6px;
     font-weight: bold;
     color: #BF4033;
 }
 
-.aside__item {
+.aside__item--li {
     list-style-type: none;
     line-height: 30px;
     padding-left: 10px;
@@ -147,7 +163,7 @@ aside {
     border-radius: 2px;
 }
 
-.aside__item:hover {
+.aside__item--li:hover {
     color: #BF4033;
     background: #ECECEC;
     border-radius: 2px;
@@ -156,6 +172,18 @@ aside {
 .tag:hover {
     background: #BF4033;
     color: #fff;
+}
+
+/* #################### 页脚 #################### */
+
+.footer-info {
+    color: #666;
+    line-height: 22px;
+    padding-top: 38px;
+}
+
+.footer-link {
+    color: #BF4033;
 }
 
 /* #################### archive.ejs #################### */
