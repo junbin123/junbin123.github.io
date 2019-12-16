@@ -56,6 +56,26 @@ a {
     margin-right: 254px;
 }
 
+.back-to-top {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 50px;
+    background: #DEDEDE;
+    border-radius: 6px;
+    margin-left: -152px;
+}
+
+.back-to-top:hover {
+    box-shadow: 2px 3px 3px 0 rgba(0, 0, 0, 0.30);
+}
+
+.back-to-top--icon {
+    bottom: 24px;
+    right: 24px;
+    margin: 13px;
+}
+
 /* #################### 导航 #################### */
 
 #header-container {
@@ -314,11 +334,10 @@ a {
 }
 
 #article blockquote {
-    line-height: 3.4em;
-    background: rgba(255, 204, 198, 0.80);
+    background: rgba(255, 204, 198, 0.40);
     border-left: 6px solid #BF4033;
-    padding: 0 1.4em;
-    margin: 16px 0;
+    padding: 1.4em;
+    margin: 20px 0;
 }
 
 #article a {
