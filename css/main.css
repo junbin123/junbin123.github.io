@@ -7,7 +7,7 @@
 }
 
 body {
-    min-width: 800px;
+    /* min-width: 800px; */
 }
 
 a {
@@ -67,7 +67,9 @@ a {
 }
 
 .back-to-top:hover {
-    box-shadow: 2px 3px 3px 0 rgba(0, 0, 0, 0.30);
+    /* box-shadow: 2px 3px 3px 0 rgba(0, 0, 0, 0.30);
+    background: #DEDEDE; */
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.20);
 }
 
 .back-to-top--icon {
@@ -415,4 +417,23 @@ pre:before {
     border-radius: 6px;
     box-shadow: 0 8px 12px rgba(189, 189, 189, .25);
     margin: 30px auto;
+}
+
+/* y */
+@media screen and (max-width: 800px) {
+    #aside {
+        display: none;
+    }
+
+    #content {
+        margin-right: 48px;
+    }
+
+    /* #content {
+        padding-left: 0;
+    }
+
+    canvas#live2dcanvas {
+        display: none;
+    } */
 }
