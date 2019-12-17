@@ -8,18 +8,20 @@
     <!-- 引入配置文件 -->
     <link rel="stylesheet" href="/css/main.css">
     <!-- 代码高亮库 -->
-    <link rel="stylesheet" href="/highlight/styles/gruvbox-dark.css">
+    <link rel="stylesheet" href="/js/highlight/styles/gruvbox-dark.css">
     <!-- 插入favicon -->
     <link rel="shortcut icon" href="/images/favicon.ico">
     <!-- 引入字体 -->
     <link rel="stylesheet" href="/css/font.css">
+    <!-- 引入animate.css -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
 </head>
 
-<body>
+<body id="animated body">
     <!-- 引入导航 -->
     <header id="header">
         <div id="header-container">
-            <div class="header__left">
+            <div class="header__left animated">
     <a href="https://junbin123.github.io">
         <img src="/images/logo.png" alt="logo" class="logo">
         <h1 class="title">数字攻略</h1>
@@ -29,16 +31,16 @@
 <nav class="header__right">
     <!-- 内部页面 -->
     
-    <li class="menu">
-        <a href="/" class="menu-item-link">主页</a>
+    <li id="menu">
+        <a href="/" class="menu-item">主页</a>
     </li>
     
-    <li class="menu">
-        <a href="/archives" class="menu-item-link">归档</a>
+    <li id="menu">
+        <a href="/archives" class="menu-item">归档</a>
     </li>
     
-    <li class="menu">
-        <a href="/about" class="menu-item-link">关于我</a>
+    <li id="menu">
+        <a href="/about" class="menu-item">关于我</a>
     </li>
     
     <!-- RSS 链接 -->
@@ -46,8 +48,6 @@
         <img src="/images/rss.png" alt="rss" class="rss">
     </a>
 </nav>
-
-
         </div>
     </header>
     <div id="main">
@@ -216,11 +216,11 @@
 
 
     <!-- 引入jquery -->
-    <script src="/jquery/jquery-3.4.1.min.js"></script>
+    <script src="http://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
     <!-- 引入js文件 -->
     <script src="/js/main.js"></script>
     <!-- 引入代码高亮的 js -->
-    <script src="/highlight/highlight.pack.js"></script>
+    <script src="/js/highlight/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 </body>
 
