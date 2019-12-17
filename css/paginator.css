@@ -1,0 +1,34 @@
+/*
+ * 分页
+ */
+
+#page-nav {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 18px;
+    height: 80px;
+}
+
+#page-nav>a, #page-nav>span {
+    display: inline-block;
+    color: #BF4033;
+    border-radius: 4px;
+    margin: 0 5px;
+    background: #eee;
+}
+
+#next-icon, #prev-icon {
+    height: 40px;
+    width: 80px;
+}
+
+#page-nav>.page-number {
+    width: 40px;
+    line-height: 40px;
+    color: #BF4033;
+}
+
+#page-nav>.current {
+    background: #BF4033;
+    color: #fff;
+}

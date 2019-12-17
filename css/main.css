@@ -52,13 +52,13 @@ body {
 }
 
 #aside {
-    width: 254px;
+    width: 270px;
     float: left;
-    margin-left: -254px;
+    margin-left: -270px;
 }
 
 #content {
-    margin-right: 254px;
+    margin-right: 270px;
 }
 
 .back-to-top {
