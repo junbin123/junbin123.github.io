@@ -6,29 +6,56 @@
     margin-top: 40px;
     text-align: center;
     font-size: 18px;
-    height: 80px;
+    height: 40px;
 }
 
-#page-nav>a, #page-nav>span {
-    display: inline-block;
+#page-nav>.page-number, #page-nav>.extend {
     color: #BF4033;
     border-radius: 4px;
-    margin: 0 5px;
+    line-height: 40px;
     background: #eee;
-}
-
-#next-icon, #prev-icon {
-    height: 40px;
-    width: 80px;
 }
 
 #page-nav>.page-number {
     width: 40px;
-    line-height: 40px;
-    color: #BF4033;
+    margin: 0 5px;
+    display: inline-block;
 }
+
+#page-nav>.prev {
+    width: 100px;
+    display: block;
+    position: absolute;
+}
+
+#page-nav>.next {
+    margin: 0;
+    margin-top: -40px;
+    width: 100%;
+    display: block;
+}
+
+#next-icon {
+    width: 100px;
+    background: #eee;
+    float: right;
+    border-radius: 4px;
+}
+
+/* 选中 */
 
 #page-nav>.current {
     background: #BF4033;
     color: #fff;
+}
+
+/* hover */
+
+#page-nav>a[href^="/"]:hover, #next-icon:hover {
+    background: #ddd;
+    transition: all .3s linear;
+}
+
+#page-nav>.current, #page-nav>.space {
+    cursor: help;
 }
