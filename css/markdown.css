@@ -122,7 +122,7 @@ th {
 /* 图片 */
 
 #article img {
-    max-width: 600px;
+    max-width: 500px;
     max-height: 500px;
     border-radius: 6px;
     box-shadow: 0 8px 12px rgba(189, 189, 189, .25);
