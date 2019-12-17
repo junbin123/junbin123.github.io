@@ -1,250 +1,226 @@
-<!-- 侧边栏分类、归档、标签 -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-    <meta name="keywords" content="hexo, autumn">
-    <title>
-        数字攻略
-    </title>
-    <!-- favicon -->
-    
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico">
-     <link rel="stylesheet" href="/css/style.css">
-
-    <!-- highlight -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
-    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad()
-    </script>
-    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>
-
-    <script>
-        infiniteScroll()
-
-        window.addEventListener('DOMContentLoaded', function () {
-            const [
-                mainTitle,
-                mobileMenu,
-                mobileMainTitle,
-                mobileMenuBtn,
-                ipadMenuBtn,
-                aside,
-                closeBtn,
-            ] = getEle(
-                '#main-title',
-                '.mobile-menu',
-                '.mobile-menu h3',
-                '.mobile-menu button',
-                '.ipad-menu',
-                'aside',
-                'aside .close',
-            )
-            const io = new IntersectionObserver(entries => {
-                if (entries[0].intersectionRatio <= 0) {
-                    mobileMainTitle.classList.remove('invisibile')
-                } else {
-                    mobileMainTitle.classList.add('invisibile')
-                }
-            })
-            io.observe(mainTitle)
-
-            clickToggleAside(mobileMenuBtn)
-            clickToggleAside(ipadMenuBtn)
-            clickToggleAside(closeBtn, false)
-
-            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
-            if (isMenuVisible) document.body.style.background = 'none'
-
-            function getEle(...args) {
-                return args.map(arg => document.querySelector(arg))
-            }
-
-            function clickToggleAside(btn, show = true) {
-                btn.addEventListener('click', function () {
-                    if (show) {
-                        aside.style.display = 'block'
-                    } else {
-                        aside.style.display = 'none'
-                    }
-                })
-            }
-        })
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字攻略</title>
+    <!-- 引入配置文件 -->
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- 代码高亮库 -->
+    <link rel="stylesheet" href="/highlight/styles/gruvbox-dark.css">
+    <!-- 插入favicon -->
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- 引入字体 -->
+    <link rel="stylesheet" href="/css/font.css">
 </head>
 
-<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
-    <div class="container">
-        <header class="header">
-    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
-        <h3 class="invisibile">
-            <a href="/" class="logo">
-                数字攻略
-            </a>
-        </h3>
-        <button class="menu">menu</button>
-    </nav>
+<body>
+    <!-- 引入导航 -->
+    <header id="header">
+        <div id="header-container">
+            <div class="header__left">
+    <a href="https://junbin123.github.io">
+        <img src="/images/logo.png" alt="logo" class="logo">
+        <h1 class="title">数字攻略</h1>
+    </a>
+</div>
 
-    <button class="ipad-menu menu">menu</button>
+<nav class="header__right">
+    <!-- 内部页面 -->
+    
+    <li class="menu">
+        <a href="/" class="menu-item-link">主页</a>
+    </li>
+    
+    <li class="menu">
+        <a href="/archives" class="menu-item-link">归档</a>
+    </li>
+    
+    <li class="menu">
+        <a href="/about" class="menu-item-link">关于我</a>
+    </li>
+    
+    <!-- RSS 链接 -->
+    <a href="https://junbin123.github.io/atom.xml" target="_blank">
+        <img src="/images/rss.png" alt="rss" class="rss">
+    </a>
+</nav>
 
-    <div class="header__left">
-        <a href="/">
-            <img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191214162655.png" alt="logo" class="logo">
-            <h1 class="title">
-                数字攻略
-            </h1>
+
+        </div>
+    </header>
+    <div id="main">
+        <!-- 引入内容 -->
+        <div id="center">
+            <div id="content">
+                <section class="archive">
+    <ul class="post-archive">
+        
+        <li class="archive-item">
+            <span class="archive__item-date">2019-02-17</span>
+            <a class="archive__item-title" href="/2019/02/17/毕业后，我如何为家人配置保险/">毕业后，我如何为家人配置保险？</a>
+        </li>
+        
+        <li class="archive-item">
+            <span class="archive__item-date">2019-01-30</span>
+            <a class="archive__item-title" href="/2019/01/30/《王国》：假如皇帝变成丧尸/">《王国》：假如皇帝变成丧尸</a>
+        </li>
+        
+        <li class="archive-item">
+            <span class="archive__item-date">2018-09-23</span>
+            <a class="archive__item-title" href="/2018/09/23/手汗症患者生活指南/">手汗症患者生活指南</a>
+        </li>
+        
+    </ul>
+</section>            </div>
+        </div>
+        <!-- 引入侧边栏 -->
+        <aside id="aside">
+            <!-- 关注 -->
+<div class="aside__item">
+    <div class="aside__item--title">关注</div>
+    <ul>
+        
+        <a href="https://github.com/junbin123" target="_blank">
+            <li class="aside__item--li">GitHub</li>
         </a>
-    </div>
-
-    <div class="header__right">
-        <a href="https://www.baidu.com/" target="_blank">RSS</a>
-    </div>
-
-
-
-    <!-- <div class="links">
-        <ul>
-            
-            <li>
-                <a href="https://github.com/FrontendSophie">
-                    Github
-                </a>
-            </li>
-            
-            <li>
-                <a href="https://www.linkedin.com/in/frontendsophie/">
-                    LinkedIn
-                </a>
-            </li>
-            
-        </ul>
-    </div> -->
-</header>
-        <main class="main">
-            <!-- 首页文章展示 -->
-
-<section class="posts">
-    
-    <article class="post">
         
-        <h4 class="post-cat">
-            <a href="/categories/生活指南/">
-                生活指南
-            </a>
-        </h4>
+        <a href="https://weibo.com/u/6208092799" target="_blank">
+            <li class="aside__item--li">微博</li>
+        </a>
         
-        <h1 class="post-title">
-            <a href="/2019/02/17/毕业后，我如何为家人配置保险/">
-                毕业后，我如何为家人配置保险？
-            </a>
-        </h1>
+    </ul>
+</div>
 
-        <ul class="post-date">
-            <li>
-                2019年2月17日
-            </li>
-            <li>
-                吾儿滨滨
-            </li>
-        </ul>
-        <div class="post-content ">
-            <p>毕业后，发生在身边两件事，让我开始重视起保险来。</p>
-            <div class="more-link">
-                <a href="/2019/02/17/毕业后，我如何为家人配置保险/">Read more</a>
-            </div>
-        </div>
-    </article>
-    
-    <article class="post">
+<!-- 分类 -->
+<div class="aside__item">
+    <div class="aside__item--title">分类</div>
+    <ul>
         
-        <h4 class="post-cat">
-            <a href="/categories/生活指南/">
-                生活指南
-            </a>
-        </h4>
+        <a href="https://junbin123.github.io/categories/Mac/">
+            <li class="aside__item--li">Mac</li>
+        </a>
         
-        <h1 class="post-title">
-            <a href="/2019/01/30/《王国》：假如皇帝变成丧尸/">
-                《王国》：假如皇帝变成丧尸
-            </a>
-        </h1>
-
-        <ul class="post-date">
-            <li>
-                2019年1月30日
-            </li>
-            <li>
-                吾儿滨滨
-            </li>
-        </ul>
-        <div class="post-content ">
-            <p>周末刷了一部剧《王国》， 这是 Netflix 为韩国人拍的，也是其进军亚洲的第三部剧。</p>
-            <div class="more-link">
-                <a href="/2019/01/30/《王国》：假如皇帝变成丧尸/">Read more</a>
-            </div>
-        </div>
-    </article>
-    
-    <article class="post">
+        <a href="https://junbin123.github.io/categories/生活指南/">
+            <li class="aside__item--li">生活指南</li>
+        </a>
         
-        <h4 class="post-cat">
-            <a href="/categories/生活指南/">
-                生活指南
-            </a>
-        </h4>
+        <a href="https://junbin123.github.io/categories/个人提升/">
+            <li class="aside__item--li">个人提升</li>
+        </a>
         
-        <h1 class="post-title">
-            <a href="/2018/09/23/手汗症患者生活指南/">
-                手汗症患者生活指南
+        <a href="https://junbin123.github.io/categories/分享创造/">
+            <li class="aside__item--li">分享创造</li>
+        </a>
+        
+    </ul>
+</div>
+
+<!-- 标签 -->
+<div class="aside__item">
+    <div class="aside__item--title">标签</div>
+    <ul>
+        
+        <a href="https://junbin123.github.io/tags/Mac/">
+            <li class="aside__item--li tag">Mac</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/技巧/">
+            <li class="aside__item--li tag">技巧</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/习惯/">
+            <li class="aside__item--li tag">习惯</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/markdown/">
+            <li class="aside__item--li tag">markdown</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/韩剧/">
+            <li class="aside__item--li tag">韩剧</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/Netflix/">
+            <li class="aside__item--li tag">Netflix</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/丧尸/">
+            <li class="aside__item--li tag">丧尸</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/生活指南/">
+            <li class="aside__item--li tag">生活指南</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/阅读/">
+            <li class="aside__item--li tag">阅读</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/RSS/">
+            <li class="aside__item--li tag">RSS</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/手汗/">
+            <li class="aside__item--li tag">手汗</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/小程序/">
+            <li class="aside__item--li tag">小程序</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/前端/">
+            <li class="aside__item--li tag">前端</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/打字/">
+            <li class="aside__item--li tag">打字</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/双拼/">
+            <li class="aside__item--li tag">双拼</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/保险/">
+            <li class="aside__item--li tag">保险</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/理财/">
+            <li class="aside__item--li tag">理财</li>
+        </a>
+        
+    </ul>
+</div>
+
+            <!-- 回到顶部 -->
+            <a href="#top" target="_self" class="back-to-top">
+                <img src="/images/top.png" alt="logo" class="back-to-top--icon">
             </a>
-        </h1>
-
-        <ul class="post-date">
-            <li>
-                2018年9月23日
-            </li>
-            <li>
-                吾儿滨滨
-            </li>
-        </ul>
-        <div class="post-content ">
-            <p>手汗症很尴尬，算不上严重的疾病，但是伴随终生，非常影响生活，尤其是社交活动。</p>
-            <div class="more-link">
-                <a href="/2018/09/23/手汗症患者生活指南/">Read more</a>
-            </div>
-        </div>
-    </article>
-    
-</section>
-        </main>
-        <aside class="aside">
-            <div class="close"></div>
-            <section class="aside-section">
-                
-    <h1>Categories</h1>
-
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人提升/">个人提升</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/分享创造/">分享创造</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活指南/">生活指南</a></li></ul>
-
-            </section>
-            <section class="aside-section">
-                
-    <h1>Archives</h1>
-
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
-
-
-            </section>
-            <section class="aside-section tag">
-                
-    <h1>Tags</h1>
-
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netflix/">Netflix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSS/">RSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/丧尸/">丧尸</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/习惯/">习惯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/保险/">保险</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双拼/">双拼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/手汗/">手汗</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/打字/">打字</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧/">技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理财/">理财</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活指南/">生活指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/阅读/">阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/韩剧/">韩剧</a></li></ul>
-
-            </section>
         </aside>
     </div>
+
+    <!-- 引入页脚 -->
+    <footer id="footer">
+        <p class="footer-info">© 2019 <a href="https://github.com/junbin123" class="footer-link" target="_blank">Junbin123</a>
+
+    <br>
+    Theme <a href="https://github.com/junbin123/hexo-theme-binbin" class="footer-link" target="_blank">Binbin</a> |
+    Powered by <a href="https://hexo.io/zh-cn/" class="footer-link" target="_blank">Hexo</a>
+</p>
+    </footer>
+
+
+
+
+
+    <!-- 引入jquery -->
+    <script src="/jquery/jquery-3.4.1.min.js"></script>
+    <!-- 引入js文件 -->
+    <script src="/js/main.js"></script>
+    <!-- 引入代码高亮的 js -->
+    <script src="/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 </body>
 
 </html>
