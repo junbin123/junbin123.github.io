@@ -97,7 +97,7 @@
 
     <div id="article">
         <a id="more"></a>
-<h2 id="一、作为普通函数"><a href="#一、作为普通函数" class="headerlink" title="一、作为普通函数"></a>一、作为普通函数</h2><pre><code class="javascript">function printThis() {
+<h3 id="一、作为普通函数"><a href="#一、作为普通函数" class="headerlink" title="一、作为普通函数"></a>一、作为普通函数</h3><pre><code class="javascript">function printThis() {
     console.log(this)
 }
 printThis()
@@ -105,7 +105,7 @@ printThis()
 <blockquote>
 <p>Window {parent: Window, postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, …}</p>
 </blockquote>
-<h2 id="二、使用-call-apply-bind"><a href="#二、使用-call-apply-bind" class="headerlink" title="二、使用 call apply bind"></a>二、使用 <code>call</code> <code>apply</code> <code>bind</code></h2><pre><code class="javascript">function fn1() {
+<h3 id="二、使用-call-apply-bind"><a href="#二、使用-call-apply-bind" class="headerlink" title="二、使用 call apply bind"></a>二、使用 <code>call</code> <code>apply</code> <code>bind</code></h3><pre><code class="javascript">function fn1() {
     console.log(this)
 }
 fn1.call({ x: 100 })  // 100
@@ -126,7 +126,7 @@ console.log(Math.max.call(null, 2, 5, 9))  // 9
 console.log(Math.max.call(null, arr))  // NaN
 console.log(Math.max.apply(null, arr))  // 9
 </code></pre>
-<h2 id="三、作为对象方法被调用"><a href="#三、作为对象方法被调用" class="headerlink" title="三、作为对象方法被调用"></a>三、作为对象方法被调用</h2><pre><code class="javascript">const people = {
+<h3 id="三、作为对象方法被调用"><a href="#三、作为对象方法被调用" class="headerlink" title="三、作为对象方法被调用"></a>三、作为对象方法被调用</h3><pre><code class="javascript">const people = {
     name: &quot;Merry&quot;,
     sayHi() {
         console.log(this)
@@ -144,7 +144,7 @@ people.wait()
 <p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p>
 <p>Window {parent: Window, postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, …}</p>
 </blockquote>
-<h2 id="四、箭头函数"><a href="#四、箭头函数" class="headerlink" title="四、箭头函数"></a>四、箭头函数</h2><pre><code class="javascript">const people = {
+<h3 id="四、箭头函数"><a href="#四、箭头函数" class="headerlink" title="四、箭头函数"></a>四、箭头函数</h3><pre><code class="javascript">const people = {
     name: &quot;Merry&quot;,
     sayHi() {
         console.log(this)
@@ -162,7 +162,7 @@ people.wait()
 <p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p>
 <p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p>
 </blockquote>
-<h2 id="五、在-class-方法中调用"><a href="#五、在-class-方法中调用" class="headerlink" title="五、在 class 方法中调用"></a>五、在 class 方法中调用</h2><pre><code class="javascript">class People {
+<h3 id="五、在-class-方法中调用"><a href="#五、在-class-方法中调用" class="headerlink" title="五、在 class 方法中调用"></a>五、在 class 方法中调用</h3><pre><code class="javascript">class People {
     constructor(name) {
         this.name = name
         this.age = 20
@@ -340,6 +340,54 @@ merry.sayHi()
             <li class="aside__item--li tag">JavaScript</li>
         </a>
         
+        <a href="https://junbin123.github.io/tags/计算机知识/">
+            <li class="aside__item--li tag">计算机知识</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/字符/">
+            <li class="aside__item--li tag">字符</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/编码/">
+            <li class="aside__item--li tag">编码</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/大学/">
+            <li class="aside__item--li tag">大学</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/技能/">
+            <li class="aside__item--li tag">技能</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/学习/">
+            <li class="aside__item--li tag">学习</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/效率/">
+            <li class="aside__item--li tag">效率</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/HTTP/">
+            <li class="aside__item--li tag">HTTP</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/网站/">
+            <li class="aside__item--li tag">网站</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/工作/">
+            <li class="aside__item--li tag">工作</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/职场/">
+            <li class="aside__item--li tag">职场</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/经验/">
+            <li class="aside__item--li tag">经验</li>
+        </a>
+        
     </ul>
 </div>
 
@@ -498,6 +546,54 @@ merry.sayHi()
         
         <a href="https://junbin123.github.io/tags/JavaScript/">
             <li class="aside__item--li tag">JavaScript</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/计算机知识/">
+            <li class="aside__item--li tag">计算机知识</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/字符/">
+            <li class="aside__item--li tag">字符</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/编码/">
+            <li class="aside__item--li tag">编码</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/大学/">
+            <li class="aside__item--li tag">大学</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/技能/">
+            <li class="aside__item--li tag">技能</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/学习/">
+            <li class="aside__item--li tag">学习</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/效率/">
+            <li class="aside__item--li tag">效率</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/HTTP/">
+            <li class="aside__item--li tag">HTTP</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/网站/">
+            <li class="aside__item--li tag">网站</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/工作/">
+            <li class="aside__item--li tag">工作</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/职场/">
+            <li class="aside__item--li tag">职场</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/经验/">
+            <li class="aside__item--li tag">经验</li>
         </a>
         
     </ul>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junbin123.github.io/"/>
-  <updated>2019-12-18T12:09:13.097Z</updated>
+  <updated>2019-12-18T12:13:33.294Z</updated>
   <id>https://junbin123.github.io/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="https://junbin123.github.io/2019/12/16/js%20%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
     <id>https://junbin123.github.io/2019/12/16/js 基本类型和引用类型的区别/</id>
     <published>2019-12-15T16:00:00.000Z</published>
-    <updated>2019-12-18T12:09:13.097Z</updated>
+    <updated>2019-12-18T12:13:33.294Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><h2 id="基本类型和引用类型"><a href="#基本类型和引用类型" class="headerlink" title="基本类型和引用类型"></a>基本类型和引用类型</h2><p>JavaScript 规定了 7 种原始数据类型，他们分别是：</p><p>基本类型（6）：undefined、null、number、string、boolean、symbol（ES6 新引入）</p><p>引用类型（1）：object</p><p>基本类型指的是简单的数据段，而引用类型指那些可能由多个值构成的对象。</p><p>他们的最大区别在于：</p><p><strong>基本类型赋值给其他变量时，修改其他变量的值，不会影响原始值；而引用变量则会改变。</strong></p><p>通过下面的小栗子，你可以更直观地感受：</p><pre><code class="javascript">// 基本类型var num1 = 5var num2 = num1num2 = 8console.log(num1)  // 5console.log(num2)  // 8</code></pre><pre><code class="javascript">// 引用类型var obj1 = { a: 5, b: 6 }var obj2 = obj1obj2.a = 8console.log(obj1.a)  // 8console.log(obj2.a)  // 8</code></pre><p>好奇如我，为何 JavaScript 要这么做？</p><p>都像基本类型多好，也符合我们的认知，偏偏要弄出个引用类型，消耗脑细胞。</p><p>其实，这是因为，对象（Object）的大小不固定。</p><p>对于一个很大的 Object，如果每次将它赋值给一个新的变量，都重新分配一个新的内存空间，对于性能损耗是很大的。</p><h3 id="堆和栈"><a href="#堆和栈" class="headerlink" title="堆和栈"></a>堆和栈</h3><p>这便引出了 JS 中，基本类型和引用类型的数据保存机制：</p><ul><li><p>基本类型：占据内存空间大小固定，存放在栈内存（Stack），按值来访问。</p></li><li><p>引用类型：占据内存空间大小不固定，存放在堆内存（Heap），并由栈内存（Stack）中存放指向该堆内存（Heap）的地址，按引用访问。</p></li></ul><p>你可以这么理解：</p><p>基本类型就像现金，引用类型就像存折</p><p>下图可助你进一步理解</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191211195504.png" alt=""></p><h2 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h2><p>那么问题来了，我就想 Object 也想基本类型一样，可以吗？</p><p>可以呀！自己写个函数来实现。</p><p>实现思路就是：</p><p>递归调用，把所有属于对象的属性类型都遍历赋给另一个对象即可。</p><pre><code class="javascript">function deepClone(obj = {}) {    if (typeof obj !== &#39;object&#39; || obj == null) {        return obj    }    // 初始化返回结果    let result    if (obj instanceof Array) {        result = []    } else {        result = {}    }    for (let key in obj) {        if (obj.hasOwnProperty(key)) {            // 递归调用            result[key] = deepClone(obj[key])        }    }    return result}</code></pre><h2 id="typeof-和-instanceof-的区别"><a href="#typeof-和-instanceof-的区别" class="headerlink" title="typeof 和 instanceof 的区别"></a>typeof 和 instanceof 的区别</h2><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191212232448.png" alt=""></p>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><h3 id="一、基本类型和引用类型"><a href="#一、基本类型和引用类型" class="headerlink" title="一、基本类型和引用类型"></a>一、基本类型和引用类型</h3><p>JavaScript 规定了 7 种原始数据类型，他们分别是：</p><p>基本类型（6）：undefined、null、number、string、boolean、symbol（ES6 新引入）</p><p>引用类型（1）：object</p><p>基本类型指的是简单的数据段，而引用类型指那些可能由多个值构成的对象。</p><p>他们的最大区别在于：</p><p><strong>基本类型赋值给其他变量时，修改其他变量的值，不会影响原始值；而引用变量则会改变。</strong></p><p>通过下面的小栗子，你可以更直观地感受：</p><pre><code class="javascript">// 基本类型var num1 = 5var num2 = num1num2 = 8console.log(num1)  // 5console.log(num2)  // 8</code></pre><pre><code class="javascript">// 引用类型var obj1 = { a: 5, b: 6 }var obj2 = obj1obj2.a = 8console.log(obj1.a)  // 8console.log(obj2.a)  // 8</code></pre><p>好奇如我，为何 JavaScript 要这么做？</p><p>都像基本类型多好，也符合我们的认知，偏偏要弄出个引用类型，消耗脑细胞。</p><p>其实，这是因为，对象（Object）的大小不固定。</p><p>对于一个很大的 Object，如果每次将它赋值给一个新的变量，都重新分配一个新的内存空间，对于性能损耗是很大的。</p><h3 id="二、堆和栈"><a href="#二、堆和栈" class="headerlink" title="二、堆和栈"></a>二、堆和栈</h3><p>这便引出了 JS 中，基本类型和引用类型的数据保存机制：</p><ul><li><p>基本类型：占据内存空间大小固定，存放在栈内存（Stack），按值来访问。</p></li><li><p>引用类型：占据内存空间大小不固定，存放在堆内存（Heap），并由栈内存（Stack）中存放指向该堆内存（Heap）的地址，按引用访问。</p></li></ul><p>你可以这么理解：</p><p>基本类型就像现金，引用类型就像存折</p><p>下图可助你进一步理解</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191211195504.png" alt=""></p><h3 id="三、深拷贝和浅拷贝"><a href="#三、深拷贝和浅拷贝" class="headerlink" title="三、深拷贝和浅拷贝"></a>三、深拷贝和浅拷贝</h3><p>那么问题来了，我就想 Object 也想基本类型一样，可以吗？</p><p>可以呀！自己写个函数来实现。</p><p>实现思路就是：</p><p>递归调用，把所有属于对象的属性类型都遍历赋给另一个对象即可。</p><pre><code class="javascript">function deepClone(obj = {}) {    if (typeof obj !== &#39;object&#39; || obj == null) {        return obj    }    // 初始化返回结果    let result    if (obj instanceof Array) {        result = []    } else {        result = {}    }    for (let key in obj) {        if (obj.hasOwnProperty(key)) {            // 递归调用            result[key] = deepClone(obj[key])        }    }    return result}</code></pre><h3 id="四、typeof-和-instanceof-的区别"><a href="#四、typeof-和-instanceof-的区别" class="headerlink" title="四、typeof 和 instanceof 的区别"></a>四、typeof 和 instanceof 的区别</h3><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191212232448.png" alt=""></p>]]></content>
     
     <summary type="html">
     
       
       
         &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;基本类型和引用类型&quot;&gt;&lt;a href=&quot;#基本类型和引用类型&quot; class=&quot;headerlink&quot; title=&quot;基本类型和引用类型&quot;&gt;&lt;/a&gt;基本类型和引用类型&lt;/h2&gt;&lt;p&gt;JavaScript 规定了 7 种原始数据类型
+&lt;h3 id=&quot;一、基本类型和引用类型&quot;&gt;&lt;a href=&quot;#一、基本类型和引用类型&quot; class=&quot;headerlink&quot; title=&quot;一、基本类型和引用类型&quot;&gt;&lt;/a&gt;一、基本类型和引用类型&lt;/h3&gt;&lt;p&gt;JavaScript 规定了 7
       
     
     </summary>
@@ -78,16 +78,16 @@
     <link href="https://junbin123.github.io/2019/11/20/%20JavaScript%20%E4%B8%AD%EF%BC%8Cthis%20%E5%9C%A8%E4%B8%8D%E5%90%8C%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%8C%E5%A6%82%E4%BD%95%E5%8F%96%E5%80%BC%EF%BC%9F/"/>
     <id>https://junbin123.github.io/2019/11/20/ JavaScript 中，this 在不同应用场景，如何取值？/</id>
     <published>2019-11-19T16:00:00.000Z</published>
-    <updated>2019-12-18T12:08:50.406Z</updated>
+    <updated>2019-12-18T12:12:42.414Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><h2 id="一、作为普通函数"><a href="#一、作为普通函数" class="headerlink" title="一、作为普通函数"></a>一、作为普通函数</h2><pre><code class="javascript">function printThis() {    console.log(this)}printThis()</code></pre><blockquote><p>Window {parent: Window, postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, …}</p></blockquote><h2 id="二、使用-call-apply-bind"><a href="#二、使用-call-apply-bind" class="headerlink" title="二、使用 call apply bind"></a>二、使用 <code>call</code> <code>apply</code> <code>bind</code></h2><pre><code class="javascript">function fn1() {    console.log(this)}fn1.call({ x: 100 })  // 100const fn2 = fn1.bind({ x: 200 })fn2()  // 200</code></pre><p>作用：<strong>改变函数执行时的上下文</strong>，即<strong>改变函数运行时的this指向</strong>。</p><ul><li><code>call</code> <code>apply</code> 和 <code>bind</code> 的区别：</li></ul><p>call 和 apply 改变了函数的 this 上下文后便执行该函数,而 bind 则是返回改变了上下文后的一个函数。</p><ul><li><code>call</code> 和 <code>apply</code> 的区别：</li></ul><p>他们俩之间的差别在于参数的区别，call 和 apply 的第一个参数都是要改变上下文的对象，而 call 从第二个参数开始以参数列表的形式展现，apply 则是把除了改变上下文对象的参数放在一个数组里面作为它的第二个参数。</p><pre><code class="javascript">let arr = [2, 5, 9]console.log(Math.max.call(null, 2, 5, 9))  // 9console.log(Math.max.call(null, arr))  // NaNconsole.log(Math.max.apply(null, arr))  // 9</code></pre><h2 id="三、作为对象方法被调用"><a href="#三、作为对象方法被调用" class="headerlink" title="三、作为对象方法被调用"></a>三、作为对象方法被调用</h2><pre><code class="javascript">const people = {    name: &quot;Merry&quot;,    sayHi() {        console.log(this)    },    wait() {        setTimeout(function () {            console.log(this)        })    }}people.sayHi()people.wait()</code></pre><blockquote><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p><p>Window {parent: Window, postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, …}</p></blockquote><h2 id="四、箭头函数"><a href="#四、箭头函数" class="headerlink" title="四、箭头函数"></a>四、箭头函数</h2><pre><code class="javascript">const people = {    name: &quot;Merry&quot;,    sayHi() {        console.log(this)    },    wait() {        setTimeout(() =&gt; {            console.log(this)        })    }}people.sayHi()people.wait()</code></pre><blockquote><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p></blockquote><h2 id="五、在-class-方法中调用"><a href="#五、在-class-方法中调用" class="headerlink" title="五、在 class 方法中调用"></a>五、在 class 方法中调用</h2><pre><code class="javascript">class People {    constructor(name) {        this.name = name        this.age = 20    }    sayHi() {        console.log(this)    }}const merry = new People(&quot;Merry&quot;)merry.sayHi()</code></pre><blockquote><p>People {name: “Merry”, age: 20}</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><h3 id="一、作为普通函数"><a href="#一、作为普通函数" class="headerlink" title="一、作为普通函数"></a>一、作为普通函数</h3><pre><code class="javascript">function printThis() {    console.log(this)}printThis()</code></pre><blockquote><p>Window {parent: Window, postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, …}</p></blockquote><h3 id="二、使用-call-apply-bind"><a href="#二、使用-call-apply-bind" class="headerlink" title="二、使用 call apply bind"></a>二、使用 <code>call</code> <code>apply</code> <code>bind</code></h3><pre><code class="javascript">function fn1() {    console.log(this)}fn1.call({ x: 100 })  // 100const fn2 = fn1.bind({ x: 200 })fn2()  // 200</code></pre><p>作用：<strong>改变函数执行时的上下文</strong>，即<strong>改变函数运行时的this指向</strong>。</p><ul><li><code>call</code> <code>apply</code> 和 <code>bind</code> 的区别：</li></ul><p>call 和 apply 改变了函数的 this 上下文后便执行该函数,而 bind 则是返回改变了上下文后的一个函数。</p><ul><li><code>call</code> 和 <code>apply</code> 的区别：</li></ul><p>他们俩之间的差别在于参数的区别，call 和 apply 的第一个参数都是要改变上下文的对象，而 call 从第二个参数开始以参数列表的形式展现，apply 则是把除了改变上下文对象的参数放在一个数组里面作为它的第二个参数。</p><pre><code class="javascript">let arr = [2, 5, 9]console.log(Math.max.call(null, 2, 5, 9))  // 9console.log(Math.max.call(null, arr))  // NaNconsole.log(Math.max.apply(null, arr))  // 9</code></pre><h3 id="三、作为对象方法被调用"><a href="#三、作为对象方法被调用" class="headerlink" title="三、作为对象方法被调用"></a>三、作为对象方法被调用</h3><pre><code class="javascript">const people = {    name: &quot;Merry&quot;,    sayHi() {        console.log(this)    },    wait() {        setTimeout(function () {            console.log(this)        })    }}people.sayHi()people.wait()</code></pre><blockquote><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p><p>Window {parent: Window, postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, …}</p></blockquote><h3 id="四、箭头函数"><a href="#四、箭头函数" class="headerlink" title="四、箭头函数"></a>四、箭头函数</h3><pre><code class="javascript">const people = {    name: &quot;Merry&quot;,    sayHi() {        console.log(this)    },    wait() {        setTimeout(() =&gt; {            console.log(this)        })    }}people.sayHi()people.wait()</code></pre><blockquote><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p></blockquote><h3 id="五、在-class-方法中调用"><a href="#五、在-class-方法中调用" class="headerlink" title="五、在 class 方法中调用"></a>五、在 class 方法中调用</h3><pre><code class="javascript">class People {    constructor(name) {        this.name = name        this.age = 20    }    sayHi() {        console.log(this)    }}const merry = new People(&quot;Merry&quot;)merry.sayHi()</code></pre><blockquote><p>People {name: “Merry”, age: 20}</p></blockquote>]]></content>
     
     <summary type="html">
     
       
       
         &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;一、作为普通函数&quot;&gt;&lt;a href=&quot;#一、作为普通函数&quot; class=&quot;headerlink&quot; title=&quot;一、作为普通函数&quot;&gt;&lt;/a&gt;一、作为普通函数&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;f
+&lt;h3 id=&quot;一、作为普通函数&quot;&gt;&lt;a href=&quot;#一、作为普通函数&quot; class=&quot;headerlink&quot; title=&quot;一、作为普通函数&quot;&gt;&lt;/a&gt;一、作为普通函数&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;f
       
     
     </summary>
@@ -100,6 +100,71 @@
       <category term="编程" scheme="https://junbin123.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
       <category term="JavaScript" scheme="https://junbin123.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>字符编码：ASCII、UNICODE 和 UTF-8</title>
+    <link href="https://junbin123.github.io/2019/07/14/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%EF%BC%9AASCII%E3%80%81UNICODE%20%E5%92%8C%20UTF-8/"/>
+    <id>https://junbin123.github.io/2019/07/14/字符编码：ASCII、UNICODE 和 UTF-8/</id>
+    <published>2019-07-13T16:00:00.000Z</published>
+    <updated>2019-12-18T12:35:29.247Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><ol><li><p>ASCII 码</p><ul><li>计算机内部，所有信息最终都是一个二进制值。</li><li>每个二进制位（bit）有<code>0</code>和<code>1</code>两种状态。</li><li>8 个二进制位可组合出 256 种状态，称为一个字节（byte），每一个状态对应一个符号，即<code>00000000</code>到<code>11111111</code>。</li><li>ASCII 码一共规定了 128 个字符编码，这 128 个符号只占用一个字节后面 7 位，最前面同意规定为<code>0</code>。</li></ul></li><li><p>非 ASCII 编码</p><ul><li>英语 128 个字符编码就够了，但用来表示其他语言，却不够。</li><li>欧洲其他国家，如法国，利用字节第一个二进制位来编入新的符号。</li><li>不同国家，同一个 ASCII 表示不同字符，造成混乱。</li><li>汉字有多达 10 万个左右，需要引入新的编码方式。</li></ul></li><li><p>Unicode</p><ul><li>Unicode 是个很大的集合，可容纳 100 多万个字符，保证每个字符编码都不一样</li><li>Unicode 只是一个符号集合，规定符号二进制代码，却没有规定这个二进制代码应该如何储存。</li><li>有些字符</li></ul></li><li><p>UTF-8</p><ul><li><p>UTF-8 是 Unicode 的实现方式之一，此外还有UTF-16、UTF-32，这些在互联网基本不用。</p></li><li><p>UTF-8 最大的一个特点，就是它是一种可变的编码方式。它可以使用 1~4 个字节表示一个符号，根据不同的符号而变化字节长度。</p></li><li><p>UTF-8 编码规则很简单：如果一个字节的第一位是<code>0</code>，则这个字节单独就是一个字符（同 ASCII 码）；如果第一位是<code>1</code>，则连续有多少个<code>1</code>，就表示当前字符占用多少个字节。（如图：x 表示可编码的位置）</p><p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1fz3on3fumrj30r009idhb.jpg" alt="屏幕快照 2019-01-12 下午12.20.56"></p></li></ul></li></ol><p>编辑整理自<a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html" target="_blank" rel="noopener">阮一峰博客</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;ASCII 码&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;计算机内部，所有信息最终都是一个二进制值。&lt;/li&gt;
+&lt;li&gt;每个二进制位（bit）有&lt;code&gt;0&lt;/code&gt;和&lt;code&gt;1&lt;/code&gt;两种状态。&lt;/li&gt;
+&lt;li&gt;8 
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://junbin123.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="计算机知识" scheme="https://junbin123.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86/"/>
+    
+      <category term="字符" scheme="https://junbin123.github.io/tags/%E5%AD%97%E7%AC%A6/"/>
+    
+      <category term="编码" scheme="https://junbin123.github.io/tags/%E7%BC%96%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我希望在大学掌握这些技能</title>
+    <link href="https://junbin123.github.io/2019/05/10/%E6%88%91%E5%B8%8C%E6%9C%9B%E5%9C%A8%E5%A4%A7%E5%AD%A6%E6%8E%8C%E6%8F%A1%E8%BF%99%E4%BA%9B%E6%8A%80%E8%83%BD/"/>
+    <id>https://junbin123.github.io/2019/05/10/我希望在大学掌握这些技能/</id>
+    <published>2019-05-09T16:00:00.000Z</published>
+    <updated>2019-12-18T12:31:52.982Z</updated>
+    
+    <content type="html"><![CDATA[<p>大学生活是一人一生中为数不多可以肆无忌惮的时光，至少工作后，这种感觉会更加明显。</p><a id="more"></a><p>我作为一个为数不少的废材大学生，读书期间，为所欲为地挥霍着自己的青春，大学生活过得不要太爽，甚至到了目无王法的地步。</p><p>或许你们不知道，在中国，不努力学习，可能涉嫌违法👇。</p><p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1g296m6u45tj30ho0iu77h.jpg" alt="WechatIMG830"></p><p>所以，真是这样的话，那么，<strong>我大概不应该在「外面」，而应该在「里面」。</strong></p><p>幸好人民政府宽容，没追究我的违法行为。但时间是公平的，大学不努力，工作两行泪。</p><p>今天这篇文章会分享我为数不多的工作经历中，感受最深的三个工作技能，<strong>如果这些技能在大学早早 get 到，你同样可以在工作中为所欲为，无法无天。</strong></p><h3 id="一、盲打-双拼打字"><a href="#一、盲打-双拼打字" class="headerlink" title="一、盲打 + 双拼打字"></a>一、盲打 + 双拼打字</h3><p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g29fwse0r4j30p00go4of.jpg" alt="business-computer-connection-1260292"></p><p>打字速度太重要了！所以必须排在第一个。</p><p><strong>只要你活在这个现代社会，那么几乎就离不开打字。</strong></p><p>小到平时聊天回复消息，发发朋友圈动态；大到工作写写文档，做奇怪的会议记录。这都需要通过打字来完成。</p><p>尤其在这个讲究效率的时代，<strong>只有拥有了无与伦比的打字速度，才会知道打字快究竟会带来多大的好处。</strong></p><p>那么问题来了，如何提高打字速度呢？</p><p>两条途径，<strong>一是提高敲键盘的速度，二是减少敲键盘的次数。</strong></p><p>但聪明人不会二选一，聪明人全都要。</p><p>幸运的是，社会已经给出了成熟的解决方案：<strong>盲打 + 双拼打字。</strong></p><p>先说说盲打。</p><p>很多人都通过了网聊，无师自通学会了这项技能，甚至有时候，他们自己都没意识到，原来我打字这么快！</p><p>直到有一天，他们看到一个人，笨拙地敲打着键盘时，那一刻，他们心中满是欢喜。</p><p>但习得这项技能并不难，就是打字的时候，<strong>有意识地通过手指的肌肉记忆去寻找按键的位置，抑制自己看键盘的冲动。</strong>重复时间一长，自然而然就会发现，你再也不需要频繁去看键盘，可以更加专注于内容。</p><p>再说说双拼打字，如果说学会了<strong>盲打可以让你骄傲，那么学会双拼可以让你目中无人。</strong></p><p>我先简单说一下双拼是个什么东西吧。</p><p>首先，双拼不是一款应用，而是一个拼音方案，主流的输入法都可以切换到双拼输入法。很多人以为双拼是一个 App，兴冲冲去应用商店下载😂。</p><p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g299xfiukwj30n608aq48.jpg" alt="image-20190420182651974"></p><p>双拼是相对全拼而言，<strong>使用双拼，每个字你只需敲击键盘两次，就可以打出来。</strong></p><p>直接从根源上提高了整体打字的效率，但学习双拼的路径比较陡峭，至少我是这样的。</p><p>开始会各种不适应，心想，这是什么鬼！感觉几十年的打字经历受到了侮辱。</p><p>但请相信我，<strong>只需坚持一个星期，你就会跟我一样，爱上这种打字方式。</strong></p><p>OK！限于篇幅，对于这个技能感兴趣，欢迎留言告诉我鸭，我考虑要不要写个具体的攻略。</p><h3 id="二、Excel-技能"><a href="#二、Excel-技能" class="headerlink" title="二、Excel 技能"></a>二、Excel 技能</h3><p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g29fwusqdmj30p00gowpf.jpg" alt="下载"></p><p>作为 Office 软件三大金刚之一，<strong>Excel 的重要性远高于 PPT 和 Word。</strong></p><p>我看来就是这样的，工作中使用 PPT 和 Word 更多是为了输出一份对外展示的报告，考验更多是一个人的逻辑是否清晰，审美是否合格。而不是工具使用是否熟练（当然，熟练使用固然好，但时间它不允许鸭）。</p><p>而 Excel 不一样，<strong>Excel 拥有强大的数据处理能力，你思路清晰还不够，必须对工具非常熟练。</strong></p><p>但现实是，我们在学校用 Word 和 PPT 的次数远远高于 Excel。</p><p>学校教的 Excel 知识比较浅，应付 Office 计算机二级还可以，可一到工作，就 GG 了。</p><p>原因是实际处理数据工作中，<strong>需要的是「组合拳」，不是单一的知识点。</strong></p><p>所以，系统学习 Excel 就太重要啦，不然你永远无法体会到它的魅力。</p><p>这里分享一个可行的学习路径：<strong>基础技巧 → 公式 → 数据透视 → 图表 → 进阶的 VBA。</strong></p><h3 id="三、一点点编程基础"><a href="#三、一点点编程基础" class="headerlink" title="三、一点点编程基础"></a>三、一点点编程基础</h3><p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g29fwzhvqpj30p00gpe6t.jpg" alt="chris-ried-512801-unsplash"></p><p><strong>我们这一代人，如果不会点编程，将来会不会就像父辈那一代人一样，不会英语呢</strong>（虽然我英语还是很菜）？</p><p>别紧张，我要介绍的第三个技能——编程，不是为了要让你成为程序员。</p><p>而是希望，<strong>当你遇到大量重复工作的时候，一定要有意识去思考更简洁、更快速的做法。</strong></p><p>而编程就是实现你这种懒惰的想法最好的工具。</p><p>对于完全没有编程基础的小白，直接上手 Python 就完事了。</p><p>之前为了研究用户对产品的评价，花了一个多星期，学习了一点 Python 爬虫的技能，爬取了微博上千条评论。</p><p>如果当初手动去一条条复制，你知道的，那是一件多么难过的事情。</p><p><strong>如果你 5 分钟能完成 8 小时的工作量，这就相当于你坐飞机，别人还在翻山越岭慢慢地走。</strong>你说，气不气人！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;大学生活是一人一生中为数不多可以肆无忌惮的时光，至少工作后，这种感觉会更加明显。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="生活指南" scheme="https://junbin123.github.io/categories/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/"/>
+    
+    
+      <category term="编程" scheme="https://junbin123.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="大学" scheme="https://junbin123.github.io/tags/%E5%A4%A7%E5%AD%A6/"/>
+    
+      <category term="技能" scheme="https://junbin123.github.io/tags/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="学习" scheme="https://junbin123.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="效率" scheme="https://junbin123.github.io/tags/%E6%95%88%E7%8E%87/"/>
     
   </entry>
   
@@ -229,50 +294,6 @@
       <category term="阅读" scheme="https://junbin123.github.io/tags/%E9%98%85%E8%AF%BB/"/>
     
       <category term="RSS" scheme="https://junbin123.github.io/tags/RSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>手汗症患者生活指南</title>
-    <link href="https://junbin123.github.io/2018/09/23/%E6%89%8B%E6%B1%97%E7%97%87%E6%82%A3%E8%80%85%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/"/>
-    <id>https://junbin123.github.io/2018/09/23/手汗症患者生活指南/</id>
-    <published>2018-09-22T16:00:00.000Z</published>
-    <updated>2019-12-02T06:26:14.999Z</updated>
-    
-    <content type="html"><![CDATA[<p>手汗症很尴尬，算不上严重的疾病，但是伴随终生，非常影响生活，尤其是社交活动。</p><a id="more"></a><p>手汗，顾名思义，就是手掌多汗。手掌毫无预兆的变得湿哒哒，那种黏糊糊的感觉，只有亲身经历才能理解其中的辛酸。</p><p>作为困扰多年的患者，总结一下这些年对抗手汗生活经验。这些方法终究是治标不治本，更多是应急之用。</p><h3 id="1️⃣多洗手"><a href="#1️⃣多洗手" class="headerlink" title="1️⃣多洗手"></a>1️⃣多洗手</h3><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/rsvg-fyrwsqi1219355.jpg" alt=""></p><p><strong>洗手大概是缓解汗手最高效便捷的方式。</strong>为了保持手掌干燥，你需要比常人多洗几次手。洗完后，那种清爽的会让你感觉你是世界最幸福的人。</p><h3 id="2️⃣使用含酒精的洗手液"><a href="#2️⃣使用含酒精的洗手液" class="headerlink" title="2️⃣使用含酒精的洗手液"></a>2️⃣使用含酒精的洗手液</h3><p><strong>如果没有洗手的地方，你可以用含酒精的洗手液（非抗菌型）清洗手掌。</strong>酒精可以起到短时间内干燥汗液的作用。</p><h3 id="3️⃣随身携带手帕纸巾"><a href="#3️⃣随身携带手帕纸巾" class="headerlink" title="3️⃣随身携带手帕纸巾"></a>3️⃣随身携带手帕纸巾</h3><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzshr0grlxj30k80be3ze.jpg" alt="下载"></p><p>这是为了应对社交场合需要握手的时候，一块干净的手帕或纸巾，这得是救世主一般。</p><h3 id="4️⃣空调冷却"><a href="#4️⃣空调冷却" class="headerlink" title="4️⃣空调冷却"></a>4️⃣空调冷却</h3><p>手掌出汗，多数因为环境过热。把手掌放在风扇或空调前，使汗液蒸发掉，同时降低汗液产生速度。</p><h3 id="5️⃣在手掌里撒些粉末"><a href="#5️⃣在手掌里撒些粉末" class="headerlink" title="5️⃣在手掌里撒些粉末"></a>5️⃣在手掌里撒些粉末</h3><p><strong>粉末可以暂时吸收汗液</strong>，当你在家做一些日常活动的时候，可以在手里撒些婴儿粉、小苏打或玉米淀粉。</p><h3 id="6️⃣不用凡士林油"><a href="#6️⃣不用凡士林油" class="headerlink" title="6️⃣不用凡士林油"></a>6️⃣不用凡士林油</h3><p>凡士林油有保湿，抑制干燥的作用。对于出汗的肌肤抑制汗液干燥，导致手掌油腻腻的。</p><h3 id="7️⃣使用止汗剂"><a href="#7️⃣使用止汗剂" class="headerlink" title="7️⃣使用止汗剂"></a>7️⃣使用止汗剂</h3><p>一般止汗剂都是用在腋下。但对手掌也适用。同时选用无香味的非处方类最强效的含有铝锆成分的止汗剂。这个应该会有效果。</p><p>另外，手汗影响生活更频繁的是使用手机的时候。因为手汗，常常把屏幕弄得湿漉漉，以致屏幕抓狂。</p><p>那么应对这些问题，有没有自欺欺人的措施呢？</p><h3 id="1️⃣使用大屏手机"><a href="#1️⃣使用大屏手机" class="headerlink" title="1️⃣使用大屏手机"></a>1️⃣使用大屏手机</h3><p>小屏幕手机对于触控精确度原本要求就比较高，何况再碰上手汗，日常使用，更该小心翼翼。笔者两年前，神经大条买了一部 iphone se 没多久，迫不得已又买了部小米 note3，个中缘由，就自己体会吧！</p><h3 id="2️⃣密码代替指纹"><a href="#2️⃣密码代替指纹" class="headerlink" title="2️⃣密码代替指纹"></a>2️⃣密码代替指纹</h3><p>这个很重要，一旦手指出汗，十有八九指纹解锁就成了摆设。所以不用白费时间去尝试指纹解锁，爽快直接密码。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/ee2b6429gy1fvjud6i38lj218g0xcu0x.jpg" alt=""></p><h3 id="3️⃣尽量用电脑代替手机"><a href="#3️⃣尽量用电脑代替手机" class="headerlink" title="3️⃣尽量用电脑代替手机"></a>3️⃣尽量用电脑代替手机</h3><p>移动时代，电脑依旧是生产力的代表。但对于作为手汗症患者来说，使用电脑可以让自己暂时告别手机令人难过的体验。不消说，仅打字回复信息一项，在电脑完成就是多么令人愉悦！</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/ee2b6429gy1fvjublfm3sj21xg16gqv7.jpg" alt=""></p><h3 id="4️⃣使用防水手机"><a href="#4️⃣使用防水手机" class="headerlink" title="4️⃣使用防水手机"></a>4️⃣使用防水手机</h3><p>汗水浸泡着手机，风干之后总有一种黏糊糊的感觉，这时你会发现一部防水手机真的可以瞬间提升幸福感。</p><h3 id="5️⃣使用按键手机"><a href="#5️⃣使用按键手机" class="headerlink" title="5️⃣使用按键手机"></a>5️⃣使用按键手机</h3><p>是的！这是个好办法，但你只有两个选择，要么去买三星 W 系列土豪机，或者干脆充一波诺基亚的信仰，买一部香蕉机吧。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/P1011346.JPG" alt=""></p><p>最后，给手汗患者说了这么多馊主意，都是在战术层面，只能缓解，无法根治。因为根治的方法风险不小。</p><p>医学<strong>采用交感神经切除手术，</strong>可以永久地破坏排汗神经信号。但半数手术案例显示，为了弥补这些排汗不畅的损失，它会在其他地方过度排汗。</p><p>显然得不偿失！</p><p>还是得过且过吧！只有投胎能解决。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;手汗症很尴尬，算不上严重的疾病，但是伴随终生，非常影响生活，尤其是社交活动。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="生活指南" scheme="https://junbin123.github.io/categories/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/"/>
-    
-    
-      <category term="生活指南" scheme="https://junbin123.github.io/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/"/>
-    
-      <category term="手汗" scheme="https://junbin123.github.io/tags/%E6%89%8B%E6%B1%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdown样式示例</title>
-    <link href="https://junbin123.github.io/2018/08/01/Markdown%E6%A0%B7%E5%BC%8F%E7%A4%BA%E4%BE%8B/"/>
-    <id>https://junbin123.github.io/2018/08/01/Markdown样式示例/</id>
-    <published>2018-07-31T16:00:00.000Z</published>
-    <updated>2019-12-16T09:54:07.080Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>Markdown</strong>是一种轻量级<strong>标记语言</strong>，它以纯文本形式(<em>易读、易写、易更改</em>)编写文档，并最终以HTML格式发布。</p><a id="more"></a><h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><p>另外，细心一点，会发现这部分有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><p>另外，细心一点，会发现这部分有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><p>另外，细心一点，会发现这部分有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><p>另外，细心一点，会发现这部分<code>create database hero</code>有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><p>另外，细心一点，会发现这部分<code>create database hero</code>有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><p>另外，细心一点，会发现这部分<code>create database hero</code>有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><h6 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h6><p>另外，细心一点，会发现这部分<code>create database hero</code>有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><p><strong>这是加粗的文字</strong></p><p><em>这是倾斜的文字</em></p><p><strong><em>这是斜体加粗的文字</em></strong><br><del>这是加删除线的文字</del></p><p>东莱很快就感染了，接着就是尚州，离都城汉阳也就一步之遥。</p><p>两条主线合二为一。</p><p>另外，细心一点，会发现这部分有些情节<a href="http://baidu.com" target="_blank" rel="noopener">百度</a>和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><blockquote><p>这是引用的内容</p><blockquote><p>这是引用的内容</p></blockquote></blockquote><blockquote><p>这是引用的内容</p></blockquote><p><a href="http://baidu.com" target="_blank" rel="noopener">百度</a></p><p><a href="https://www.jianshu.com/u/1f5ac0cf6a8b" target="_blank">简书</a></p><ul><li>无序列表<ul><li>无序列表<ul><li>无序列表</li><li>无序列表</li><li>无序列表</li></ul></li><li>无序列表<ol><li>有序列表有序列表有序列表有序列表</li><li>有序列表有序列表有序列表有序列表有序列表有序列表</li><li>有序列表</li></ol></li></ul></li><li>无序列表</li><li>无序列表</li></ul><ol><li>有序列表</li><li>有序列表</li><li>有序列表</li></ol><table><thead><tr><th>姓名fsgsfdgjfsdkgjlfdhkjghfdslkjhgjkdfs</th><th>技能dsgfdghfdhfdh</th><th>排行dsgsdkljhgikldshghdsj</th></tr></thead><tbody><tr><td>刘备dsgsdgdsjhgjdshg</td><td>哭</td><td>大哥sdgsdghjdsahgjhdsjklghjkdshjkghjkdsbg</td></tr><tr><td>关羽</td><td>打</td><td>二哥</td></tr><tr><td>张飞</td><td>骂</td><td>三弟</td></tr></tbody></table><pre><code class="python"># pythonlower = int(input(&quot;输入区间最小值: &quot;))upper = int(input(&quot;输入区间最大值: &quot;))for num in range(lower,upper + 1):    if num &gt; 1:        for i in range(2,num):            if (num % i) == 0:                break        else:            print(num)</code></pre><pre><code class="javascript">// javascriptvar i=2,len=cars.length;for (; i&lt;len; i++){     document.write(cars[i] + &quot;&lt;br&gt;&quot;);}</code></pre><p><code>create database hero</code></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;Markdown&lt;/strong&gt;是一种轻量级&lt;strong&gt;标记语言&lt;/strong&gt;，它以纯文本形式(&lt;em&gt;易读、易写、易更改&lt;/em&gt;)编写文档，并最终以HTML格式发布。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="markdown" scheme="https://junbin123.github.io/tags/markdown/"/>
     
   </entry>
   

@@ -97,7 +97,7 @@
 
     <div id="article">
         <a id="more"></a>
-<h2 id="基本类型和引用类型"><a href="#基本类型和引用类型" class="headerlink" title="基本类型和引用类型"></a>基本类型和引用类型</h2><p>JavaScript 规定了 7 种原始数据类型，他们分别是：</p>
+<h3 id="一、基本类型和引用类型"><a href="#一、基本类型和引用类型" class="headerlink" title="一、基本类型和引用类型"></a>一、基本类型和引用类型</h3><p>JavaScript 规定了 7 种原始数据类型，他们分别是：</p>
 <p>基本类型（6）：undefined、null、number、string、boolean、symbol（ES6 新引入）</p>
 <p>引用类型（1）：object</p>
 <p>基本类型指的是简单的数据段，而引用类型指那些可能由多个值构成的对象。</p>
@@ -122,7 +122,7 @@ console.log(obj2.a)  // 8
 <p>都像基本类型多好，也符合我们的认知，偏偏要弄出个引用类型，消耗脑细胞。</p>
 <p>其实，这是因为，对象（Object）的大小不固定。</p>
 <p>对于一个很大的 Object，如果每次将它赋值给一个新的变量，都重新分配一个新的内存空间，对于性能损耗是很大的。</p>
-<h3 id="堆和栈"><a href="#堆和栈" class="headerlink" title="堆和栈"></a>堆和栈</h3><p>这便引出了 JS 中，基本类型和引用类型的数据保存机制：</p>
+<h3 id="二、堆和栈"><a href="#二、堆和栈" class="headerlink" title="二、堆和栈"></a>二、堆和栈</h3><p>这便引出了 JS 中，基本类型和引用类型的数据保存机制：</p>
 <ul>
 <li><p>基本类型：占据内存空间大小固定，存放在栈内存（Stack），按值来访问。</p>
 </li>
@@ -133,7 +133,7 @@ console.log(obj2.a)  // 8
 <p>基本类型就像现金，引用类型就像存折</p>
 <p>下图可助你进一步理解</p>
 <p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191211195504.png" alt=""></p>
-<h2 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h2><p>那么问题来了，我就想 Object 也想基本类型一样，可以吗？</p>
+<h3 id="三、深拷贝和浅拷贝"><a href="#三、深拷贝和浅拷贝" class="headerlink" title="三、深拷贝和浅拷贝"></a>三、深拷贝和浅拷贝</h3><p>那么问题来了，我就想 Object 也想基本类型一样，可以吗？</p>
 <p>可以呀！自己写个函数来实现。</p>
 <p>实现思路就是：</p>
 <p>递归调用，把所有属于对象的属性类型都遍历赋给另一个对象即可。</p>
@@ -159,7 +159,7 @@ console.log(obj2.a)  // 8
     return result
 }
 </code></pre>
-<h2 id="typeof-和-instanceof-的区别"><a href="#typeof-和-instanceof-的区别" class="headerlink" title="typeof 和 instanceof 的区别"></a>typeof 和 instanceof 的区别</h2><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191212232448.png" alt=""></p>
+<h3 id="四、typeof-和-instanceof-的区别"><a href="#四、typeof-和-instanceof-的区别" class="headerlink" title="四、typeof 和 instanceof 的区别"></a>四、typeof 和 instanceof 的区别</h3><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191212232448.png" alt=""></p>
 
     </div>
 
@@ -323,6 +323,54 @@ console.log(obj2.a)  // 8
             <li class="aside__item--li tag">JavaScript</li>
         </a>
         
+        <a href="https://junbin123.github.io/tags/计算机知识/">
+            <li class="aside__item--li tag">计算机知识</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/字符/">
+            <li class="aside__item--li tag">字符</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/编码/">
+            <li class="aside__item--li tag">编码</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/大学/">
+            <li class="aside__item--li tag">大学</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/技能/">
+            <li class="aside__item--li tag">技能</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/学习/">
+            <li class="aside__item--li tag">学习</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/效率/">
+            <li class="aside__item--li tag">效率</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/HTTP/">
+            <li class="aside__item--li tag">HTTP</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/网站/">
+            <li class="aside__item--li tag">网站</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/工作/">
+            <li class="aside__item--li tag">工作</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/职场/">
+            <li class="aside__item--li tag">职场</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/经验/">
+            <li class="aside__item--li tag">经验</li>
+        </a>
+        
     </ul>
 </div>
 
@@ -481,6 +529,54 @@ console.log(obj2.a)  // 8
         
         <a href="https://junbin123.github.io/tags/JavaScript/">
             <li class="aside__item--li tag">JavaScript</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/计算机知识/">
+            <li class="aside__item--li tag">计算机知识</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/字符/">
+            <li class="aside__item--li tag">字符</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/编码/">
+            <li class="aside__item--li tag">编码</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/大学/">
+            <li class="aside__item--li tag">大学</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/技能/">
+            <li class="aside__item--li tag">技能</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/学习/">
+            <li class="aside__item--li tag">学习</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/效率/">
+            <li class="aside__item--li tag">效率</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/HTTP/">
+            <li class="aside__item--li tag">HTTP</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/网站/">
+            <li class="aside__item--li tag">网站</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/工作/">
+            <li class="aside__item--li tag">工作</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/职场/">
+            <li class="aside__item--li tag">职场</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/经验/">
+            <li class="aside__item--li tag">经验</li>
         </a>
         
     </ul>
