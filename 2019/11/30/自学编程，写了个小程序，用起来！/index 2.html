@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字攻略</title>
+    <!-- 引入配置文件 -->
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- 代码高亮库 -->
+    <link rel="stylesheet" href="/js/highlight/styles/gruvbox-dark.css">
+    <!-- 插入favicon -->
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- 引入字体 -->
+    <link rel="stylesheet" href="/css/font.css">
+    <!-- 引入animate.css -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+</head>
+
+<body id="animated body">
+    <!-- 引入导航 -->
+    <header id="header">
+        <div id="header-container">
+            <div class="header__left animated">
+    <a href="https://junbin123.github.io">
+        <img src="/images/logo.png" alt="logo" class="logo">
+        <h1 class="title">数字攻略</h1>
+    </a>
+</div>
+
+<nav class="header__right">
+
+
+    <div class="web">
+        <!-- 内部页面 -->
+        
+        <li id="menu">
+            <a href="/" class="menu-item">主页</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/archives" class="menu-item">归档</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/about" class="menu-item">关于我</a>
+        </li>
+        
+        <!-- RSS 链接 -->
+        <a href="https://junbin123.github.io/atom.xml" target="_blank">
+            <img src="/images/rss.png" alt="rss" class="rss">
+        </a>
+    </div>
+
+
+    <div class="mobile">
+        
+        <div id="more-container">
+            <img src="/images/more.png" alt="more" class="more-icon">
+        </div>
+    </div>
+
+</nav>
+        </div>
+    </header>
+    <div id="main">
+        <!-- 引入内容 -->
+        <div id="center">
+            <div id="content">
+                <div id="post-container">
+    <div id="post">
+        
+        
+        <a href="https://junbin123.github.io/categories/分享创造/">
+            <div class="post-category">
+                <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
+                <div class="category-name"> 分享创造
+                </div>
+            </div>
+        </a>
+        
+        
+        <div class="post-title">
+            自学编程，写了个小程序，用起来！
+        </div>
+        <div class="post-date">
+            <span>2019-11-30</span> ·
+            <span>吾儿滨滨</span>
+        </div>
+        <div class="post-line"></div>
+    </div>
+
+    <div id="article">
+        <p>想着在生命凋零前，能够给自己留点遗产。</p>
+<p>由于太贫穷，金钱是不可能的了！</p>
+<p>于是我自学了前端编程，写了个小程序，一个简单漂亮的倒数日工具。</p>
+<p>顺便在 GitHub 开源了，手动 star 一下。</p>
+<a id="more"></a>
+<p><strong><a href="https://github.com/junbin123/likeday" target="_blank" rel="noopener">https://github.com/junbin123/likeday</a></strong></p>
+<p>想了解这个小程序的的诞生过程，接着往下看，不想听我叨叨的，直接长按体验。</p>
+<p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191202162629.png" alt=""></p>
+<h3 id="自学编程阶段"><a href="#自学编程阶段" class="headerlink" title="自学编程阶段"></a>自学编程阶段</h3><p>由于不是计算机专业，之前也只是简单学过 Python！</p>
+<p>抱歉，这两年 Python 真的好火，但由于没法实现我做一个独立、线上、能面向大众的产品，我也学的好火。</p>
+<p>所以，前端的东西，还得从头开始学习。</p>
+<p>断断续续大概花了 2 个多月的时间，入门了 HTML、CSS、JavaScript 最基本的语言。</p>
+<p>嗯，很好，会写那种会自己动的界面了，就像这种轮播图。</p>
+<p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNbRwgy1g9g195sui7g30hs07l7pd.gif" alt=""></p>
+<p>emmm~~~</p>
+<p>还差什么？写个网站吧，但是一想到又是买域名，又是搭建服务器，还有后端一堆杂七杂八的事情。于是我成功被劝退了。</p>
+<p>这时（也不是这时，只是为了过渡），看到了微信小程序的云开发，不用自己搭建服务器，还是免费的，贫穷人家的第一选择。</p>
+<p>开干！</p>
+<h3 id="开发前准备"><a href="#开发前准备" class="headerlink" title="开发前准备"></a>开发前准备</h3><p>做个小工具吧，也符合小程序的载体。</p>
+<p>从我在使用的倒数日工具开始，以解决自己的需求出发。</p>
+<p>不过我还是在微信找了一圈，很满意，没有发现好看且好用的同类产品，也符合产品经理改变世界的梦想。</p>
+<p>没有产品草图，更没有交互原型，直接上手设计图，它长什么样子，在我脑子里有画面。</p>
+<p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNbRwgy1g9g2b35d4bj30kg0f0jt2.jpg" alt="image-20191130144429441"></p>
+<p>怎么做出（对，谈不上设计）不难看界面，提供两条思路：</p>
+<p>① 照官方提供的设计指南来开发，或者使用第三方 UI 框架。</p>
+<p>微信小程序设计指南：<strong><a href="https://developers.weixin.qq.com/miniprogram/design/" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/design/</a></strong></p>
+<p>② 去 Dribbble 找类似设计稿，上面有好多在大众审美之上的作品。尤其是<strong>配色，值得借鉴</strong>！</p>
+<p>Dribbble：<strong><a href="https://dribbble.com/" target="_blank" rel="noopener">https://dribbble.com/</a></strong></p>
+<p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNbRwgy1g9g2wqcc9hj312h0nnkbs.jpg" alt="image-20191130150517110"></p>
+<p>什么？图标！</p>
+<p>马上就到很像科幻小说的一个年份了，图标还自己设计啊。是 iconfont 不香了吗？</p>
+<p>话说回来，iconfont 的图标是很齐全，但风格不统一的问题，还是影响到了我使用他的决心（用 iconfont 管理图标依旧很香）。</p>
+<p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNbRwgy1g9g37owj2pj30x10fpdhg.jpg" alt="image-20191130151549185"></p>
+<p>于是，所以我用了<strong>谷歌家 Material Design 的图标，图标齐全，风格统一。</strong></p>
+<p>最重要的，不像苹果有一段时间，图标的线条细细的，很像娘炮。</p>
+<p>iconfont：<strong><a href="https://www.iconfont.cn/" target="_blank" rel="noopener">https://www.iconfont.cn/</a></strong></p>
+<p>Material Design：<strong><a href="https://material.io/resources/icons/" target="_blank" rel="noopener">https://material.io/resources/icons/</a></strong></p>
+<p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNbRwgy1g9g3bu8cbtj30tf0h8jt3.jpg" alt="image-20191130151948439"></p>
+<h3 id="开发过程中"><a href="#开发过程中" class="headerlink" title="开发过程中"></a>开发过程中</h3><p>总算开始打代码了！</p>
+<p>没有用流行的小程序框架（mpvue、wepy、taro），实际上，小程序本身就是一个框架。</p>
+<p><strong>原生小程序由专业的小程序团队维护更新，这是社区开源项目无法比拟的。</strong></p>
+<p>尤其想到 mpvue 已经半年没更新了。</p>
+<p>小程序 MVP 的开发过程还算顺利，但坑不算少，大部分我都消灭了，不过，有些留有余孽。</p>
+<p>比如我觉得用默认字体来显示首页的天数，不好看。</p>
+<p>找了还不错的字体，发现小程序对外部加载的字体，着实不友好，在这上面花费了不少时间，至今 iOS 字体显示还时好时坏。</p>
+<p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNbRwgy1g9g3yv2vs4j30ed07ijt5.jpg" alt="image-20191130154156676"></p>
+<p>因为是个倒数日工具，我主要的精力放在处理日期上，毕竟这是产品的主要功能，不能出错。</p>
+<h3 id="第一版发布"><a href="#第一版发布" class="headerlink" title="第一版发布"></a>第一版发布</h3><p>写完第一版，肯定要发布。</p>
+<p>这就不得不说个人主体的小程序了，真的非常受限。</p>
+<p>原本想着我这个产品，应该是比较符合微信小程序口味：工具类，用完即走。</p>
+<p>没想到，第一次提交审核通过后，后面修复 bug，再提交，不给通过了。</p>
+<p>转腾着换了个企业主体，审核速度快多了，所以有条件，还是<strong>建议搞个企业主体的小程序</strong>。</p>
+<p>显然，这里需要放一个小程序的二维码。</p>
+<p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191202162629.png" alt=""></p>
+<p>最后，使用过程遇到任何问题，欢迎反馈给我。</p>
+<p>开发小程序遇问题也可以反馈，虽然我一般也问谷歌。</p>
+<p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191202162721.png" alt=""></p>
+
+    </div>
+
+    <div class="post-line"></div>
+
+    
+    
+    <a href="https://junbin123.github.io/tags/小程序/">
+        <div class="post-tag animated">
+            # 小程序
+        </div>
+    </a>
+    
+    <a href="https://junbin123.github.io/tags/前端/">
+        <div class="post-tag animated">
+            # 前端
+        </div>
+    </a>
+    
+    
+</div>            </div>
+        </div>
+        <!-- 引入侧边栏 -->
+        <aside id="aside">
+            <!-- 关注 -->
+<div class="aside__item">
+    <div class="aside__item--title">关注</div>
+    <ul>
+        
+        <a href="https://github.com/junbin123" target="_blank">
+            <li class="aside__item--li">GitHub</li>
+        </a>
+        
+        <a href="https://weibo.com/u/6208092799" target="_blank">
+            <li class="aside__item--li">微博</li>
+        </a>
+        
+        <a href="https://docs.qq.com/doc/DVlVBZGF3RVpMVWVW" target="_blank">
+            <li class="aside__item--li">公众号</li>
+        </a>
+        
+        <a href="https://docs.qq.com/doc/DVkZkdllJU3FUTmZC" target="_blank">
+            <li class="aside__item--li">微信</li>
+        </a>
+        
+    </ul>
+</div>
+
+<!-- 分类 -->
+<div class="aside__item">
+    <div class="aside__item--title">分类</div>
+    <ul>
+        
+        <a href="https://junbin123.github.io/categories/Mac/">
+            <li class="aside__item--li">Mac</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/categories/个人提升/">
+            <li class="aside__item--li">个人提升</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/categories/生活指南/">
+            <li class="aside__item--li">生活指南</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/categories/分享创造/">
+            <li class="aside__item--li">分享创造</li>
+        </a>
+        
+    </ul>
+</div>
+
+<!-- 标签 -->
+<div class="aside__item">
+    <div class="aside__item--title">标签</div>
+    <ul class="aside-tag">
+        
+        <a href="https://junbin123.github.io/tags/markdown/">
+            <li class="aside__item--li tag">markdown</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/Mac/">
+            <li class="aside__item--li tag">Mac</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/技巧/">
+            <li class="aside__item--li tag">技巧</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/习惯/">
+            <li class="aside__item--li tag">习惯</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/生活指南/">
+            <li class="aside__item--li tag">生活指南</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/阅读/">
+            <li class="aside__item--li tag">阅读</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/RSS/">
+            <li class="aside__item--li tag">RSS</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/韩剧/">
+            <li class="aside__item--li tag">韩剧</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/Netflix/">
+            <li class="aside__item--li tag">Netflix</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/丧尸/">
+            <li class="aside__item--li tag">丧尸</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/打字/">
+            <li class="aside__item--li tag">打字</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/双拼/">
+            <li class="aside__item--li tag">双拼</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/手汗/">
+            <li class="aside__item--li tag">手汗</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/小程序/">
+            <li class="aside__item--li tag">小程序</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/前端/">
+            <li class="aside__item--li tag">前端</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/保险/">
+            <li class="aside__item--li tag">保险</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/理财/">
+            <li class="aside__item--li tag">理财</li>
+        </a>
+        
+    </ul>
+</div>
+
+            <!-- 回到顶部 -->
+            <a href="#top" target="_self" class="animated" id="back-to-top">
+                <img src="/images/top.png" alt="logo" id="back-to-top--icon">
+            </a>
+        </aside>
+
+        <!-- 移动端抽屉菜单 -->
+
+        <div id="slider">
+    <div class="header__right" style="margin-right: 24px;">
+        
+        <li id="menu">
+            <a href="/" class="menu-item">主页</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/archives" class="menu-item">归档</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/about" class="menu-item">关于我</a>
+        </li>
+        
+    </div>
+
+
+    <!-- 关注 -->
+<div class="aside__item">
+    <div class="aside__item--title">关注</div>
+    <ul>
+        
+        <a href="https://github.com/junbin123" target="_blank">
+            <li class="aside__item--li">GitHub</li>
+        </a>
+        
+        <a href="https://weibo.com/u/6208092799" target="_blank">
+            <li class="aside__item--li">微博</li>
+        </a>
+        
+        <a href="https://docs.qq.com/doc/DVlVBZGF3RVpMVWVW" target="_blank">
+            <li class="aside__item--li">公众号</li>
+        </a>
+        
+        <a href="https://docs.qq.com/doc/DVkZkdllJU3FUTmZC" target="_blank">
+            <li class="aside__item--li">微信</li>
+        </a>
+        
+    </ul>
+</div>
+
+<!-- 分类 -->
+<div class="aside__item">
+    <div class="aside__item--title">分类</div>
+    <ul>
+        
+        <a href="https://junbin123.github.io/categories/Mac/">
+            <li class="aside__item--li">Mac</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/categories/个人提升/">
+            <li class="aside__item--li">个人提升</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/categories/生活指南/">
+            <li class="aside__item--li">生活指南</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/categories/分享创造/">
+            <li class="aside__item--li">分享创造</li>
+        </a>
+        
+    </ul>
+</div>
+
+<!-- 标签 -->
+<div class="aside__item">
+    <div class="aside__item--title">标签</div>
+    <ul class="aside-tag">
+        
+        <a href="https://junbin123.github.io/tags/markdown/">
+            <li class="aside__item--li tag">markdown</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/Mac/">
+            <li class="aside__item--li tag">Mac</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/技巧/">
+            <li class="aside__item--li tag">技巧</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/习惯/">
+            <li class="aside__item--li tag">习惯</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/生活指南/">
+            <li class="aside__item--li tag">生活指南</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/阅读/">
+            <li class="aside__item--li tag">阅读</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/RSS/">
+            <li class="aside__item--li tag">RSS</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/韩剧/">
+            <li class="aside__item--li tag">韩剧</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/Netflix/">
+            <li class="aside__item--li tag">Netflix</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/丧尸/">
+            <li class="aside__item--li tag">丧尸</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/打字/">
+            <li class="aside__item--li tag">打字</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/双拼/">
+            <li class="aside__item--li tag">双拼</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/手汗/">
+            <li class="aside__item--li tag">手汗</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/小程序/">
+            <li class="aside__item--li tag">小程序</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/前端/">
+            <li class="aside__item--li tag">前端</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/保险/">
+            <li class="aside__item--li tag">保险</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/理财/">
+            <li class="aside__item--li tag">理财</li>
+        </a>
+        
+    </ul>
+</div>
+
+
+</div>
+
+    </div>
+
+    <!-- 引入页脚 -->
+    <footer id="footer">
+        <p class="footer-info">© 2019 <a href="https://github.com/junbin123" class="footer-link" target="_blank">Junbin123</a>
+
+    <br>
+    Theme <a href="https://github.com/junbin123/hexo-theme-binbin" class="footer-link" target="_blank">Binbin</a> |
+    Powered by <a href="https://hexo.io/zh-cn/" class="footer-link" target="_blank">Hexo</a>
+</p>
+    </footer>
+
+
+
+
+
+
+    <!-- 引入jquery -->
+    <script src="http://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+    <!-- 引入js文件 -->
+    <script src="/js/main.js"></script>
+    <!-- 引入代码高亮的 js -->
+    <script src="/js/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

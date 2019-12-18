@@ -1,7 +1,11 @@
 /* #################### post.ejs #################### */
 
+#post-container {
+    margin: 0 24px;
+}
+
 #post {
-    margin-top: 20px;
+    margin-top: 24px;
 }
 
 .post-category {

@@ -2,11 +2,15 @@
  * 分页
  */
 
+#page-nav-box {
+    height: 40px;
+}
+
 #page-nav {
-    margin-top: 40px;
     text-align: center;
     font-size: 18px;
     height: 40px;
+    padding: 0 48px 0 24px;
 }
 
 #page-nav>.page-number, #page-nav>.extend {
@@ -23,20 +27,20 @@
 }
 
 #page-nav>.prev {
-    width: 100px;
+    width: 90px;
     display: block;
     position: absolute;
 }
 
 #page-nav>.next {
-    margin: 0;
+    /* margin: 0; */
     margin-top: -40px;
     width: 100%;
     display: block;
 }
 
 #next-icon {
-    width: 100px;
+    width: 90px;
     background: #eee;
     float: right;
     border-radius: 4px;
@@ -58,4 +62,16 @@
 
 #page-nav>.current, #page-nav>.space {
     cursor: help;
+}
+
+/* 页数 */
+
+#page-count {
+    display: none;
+    position: relative;
+    font-size: 14px;
+    text-align: center;
+    height: 40px;
+    top: -40px;
+    z-index: -1;
 }

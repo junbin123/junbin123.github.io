@@ -18,6 +18,9 @@
 </head>
 
 <body id="animated body">
+    <div id="bg-cover"></div>
+    <div id="bg-cover-up"></div>
+
     <!-- 引入导航 -->
     <header id="header">
         <div id="header-container">
@@ -52,30 +55,25 @@
         </a>
     </div>
 
+</nav>
+
+
+        </div>
+    </header>
 
     <div class="mobile">
-        
-        <div id="more-container">
-            <img src="/images/more.png" alt="more" class="more-icon">
+        <div class="icon-box-60px" id="slider-icon">
+            <img src="/images/more.png" alt="more-icon" class="icon-30px">
         </div>
     </div>
 
-</nav>
-        </div>
-    </header>
+
     <div id="main">
         <!-- 引入内容 -->
         <div id="center">
             <div id="content">
                 <section class="archive">
     <ul class="post-archive">
-        
-        <a class="archive__item-title" href="/2018/08/01/1的副本 24/">
-            <li class="archive-item">
-                2018-08-01 
-                Markdo
-            </li>
-        </a>
         
         <a class="archive__item-title" href="/2018/08/01/1的副本 23/">
             <li class="archive-item">
@@ -84,7 +82,7 @@
             </li>
         </a>
         
-        <a class="archive__item-title" href="/2018/08/01/1的副本 26/">
+        <a class="archive__item-title" href="/2018/08/01/1的副本 21/">
             <li class="archive-item">
                 2018-08-01 
                 Markdo
@@ -92,6 +90,13 @@
         </a>
         
         <a class="archive__item-title" href="/2018/08/01/1的副本 25/">
+            <li class="archive-item">
+                2018-08-01 
+                Markdo
+            </li>
+        </a>
+        
+        <a class="archive__item-title" href="/2018/08/01/1的副本 26/">
             <li class="archive-item">
                 2018-08-01 
                 Markdo
@@ -112,14 +117,14 @@
             </li>
         </a>
         
-        <a class="archive__item-title" href="/2018/08/01/1的副本 29/">
+        <a class="archive__item-title" href="/2018/08/01/1的副本 3/">
             <li class="archive-item">
                 2018-08-01 
                 Markdo
             </li>
         </a>
         
-        <a class="archive__item-title" href="/2018/08/01/1的副本 3/">
+        <a class="archive__item-title" href="/2018/08/01/1的副本 29/">
             <li class="archive-item">
                 2018-08-01 
                 Markdo
@@ -160,16 +165,16 @@
     <div class="aside__item--title">分类</div>
     <ul>
         
+        <a href="https://junbin123.github.io/categories/生活指南/">
+            <li class="aside__item--li">生活指南</li>
+        </a>
+        
         <a href="https://junbin123.github.io/categories/Mac/">
             <li class="aside__item--li">Mac</li>
         </a>
         
         <a href="https://junbin123.github.io/categories/个人提升/">
             <li class="aside__item--li">个人提升</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/categories/生活指南/">
-            <li class="aside__item--li">生活指南</li>
         </a>
         
         <a href="https://junbin123.github.io/categories/分享创造/">
@@ -186,6 +191,18 @@
         
         <a href="https://junbin123.github.io/tags/markdown/">
             <li class="aside__item--li tag">markdown</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/韩剧/">
+            <li class="aside__item--li tag">韩剧</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/Netflix/">
+            <li class="aside__item--li tag">Netflix</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/丧尸/">
+            <li class="aside__item--li tag">丧尸</li>
         </a>
         
         <a href="https://junbin123.github.io/tags/Mac/">
@@ -210,18 +227,6 @@
         
         <a href="https://junbin123.github.io/tags/RSS/">
             <li class="aside__item--li tag">RSS</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/韩剧/">
-            <li class="aside__item--li tag">韩剧</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/Netflix/">
-            <li class="aside__item--li tag">Netflix</li>
-        </a>
-        
-        <a href="https://junbin123.github.io/tags/丧尸/">
-            <li class="aside__item--li tag">丧尸</li>
         </a>
         
         <a href="https://junbin123.github.io/tags/打字/">
@@ -260,6 +265,151 @@
                 <img src="/images/top.png" alt="logo" id="back-to-top--icon">
             </a>
         </aside>
+        <!-- 移动端抽屉菜单 -->
+        <div id="slider">
+    <div>
+        <div id="slider-menu">
+            
+            <li id="menu">
+                <a href="/" class="menu-item">主页</a>
+            </li>
+            
+            <li id="menu">
+                <a href="/archives" class="menu-item">归档</a>
+            </li>
+            
+            <li id="menu">
+                <a href="/about" class="menu-item">关于我</a>
+            </li>
+            
+        </div>
+        <div id="slider-aside">
+            <!-- 关注 -->
+<div class="aside__item">
+    <div class="aside__item--title">关注</div>
+    <ul>
+        
+        <a href="https://github.com/junbin123" target="_blank">
+            <li class="aside__item--li">GitHub</li>
+        </a>
+        
+        <a href="https://weibo.com/u/6208092799" target="_blank">
+            <li class="aside__item--li">微博</li>
+        </a>
+        
+        <a href="https://docs.qq.com/doc/DVlVBZGF3RVpMVWVW" target="_blank">
+            <li class="aside__item--li">公众号</li>
+        </a>
+        
+        <a href="https://docs.qq.com/doc/DVkZkdllJU3FUTmZC" target="_blank">
+            <li class="aside__item--li">微信</li>
+        </a>
+        
+    </ul>
+</div>
+
+<!-- 分类 -->
+<div class="aside__item">
+    <div class="aside__item--title">分类</div>
+    <ul>
+        
+        <a href="https://junbin123.github.io/categories/生活指南/">
+            <li class="aside__item--li">生活指南</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/categories/Mac/">
+            <li class="aside__item--li">Mac</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/categories/个人提升/">
+            <li class="aside__item--li">个人提升</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/categories/分享创造/">
+            <li class="aside__item--li">分享创造</li>
+        </a>
+        
+    </ul>
+</div>
+
+<!-- 标签 -->
+<div class="aside__item">
+    <div class="aside__item--title">标签</div>
+    <ul class="aside-tag">
+        
+        <a href="https://junbin123.github.io/tags/markdown/">
+            <li class="aside__item--li tag">markdown</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/韩剧/">
+            <li class="aside__item--li tag">韩剧</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/Netflix/">
+            <li class="aside__item--li tag">Netflix</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/丧尸/">
+            <li class="aside__item--li tag">丧尸</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/Mac/">
+            <li class="aside__item--li tag">Mac</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/技巧/">
+            <li class="aside__item--li tag">技巧</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/习惯/">
+            <li class="aside__item--li tag">习惯</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/生活指南/">
+            <li class="aside__item--li tag">生活指南</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/阅读/">
+            <li class="aside__item--li tag">阅读</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/RSS/">
+            <li class="aside__item--li tag">RSS</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/打字/">
+            <li class="aside__item--li tag">打字</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/双拼/">
+            <li class="aside__item--li tag">双拼</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/手汗/">
+            <li class="aside__item--li tag">手汗</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/小程序/">
+            <li class="aside__item--li tag">小程序</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/前端/">
+            <li class="aside__item--li tag">前端</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/保险/">
+            <li class="aside__item--li tag">保险</li>
+        </a>
+        
+        <a href="https://junbin123.github.io/tags/理财/">
+            <li class="aside__item--li tag">理财</li>
+        </a>
+        
+    </ul>
+</div>
+        </div>
+    </div>
+</div>
     </div>
 
     <!-- 引入页脚 -->
@@ -271,9 +421,6 @@
     Powered by <a href="https://hexo.io/zh-cn/" class="footer-link" target="_blank">Hexo</a>
 </p>
     </footer>
-
-
-
 
 
     <!-- 引入jquery -->

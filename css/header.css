@@ -35,6 +35,7 @@
 
 .header__right {
     float: right;
+    /* background: #999; */
 }
 
 #menu {
@@ -64,4 +65,24 @@
 
 .rss:hover {
     box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.20);
+}
+
+.mobile {
+    display: none;
+}
+
+#more-container {
+    width: 46px;
+    height: 26px;
+    border: 2px solid #BF4033;
+    border-radius: 4px;
+    margin: 15px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.more-icon {
+    width: 24px;
+    height: 24px;
 }

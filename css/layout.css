@@ -26,7 +26,6 @@
 #center {
     width: 100%;
     float: left;
-    padding: 0 24px;
 }
 
 #aside {
@@ -39,24 +38,24 @@
     margin-right: 270px;
 }
 
-.back-to-top {
+#back-to-top {
     width: 60px;
     height: 60px;
     position: fixed;
     background: rgba(0, 0, 0, 0.30);
     border-radius: 50%;
     bottom: 50px;
-    margin-left: -100px;
+    /* margin-left: 105px; */
     transition: all .3s linear;
 }
 
-.back-to-top--icon {
+#back-to-top--icon {
     width: 30px;
     height: 30px;
     margin: 15px;
 }
 
-.back-to-top:hover {
+#back-to-top:hover {
     background: rgba(0, 0, 0, 0.70);
     animation-name: swing;
     -webkit-animation-name: swing;
