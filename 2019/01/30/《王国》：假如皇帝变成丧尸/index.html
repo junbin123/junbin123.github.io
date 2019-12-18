@@ -29,24 +29,37 @@
 </div>
 
 <nav class="header__right">
-    <!-- 内部页面 -->
-    
-    <li id="menu">
-        <a href="/" class="menu-item">主页</a>
-    </li>
-    
-    <li id="menu">
-        <a href="/archives" class="menu-item">归档</a>
-    </li>
-    
-    <li id="menu">
-        <a href="/about" class="menu-item">关于我</a>
-    </li>
-    
-    <!-- RSS 链接 -->
-    <a href="https://junbin123.github.io/atom.xml" target="_blank">
-        <img src="/images/rss.png" alt="rss" class="rss">
-    </a>
+
+
+    <div class="web">
+        <!-- 内部页面 -->
+        
+        <li id="menu">
+            <a href="/" class="menu-item">主页</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/archives" class="menu-item">归档</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/about" class="menu-item">关于我</a>
+        </li>
+        
+        <!-- RSS 链接 -->
+        <a href="https://junbin123.github.io/atom.xml" target="_blank">
+            <img src="/images/rss.png" alt="rss" class="rss">
+        </a>
+    </div>
+
+
+    <div class="mobile">
+        
+        <div id="more-container">
+            <img src="/images/more.png" alt="more" class="more-icon">
+        </div>
+    </div>
+
 </nav>
         </div>
     </header>
@@ -54,33 +67,31 @@
         <!-- 引入内容 -->
         <div id="center">
             <div id="content">
-                <div id="post">
-
-    
-    
-    <a href="https://junbin123.github.io/categories/生活指南/">
-        <div class="post-category">
-            <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
-            <div class="category-name"> 生活指南
+                <div id="post-container">
+    <div id="post">
+        
+        
+        <a href="https://junbin123.github.io/categories/生活指南/">
+            <div class="post-category">
+                <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
+                <div class="category-name"> 生活指南
+                </div>
             </div>
+        </a>
+        
+        
+        <div class="post-title">
+            《王国》：假如皇帝变成丧尸
         </div>
-    </a>
-    
-    
-
-
-    <div class="post-title">
-        《王国》：假如皇帝变成丧尸
+        <div class="post-date">
+            <span>2019-01-30</span> ·
+            <span>吾儿滨滨</span>
+        </div>
+        <div class="post-line"></div>
     </div>
-    <div class="post-date">
-        <span>2019-01-30</span> ·
-        <span>吾儿滨滨</span>
-    </div>
-    <div class="post-line"></div>
-</div>
 
-<div id="article">
-    <p>周末刷了一部剧《王国》， 这是 Netflix 为韩国人拍的，也是其进军亚洲的第三部剧。</p>
+    <div id="article">
+        <p>周末刷了一部剧《王国》， 这是 Netflix 为韩国人拍的，也是其进军亚洲的第三部剧。</p>
 <a id="more"></a>
 <p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzn84o8668j30u00c8q7x.jpg" alt="cb2uj-l2x8d"></p>
 <p>剧情说到底，就是庸俗的古代宫廷皇权争斗，可棒子国硬是玩出了花样，皇帝变成了丧尸，光脑补这剧情就很有看头。</p>
@@ -136,31 +147,32 @@
 <p>秦始皇不是很想长生不老吗？明代的嘉靖皇帝不是痴迷炼丹吗？</p>
 <p>随便让他们吃错点药变成丧尸，也是可以的嘛！</p>
 
-</div>
-
-<div class="post-line"></div>
-
-
-
-<a href="https://junbin123.github.io/tags/韩剧/">
-    <div class="post-tag animated">
-        # 韩剧
     </div>
-</a>
 
-<a href="https://junbin123.github.io/tags/Netflix/">
-    <div class="post-tag animated">
-        # Netflix
-    </div>
-</a>
+    <div class="post-line"></div>
 
-<a href="https://junbin123.github.io/tags/丧尸/">
-    <div class="post-tag animated">
-        # 丧尸
-    </div>
-</a>
-
-            </div>
+    
+    
+    <a href="https://junbin123.github.io/tags/韩剧/">
+        <div class="post-tag animated">
+            # 韩剧
+        </div>
+    </a>
+    
+    <a href="https://junbin123.github.io/tags/Netflix/">
+        <div class="post-tag animated">
+            # Netflix
+        </div>
+    </a>
+    
+    <a href="https://junbin123.github.io/tags/丧尸/">
+        <div class="post-tag animated">
+            # 丧尸
+        </div>
+    </a>
+    
+    
+</div>            </div>
         </div>
         <!-- 引入侧边栏 -->
         <aside id="aside">
@@ -289,8 +301,8 @@
 </div>
 
             <!-- 回到顶部 -->
-            <a href="#top" target="_self" class="back-to-top animated">
-                <img src="/images/top.png" alt="logo" class="back-to-top--icon">
+            <a href="#top" target="_self" class="animated" id="back-to-top">
+                <img src="/images/top.png" alt="logo" id="back-to-top--icon">
             </a>
         </aside>
     </div>

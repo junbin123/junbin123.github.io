@@ -29,24 +29,37 @@
 </div>
 
 <nav class="header__right">
-    <!-- 内部页面 -->
-    
-    <li id="menu">
-        <a href="/" class="menu-item">主页</a>
-    </li>
-    
-    <li id="menu">
-        <a href="/archives" class="menu-item">归档</a>
-    </li>
-    
-    <li id="menu">
-        <a href="/about" class="menu-item">关于我</a>
-    </li>
-    
-    <!-- RSS 链接 -->
-    <a href="https://junbin123.github.io/atom.xml" target="_blank">
-        <img src="/images/rss.png" alt="rss" class="rss">
-    </a>
+
+
+    <div class="web">
+        <!-- 内部页面 -->
+        
+        <li id="menu">
+            <a href="/" class="menu-item">主页</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/archives" class="menu-item">归档</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/about" class="menu-item">关于我</a>
+        </li>
+        
+        <!-- RSS 链接 -->
+        <a href="https://junbin123.github.io/atom.xml" target="_blank">
+            <img src="/images/rss.png" alt="rss" class="rss">
+        </a>
+    </div>
+
+
+    <div class="mobile">
+        
+        <div id="more-container">
+            <img src="/images/more.png" alt="more" class="more-icon">
+        </div>
+    </div>
+
 </nav>
         </div>
     </header>
@@ -54,33 +67,31 @@
         <!-- 引入内容 -->
         <div id="center">
             <div id="content">
-                <div id="post">
-
-    
-    
-    <a href="https://junbin123.github.io/categories/Mac/">
-        <div class="post-category">
-            <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
-            <div class="category-name"> Mac
+                <div id="post-container">
+    <div id="post">
+        
+        
+        <a href="https://junbin123.github.io/categories/Mac/">
+            <div class="post-category">
+                <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
+                <div class="category-name"> Mac
+                </div>
             </div>
+        </a>
+        
+        
+        <div class="post-title">
+            7个超棒的Mac使用技巧
         </div>
-    </a>
-    
-    
-
-
-    <div class="post-title">
-        7个超棒的Mac使用技巧
+        <div class="post-date">
+            <span>2019-01-25</span> ·
+            <span>吾儿滨滨</span>
+        </div>
+        <div class="post-line"></div>
     </div>
-    <div class="post-date">
-        <span>2019-01-25</span> ·
-        <span>吾儿滨滨</span>
-    </div>
-    <div class="post-line"></div>
-</div>
 
-<div id="article">
-    <p>使用苹果电脑不仅仅因为优雅的设计，更因为其诸多便利，给生产者带来超高的工作效率。</p>
+    <div id="article">
+        <p>使用苹果电脑不仅仅因为优雅的设计，更因为其诸多便利，给生产者带来超高的工作效率。</p>
 <a id="more"></a>
 <p>下面分享 Mac 电脑的几个实用技巧。</p>
 <h3 id="1️⃣简单快速的分屏功能"><a href="#1️⃣简单快速的分屏功能" class="headerlink" title="1️⃣简单快速的分屏功能"></a>1️⃣简单快速的分屏功能</h3><p>日常使用电脑，如果需要频繁在两个软件之间进行劳作，那么分屏无疑适合你。</p>
@@ -161,31 +172,32 @@
 <p>然后设置命名规则</p>
 <p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzifpb7b9pj30v80c4gog.jpg" alt="屏幕快照 2019-01-25 上午6.35.21"></p>
 
-</div>
-
-<div class="post-line"></div>
-
-
-
-<a href="https://junbin123.github.io/tags/Mac/">
-    <div class="post-tag animated">
-        # Mac
     </div>
-</a>
 
-<a href="https://junbin123.github.io/tags/技巧/">
-    <div class="post-tag animated">
-        # 技巧
-    </div>
-</a>
+    <div class="post-line"></div>
 
-<a href="https://junbin123.github.io/tags/习惯/">
-    <div class="post-tag animated">
-        # 习惯
-    </div>
-</a>
-
-            </div>
+    
+    
+    <a href="https://junbin123.github.io/tags/Mac/">
+        <div class="post-tag animated">
+            # Mac
+        </div>
+    </a>
+    
+    <a href="https://junbin123.github.io/tags/技巧/">
+        <div class="post-tag animated">
+            # 技巧
+        </div>
+    </a>
+    
+    <a href="https://junbin123.github.io/tags/习惯/">
+        <div class="post-tag animated">
+            # 习惯
+        </div>
+    </a>
+    
+    
+</div>            </div>
         </div>
         <!-- 引入侧边栏 -->
         <aside id="aside">
@@ -314,8 +326,8 @@
 </div>
 
             <!-- 回到顶部 -->
-            <a href="#top" target="_self" class="back-to-top animated">
-                <img src="/images/top.png" alt="logo" class="back-to-top--icon">
+            <a href="#top" target="_self" class="animated" id="back-to-top">
+                <img src="/images/top.png" alt="logo" id="back-to-top--icon">
             </a>
         </aside>
     </div>

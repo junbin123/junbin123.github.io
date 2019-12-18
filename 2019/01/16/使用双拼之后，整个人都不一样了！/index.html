@@ -29,24 +29,37 @@
 </div>
 
 <nav class="header__right">
-    <!-- 内部页面 -->
-    
-    <li id="menu">
-        <a href="/" class="menu-item">主页</a>
-    </li>
-    
-    <li id="menu">
-        <a href="/archives" class="menu-item">归档</a>
-    </li>
-    
-    <li id="menu">
-        <a href="/about" class="menu-item">关于我</a>
-    </li>
-    
-    <!-- RSS 链接 -->
-    <a href="https://junbin123.github.io/atom.xml" target="_blank">
-        <img src="/images/rss.png" alt="rss" class="rss">
-    </a>
+
+
+    <div class="web">
+        <!-- 内部页面 -->
+        
+        <li id="menu">
+            <a href="/" class="menu-item">主页</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/archives" class="menu-item">归档</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/about" class="menu-item">关于我</a>
+        </li>
+        
+        <!-- RSS 链接 -->
+        <a href="https://junbin123.github.io/atom.xml" target="_blank">
+            <img src="/images/rss.png" alt="rss" class="rss">
+        </a>
+    </div>
+
+
+    <div class="mobile">
+        
+        <div id="more-container">
+            <img src="/images/more.png" alt="more" class="more-icon">
+        </div>
+    </div>
+
 </nav>
         </div>
     </header>
@@ -54,33 +67,31 @@
         <!-- 引入内容 -->
         <div id="center">
             <div id="content">
-                <div id="post">
-
-    
-    
-    <a href="https://junbin123.github.io/categories/个人提升/">
-        <div class="post-category">
-            <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
-            <div class="category-name"> 个人提升
+                <div id="post-container">
+    <div id="post">
+        
+        
+        <a href="https://junbin123.github.io/categories/个人提升/">
+            <div class="post-category">
+                <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
+                <div class="category-name"> 个人提升
+                </div>
             </div>
+        </a>
+        
+        
+        <div class="post-title">
+            使用双拼之后，整个人都不一样了！
         </div>
-    </a>
-    
-    
-
-
-    <div class="post-title">
-        使用双拼之后，整个人都不一样了！
+        <div class="post-date">
+            <span>2019-01-16</span> ·
+            <span>吾儿滨滨</span>
+        </div>
+        <div class="post-line"></div>
     </div>
-    <div class="post-date">
-        <span>2019-01-16</span> ·
-        <span>吾儿滨滨</span>
-    </div>
-    <div class="post-line"></div>
-</div>
 
-<div id="article">
-    <blockquote>
+    <div id="article">
+        <blockquote>
 <p><strong>学习双拼</strong>是一次成本很低但回报丰厚的自我投资。</p>
 </blockquote>
 <p>常在网络飘，或许你或多或少听说过「双拼打字」，听他们描述双拼打字有多么的快，但即便如此，你始终不为所动，不愿意尝试迈出第一步。</p>
@@ -140,25 +151,26 @@
 <p>人生前期越嫌麻烦，越懒得学，后来就越可能错过让你动心的人和事，错过新风景。</p>
 </blockquote>
 
-</div>
-
-<div class="post-line"></div>
-
-
-
-<a href="https://junbin123.github.io/tags/打字/">
-    <div class="post-tag animated">
-        # 打字
     </div>
-</a>
 
-<a href="https://junbin123.github.io/tags/双拼/">
-    <div class="post-tag animated">
-        # 双拼
-    </div>
-</a>
+    <div class="post-line"></div>
 
-            </div>
+    
+    
+    <a href="https://junbin123.github.io/tags/打字/">
+        <div class="post-tag animated">
+            # 打字
+        </div>
+    </a>
+    
+    <a href="https://junbin123.github.io/tags/双拼/">
+        <div class="post-tag animated">
+            # 双拼
+        </div>
+    </a>
+    
+    
+</div>            </div>
         </div>
         <!-- 引入侧边栏 -->
         <aside id="aside">
@@ -287,8 +299,8 @@
 </div>
 
             <!-- 回到顶部 -->
-            <a href="#top" target="_self" class="back-to-top animated">
-                <img src="/images/top.png" alt="logo" class="back-to-top--icon">
+            <a href="#top" target="_self" class="animated" id="back-to-top">
+                <img src="/images/top.png" alt="logo" id="back-to-top--icon">
             </a>
         </aside>
     </div>

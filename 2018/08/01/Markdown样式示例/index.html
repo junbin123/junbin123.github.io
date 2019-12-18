@@ -29,24 +29,37 @@
 </div>
 
 <nav class="header__right">
-    <!-- 内部页面 -->
-    
-    <li id="menu">
-        <a href="/" class="menu-item">主页</a>
-    </li>
-    
-    <li id="menu">
-        <a href="/archives" class="menu-item">归档</a>
-    </li>
-    
-    <li id="menu">
-        <a href="/about" class="menu-item">关于我</a>
-    </li>
-    
-    <!-- RSS 链接 -->
-    <a href="https://junbin123.github.io/atom.xml" target="_blank">
-        <img src="/images/rss.png" alt="rss" class="rss">
-    </a>
+
+
+    <div class="web">
+        <!-- 内部页面 -->
+        
+        <li id="menu">
+            <a href="/" class="menu-item">主页</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/archives" class="menu-item">归档</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/about" class="menu-item">关于我</a>
+        </li>
+        
+        <!-- RSS 链接 -->
+        <a href="https://junbin123.github.io/atom.xml" target="_blank">
+            <img src="/images/rss.png" alt="rss" class="rss">
+        </a>
+    </div>
+
+
+    <div class="mobile">
+        
+        <div id="more-container">
+            <img src="/images/more.png" alt="more" class="more-icon">
+        </div>
+    </div>
+
 </nav>
         </div>
     </header>
@@ -54,25 +67,23 @@
         <!-- 引入内容 -->
         <div id="center">
             <div id="content">
-                <div id="post">
-
-    
-    
-    
-
-
-    <div class="post-title">
-        Markdown样式示例
+                <div id="post-container">
+    <div id="post">
+        
+        
+        
+        <div class="post-title">
+            Markdown样式示例
+        </div>
+        <div class="post-date">
+            <span>2018-08-01</span> ·
+            <span>吾儿滨滨</span>
+        </div>
+        <div class="post-line"></div>
     </div>
-    <div class="post-date">
-        <span>2018-08-01</span> ·
-        <span>吾儿滨滨</span>
-    </div>
-    <div class="post-line"></div>
-</div>
 
-<div id="article">
-    <p><strong>Markdown</strong>是一种轻量级<strong>标记语言</strong>，它以纯文本形式(<em>易读、易写、易更改</em>)编写文档，并最终以HTML格式发布。</p>
+    <div id="article">
+        <p><strong>Markdown</strong>是一种轻量级<strong>标记语言</strong>，它以纯文本形式(<em>易读、易写、易更改</em>)编写文档，并最终以HTML格式发布。</p>
 <a id="more"></a>
 <h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><p>另外，细心一点，会发现这部分有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p>
 <h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><p>另外，细心一点，会发现这部分有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p>
@@ -171,19 +182,20 @@ for (; i&lt;len; i++)
 </code></pre>
 <p><code>create database hero</code></p>
 
-</div>
-
-<div class="post-line"></div>
-
-
-
-<a href="https://junbin123.github.io/tags/markdown/">
-    <div class="post-tag animated">
-        # markdown
     </div>
-</a>
 
-            </div>
+    <div class="post-line"></div>
+
+    
+    
+    <a href="https://junbin123.github.io/tags/markdown/">
+        <div class="post-tag animated">
+            # markdown
+        </div>
+    </a>
+    
+    
+</div>            </div>
         </div>
         <!-- 引入侧边栏 -->
         <aside id="aside">
@@ -312,8 +324,8 @@ for (; i&lt;len; i++)
 </div>
 
             <!-- 回到顶部 -->
-            <a href="#top" target="_self" class="back-to-top animated">
-                <img src="/images/top.png" alt="logo" class="back-to-top--icon">
+            <a href="#top" target="_self" class="animated" id="back-to-top">
+                <img src="/images/top.png" alt="logo" id="back-to-top--icon">
             </a>
         </aside>
     </div>

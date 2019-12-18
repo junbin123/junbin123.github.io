@@ -29,24 +29,37 @@
 </div>
 
 <nav class="header__right">
-    <!-- 内部页面 -->
-    
-    <li id="menu">
-        <a href="/" class="menu-item">主页</a>
-    </li>
-    
-    <li id="menu">
-        <a href="/archives" class="menu-item">归档</a>
-    </li>
-    
-    <li id="menu">
-        <a href="/about" class="menu-item">关于我</a>
-    </li>
-    
-    <!-- RSS 链接 -->
-    <a href="https://junbin123.github.io/atom.xml" target="_blank">
-        <img src="/images/rss.png" alt="rss" class="rss">
-    </a>
+
+
+    <div class="web">
+        <!-- 内部页面 -->
+        
+        <li id="menu">
+            <a href="/" class="menu-item">主页</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/archives" class="menu-item">归档</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/about" class="menu-item">关于我</a>
+        </li>
+        
+        <!-- RSS 链接 -->
+        <a href="https://junbin123.github.io/atom.xml" target="_blank">
+            <img src="/images/rss.png" alt="rss" class="rss">
+        </a>
+    </div>
+
+
+    <div class="mobile">
+        
+        <div id="more-container">
+            <img src="/images/more.png" alt="more" class="more-icon">
+        </div>
+    </div>
+
 </nav>
         </div>
     </header>
@@ -54,27 +67,27 @@
         <!-- 引入内容 -->
         <div id="center">
             <div id="content">
-                <div id="post">
+                <div id="post-container">
+    <div id="post">
+        
+        <div class="post-title">
+            
+        </div>
+        <div class="post-date">
+            <span>2019-12-15</span> ·
+            <span>吾儿滨滨</span>
+        </div>
+        <div class="post-line"></div>
+    </div>
+
+    <div id="article">
+        <h1 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h1>
+    </div>
+
+    <div class="post-line"></div>
 
     
-
-
-    <div class="post-title">
-        
-    </div>
-    <div class="post-date">
-        <span>2019-12-15</span> ·
-        <span>吾儿滨滨</span>
-    </div>
-    <div class="post-line"></div>
-</div>
-
-<div id="article">
-    <h1 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h1>
-</div>
-
-<div class="post-line"></div>
-            </div>
+</div>            </div>
         </div>
         <!-- 引入侧边栏 -->
         <aside id="aside">
@@ -203,8 +216,8 @@
 </div>
 
             <!-- 回到顶部 -->
-            <a href="#top" target="_self" class="back-to-top animated">
-                <img src="/images/top.png" alt="logo" class="back-to-top--icon">
+            <a href="#top" target="_self" class="animated" id="back-to-top">
+                <img src="/images/top.png" alt="logo" id="back-to-top--icon">
             </a>
         </aside>
     </div>

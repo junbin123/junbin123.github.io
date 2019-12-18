@@ -29,24 +29,37 @@
 </div>
 
 <nav class="header__right">
-    <!-- 内部页面 -->
-    
-    <li id="menu">
-        <a href="/" class="menu-item">主页</a>
-    </li>
-    
-    <li id="menu">
-        <a href="/archives" class="menu-item">归档</a>
-    </li>
-    
-    <li id="menu">
-        <a href="/about" class="menu-item">关于我</a>
-    </li>
-    
-    <!-- RSS 链接 -->
-    <a href="https://junbin123.github.io/atom.xml" target="_blank">
-        <img src="/images/rss.png" alt="rss" class="rss">
-    </a>
+
+
+    <div class="web">
+        <!-- 内部页面 -->
+        
+        <li id="menu">
+            <a href="/" class="menu-item">主页</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/archives" class="menu-item">归档</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/about" class="menu-item">关于我</a>
+        </li>
+        
+        <!-- RSS 链接 -->
+        <a href="https://junbin123.github.io/atom.xml" target="_blank">
+            <img src="/images/rss.png" alt="rss" class="rss">
+        </a>
+    </div>
+
+
+    <div class="mobile">
+        
+        <div id="more-container">
+            <img src="/images/more.png" alt="more" class="more-icon">
+        </div>
+    </div>
+
 </nav>
         </div>
     </header>
@@ -54,33 +67,31 @@
         <!-- 引入内容 -->
         <div id="center">
             <div id="content">
-                <div id="post">
-
-    
-    
-    <a href="https://junbin123.github.io/categories/个人提升/">
-        <div class="post-category">
-            <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
-            <div class="category-name"> 个人提升
+                <div id="post-container">
+    <div id="post">
+        
+        
+        <a href="https://junbin123.github.io/categories/个人提升/">
+            <div class="post-category">
+                <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
+                <div class="category-name"> 个人提升
+                </div>
             </div>
+        </a>
+        
+        
+        <div class="post-title">
+            RSS 阅读入门指南
         </div>
-    </a>
-    
-    
-
-
-    <div class="post-title">
-        RSS 阅读入门指南
+        <div class="post-date">
+            <span>2019-01-03</span> ·
+            <span>吾儿滨滨</span>
+        </div>
+        <div class="post-line"></div>
     </div>
-    <div class="post-date">
-        <span>2019-01-03</span> ·
-        <span>吾儿滨滨</span>
-    </div>
-    <div class="post-line"></div>
-</div>
 
-<div id="article">
-    <p>阅读是我们每天都在做的事情，甚至毫不夸张的说，我们使用手机，一半以上的时间都交给了各种资讯软件。</p>
+    <div id="article">
+        <p>阅读是我们每天都在做的事情，甚至毫不夸张的说，我们使用手机，一半以上的时间都交给了各种资讯软件。</p>
 <a id="more"></a>
 <p>但主流的资讯 App 更多强调算法的作用，我们看什么这件事，越来越多不受我们控制。</p>
 <p>即使这样，还是不得不承认，在这样一个信息爆炸的时代，基于算法推荐的资讯软件才是主流且高效的阅读方式。</p>
@@ -147,31 +158,32 @@
 <p>以上三条建议都是给阅读减压，保持最舒适的方式，才能养成的习惯。</p>
 <p>最后，希望这些分享对于你有所帮助。</p>
 
-</div>
-
-<div class="post-line"></div>
-
-
-
-<a href="https://junbin123.github.io/tags/生活指南/">
-    <div class="post-tag animated">
-        # 生活指南
     </div>
-</a>
 
-<a href="https://junbin123.github.io/tags/阅读/">
-    <div class="post-tag animated">
-        # 阅读
-    </div>
-</a>
+    <div class="post-line"></div>
 
-<a href="https://junbin123.github.io/tags/RSS/">
-    <div class="post-tag animated">
-        # RSS
-    </div>
-</a>
-
-            </div>
+    
+    
+    <a href="https://junbin123.github.io/tags/生活指南/">
+        <div class="post-tag animated">
+            # 生活指南
+        </div>
+    </a>
+    
+    <a href="https://junbin123.github.io/tags/阅读/">
+        <div class="post-tag animated">
+            # 阅读
+        </div>
+    </a>
+    
+    <a href="https://junbin123.github.io/tags/RSS/">
+        <div class="post-tag animated">
+            # RSS
+        </div>
+    </a>
+    
+    
+</div>            </div>
         </div>
         <!-- 引入侧边栏 -->
         <aside id="aside">
@@ -300,8 +312,8 @@
 </div>
 
             <!-- 回到顶部 -->
-            <a href="#top" target="_self" class="back-to-top animated">
-                <img src="/images/top.png" alt="logo" class="back-to-top--icon">
+            <a href="#top" target="_self" class="animated" id="back-to-top">
+                <img src="/images/top.png" alt="logo" id="back-to-top--icon">
             </a>
         </aside>
     </div>

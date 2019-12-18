@@ -29,24 +29,37 @@
 </div>
 
 <nav class="header__right">
-    <!-- 内部页面 -->
-    
-    <li id="menu">
-        <a href="/" class="menu-item">主页</a>
-    </li>
-    
-    <li id="menu">
-        <a href="/archives" class="menu-item">归档</a>
-    </li>
-    
-    <li id="menu">
-        <a href="/about" class="menu-item">关于我</a>
-    </li>
-    
-    <!-- RSS 链接 -->
-    <a href="https://junbin123.github.io/atom.xml" target="_blank">
-        <img src="/images/rss.png" alt="rss" class="rss">
-    </a>
+
+
+    <div class="web">
+        <!-- 内部页面 -->
+        
+        <li id="menu">
+            <a href="/" class="menu-item">主页</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/archives" class="menu-item">归档</a>
+        </li>
+        
+        <li id="menu">
+            <a href="/about" class="menu-item">关于我</a>
+        </li>
+        
+        <!-- RSS 链接 -->
+        <a href="https://junbin123.github.io/atom.xml" target="_blank">
+            <img src="/images/rss.png" alt="rss" class="rss">
+        </a>
+    </div>
+
+
+    <div class="mobile">
+        
+        <div id="more-container">
+            <img src="/images/more.png" alt="more" class="more-icon">
+        </div>
+    </div>
+
 </nav>
         </div>
     </header>
@@ -54,33 +67,31 @@
         <!-- 引入内容 -->
         <div id="center">
             <div id="content">
-                <div id="post">
-
-    
-    
-    <a href="https://junbin123.github.io/categories/生活指南/">
-        <div class="post-category">
-            <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
-            <div class="category-name"> 生活指南
+                <div id="post-container">
+    <div id="post">
+        
+        
+        <a href="https://junbin123.github.io/categories/生活指南/">
+            <div class="post-category">
+                <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
+                <div class="category-name"> 生活指南
+                </div>
             </div>
+        </a>
+        
+        
+        <div class="post-title">
+            手汗症患者生活指南
         </div>
-    </a>
-    
-    
-
-
-    <div class="post-title">
-        手汗症患者生活指南
+        <div class="post-date">
+            <span>2018-09-23</span> ·
+            <span>吾儿滨滨</span>
+        </div>
+        <div class="post-line"></div>
     </div>
-    <div class="post-date">
-        <span>2018-09-23</span> ·
-        <span>吾儿滨滨</span>
-    </div>
-    <div class="post-line"></div>
-</div>
 
-<div id="article">
-    <p>手汗症很尴尬，算不上严重的疾病，但是伴随终生，非常影响生活，尤其是社交活动。</p>
+    <div id="article">
+        <p>手汗症很尴尬，算不上严重的疾病，但是伴随终生，非常影响生活，尤其是社交活动。</p>
 <a id="more"></a>
 <p>手汗，顾名思义，就是手掌多汗。手掌毫无预兆的变得湿哒哒，那种黏糊糊的感觉，只有亲身经历才能理解其中的辛酸。</p>
 <p>作为困扰多年的患者，总结一下这些年对抗手汗生活经验。这些方法终究是治标不治本，更多是应急之用。</p>
@@ -108,25 +119,26 @@
 <p>显然得不偿失！</p>
 <p>还是得过且过吧！只有投胎能解决。</p>
 
-</div>
-
-<div class="post-line"></div>
-
-
-
-<a href="https://junbin123.github.io/tags/生活指南/">
-    <div class="post-tag animated">
-        # 生活指南
     </div>
-</a>
 
-<a href="https://junbin123.github.io/tags/手汗/">
-    <div class="post-tag animated">
-        # 手汗
-    </div>
-</a>
+    <div class="post-line"></div>
 
-            </div>
+    
+    
+    <a href="https://junbin123.github.io/tags/生活指南/">
+        <div class="post-tag animated">
+            # 生活指南
+        </div>
+    </a>
+    
+    <a href="https://junbin123.github.io/tags/手汗/">
+        <div class="post-tag animated">
+            # 手汗
+        </div>
+    </a>
+    
+    
+</div>            </div>
         </div>
         <!-- 引入侧边栏 -->
         <aside id="aside">
@@ -255,8 +267,8 @@
 </div>
 
             <!-- 回到顶部 -->
-            <a href="#top" target="_self" class="back-to-top animated">
-                <img src="/images/top.png" alt="logo" class="back-to-top--icon">
+            <a href="#top" target="_self" class="animated" id="back-to-top">
+                <img src="/images/top.png" alt="logo" id="back-to-top--icon">
             </a>
         </aside>
     </div>
