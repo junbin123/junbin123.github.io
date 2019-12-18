@@ -67,6 +67,17 @@ html {
     #page-nav {
         padding: 0;
     }
+    /* header.ejs */
+    .logo {
+        display: none;
+    }
+    .title {
+        margin-left: 24px;
+        color: #fff;
+    }
+    #header {
+        background: #BF4033;
+    }
 }
 
 /* @media all and (orientation: portrait) {
