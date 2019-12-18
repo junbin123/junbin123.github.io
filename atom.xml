@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junbin123.github.io/"/>
-  <updated>2019-12-14T10:03:46.035Z</updated>
+  <updated>2019-12-18T12:09:13.097Z</updated>
   <id>https://junbin123.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript 基本类型和引用类型的区别</title>
+    <link href="https://junbin123.github.io/2019/12/16/js%20%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://junbin123.github.io/2019/12/16/js 基本类型和引用类型的区别/</id>
+    <published>2019-12-15T16:00:00.000Z</published>
+    <updated>2019-12-18T12:09:13.097Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h2 id="基本类型和引用类型"><a href="#基本类型和引用类型" class="headerlink" title="基本类型和引用类型"></a>基本类型和引用类型</h2><p>JavaScript 规定了 7 种原始数据类型，他们分别是：</p><p>基本类型（6）：undefined、null、number、string、boolean、symbol（ES6 新引入）</p><p>引用类型（1）：object</p><p>基本类型指的是简单的数据段，而引用类型指那些可能由多个值构成的对象。</p><p>他们的最大区别在于：</p><p><strong>基本类型赋值给其他变量时，修改其他变量的值，不会影响原始值；而引用变量则会改变。</strong></p><p>通过下面的小栗子，你可以更直观地感受：</p><pre><code class="javascript">// 基本类型var num1 = 5var num2 = num1num2 = 8console.log(num1)  // 5console.log(num2)  // 8</code></pre><pre><code class="javascript">// 引用类型var obj1 = { a: 5, b: 6 }var obj2 = obj1obj2.a = 8console.log(obj1.a)  // 8console.log(obj2.a)  // 8</code></pre><p>好奇如我，为何 JavaScript 要这么做？</p><p>都像基本类型多好，也符合我们的认知，偏偏要弄出个引用类型，消耗脑细胞。</p><p>其实，这是因为，对象（Object）的大小不固定。</p><p>对于一个很大的 Object，如果每次将它赋值给一个新的变量，都重新分配一个新的内存空间，对于性能损耗是很大的。</p><h3 id="堆和栈"><a href="#堆和栈" class="headerlink" title="堆和栈"></a>堆和栈</h3><p>这便引出了 JS 中，基本类型和引用类型的数据保存机制：</p><ul><li><p>基本类型：占据内存空间大小固定，存放在栈内存（Stack），按值来访问。</p></li><li><p>引用类型：占据内存空间大小不固定，存放在堆内存（Heap），并由栈内存（Stack）中存放指向该堆内存（Heap）的地址，按引用访问。</p></li></ul><p>你可以这么理解：</p><p>基本类型就像现金，引用类型就像存折</p><p>下图可助你进一步理解</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191211195504.png" alt=""></p><h2 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h2><p>那么问题来了，我就想 Object 也想基本类型一样，可以吗？</p><p>可以呀！自己写个函数来实现。</p><p>实现思路就是：</p><p>递归调用，把所有属于对象的属性类型都遍历赋给另一个对象即可。</p><pre><code class="javascript">function deepClone(obj = {}) {    if (typeof obj !== &#39;object&#39; || obj == null) {        return obj    }    // 初始化返回结果    let result    if (obj instanceof Array) {        result = []    } else {        result = {}    }    for (let key in obj) {        if (obj.hasOwnProperty(key)) {            // 递归调用            result[key] = deepClone(obj[key])        }    }    return result}</code></pre><h2 id="typeof-和-instanceof-的区别"><a href="#typeof-和-instanceof-的区别" class="headerlink" title="typeof 和 instanceof 的区别"></a>typeof 和 instanceof 的区别</h2><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191212232448.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;基本类型和引用类型&quot;&gt;&lt;a href=&quot;#基本类型和引用类型&quot; class=&quot;headerlink&quot; title=&quot;基本类型和引用类型&quot;&gt;&lt;/a&gt;基本类型和引用类型&lt;/h2&gt;&lt;p&gt;JavaScript 规定了 7 种原始数据类型
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://junbin123.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="前端" scheme="https://junbin123.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="编程" scheme="https://junbin123.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="JavaScript" scheme="https://junbin123.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>自学编程，写了个小程序，用起来！</title>
@@ -40,6 +70,36 @@
       <category term="小程序" scheme="https://junbin123.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
       <category term="前端" scheme="https://junbin123.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript 中，this 在不同应用场景，如何取值？</title>
+    <link href="https://junbin123.github.io/2019/11/20/%20JavaScript%20%E4%B8%AD%EF%BC%8Cthis%20%E5%9C%A8%E4%B8%8D%E5%90%8C%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%8C%E5%A6%82%E4%BD%95%E5%8F%96%E5%80%BC%EF%BC%9F/"/>
+    <id>https://junbin123.github.io/2019/11/20/ JavaScript 中，this 在不同应用场景，如何取值？/</id>
+    <published>2019-11-19T16:00:00.000Z</published>
+    <updated>2019-12-18T12:08:50.406Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h2 id="一、作为普通函数"><a href="#一、作为普通函数" class="headerlink" title="一、作为普通函数"></a>一、作为普通函数</h2><pre><code class="javascript">function printThis() {    console.log(this)}printThis()</code></pre><blockquote><p>Window {parent: Window, postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, …}</p></blockquote><h2 id="二、使用-call-apply-bind"><a href="#二、使用-call-apply-bind" class="headerlink" title="二、使用 call apply bind"></a>二、使用 <code>call</code> <code>apply</code> <code>bind</code></h2><pre><code class="javascript">function fn1() {    console.log(this)}fn1.call({ x: 100 })  // 100const fn2 = fn1.bind({ x: 200 })fn2()  // 200</code></pre><p>作用：<strong>改变函数执行时的上下文</strong>，即<strong>改变函数运行时的this指向</strong>。</p><ul><li><code>call</code> <code>apply</code> 和 <code>bind</code> 的区别：</li></ul><p>call 和 apply 改变了函数的 this 上下文后便执行该函数,而 bind 则是返回改变了上下文后的一个函数。</p><ul><li><code>call</code> 和 <code>apply</code> 的区别：</li></ul><p>他们俩之间的差别在于参数的区别，call 和 apply 的第一个参数都是要改变上下文的对象，而 call 从第二个参数开始以参数列表的形式展现，apply 则是把除了改变上下文对象的参数放在一个数组里面作为它的第二个参数。</p><pre><code class="javascript">let arr = [2, 5, 9]console.log(Math.max.call(null, 2, 5, 9))  // 9console.log(Math.max.call(null, arr))  // NaNconsole.log(Math.max.apply(null, arr))  // 9</code></pre><h2 id="三、作为对象方法被调用"><a href="#三、作为对象方法被调用" class="headerlink" title="三、作为对象方法被调用"></a>三、作为对象方法被调用</h2><pre><code class="javascript">const people = {    name: &quot;Merry&quot;,    sayHi() {        console.log(this)    },    wait() {        setTimeout(function () {            console.log(this)        })    }}people.sayHi()people.wait()</code></pre><blockquote><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p><p>Window {parent: Window, postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, …}</p></blockquote><h2 id="四、箭头函数"><a href="#四、箭头函数" class="headerlink" title="四、箭头函数"></a>四、箭头函数</h2><pre><code class="javascript">const people = {    name: &quot;Merry&quot;,    sayHi() {        console.log(this)    },    wait() {        setTimeout(() =&gt; {            console.log(this)        })    }}people.sayHi()people.wait()</code></pre><blockquote><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p></blockquote><h2 id="五、在-class-方法中调用"><a href="#五、在-class-方法中调用" class="headerlink" title="五、在 class 方法中调用"></a>五、在 class 方法中调用</h2><pre><code class="javascript">class People {    constructor(name) {        this.name = name        this.age = 20    }    sayHi() {        console.log(this)    }}const merry = new People(&quot;Merry&quot;)merry.sayHi()</code></pre><blockquote><p>People {name: “Merry”, age: 20}</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;一、作为普通函数&quot;&gt;&lt;a href=&quot;#一、作为普通函数&quot; class=&quot;headerlink&quot; title=&quot;一、作为普通函数&quot;&gt;&lt;/a&gt;一、作为普通函数&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;f
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://junbin123.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="前端" scheme="https://junbin123.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="编程" scheme="https://junbin123.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="JavaScript" scheme="https://junbin123.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -197,53 +257,13 @@
   </entry>
   
   <entry>
-    <title>Markdo</title>
-    <link href="https://junbin123.github.io/2018/08/01/1%E7%9A%84%E5%89%AF%E6%9C%AC%2016/"/>
-    <id>https://junbin123.github.io/2018/08/01/1的副本 16/</id>
+    <title>Markdown样式示例</title>
+    <link href="https://junbin123.github.io/2018/08/01/Markdown%E6%A0%B7%E5%BC%8F%E7%A4%BA%E4%BE%8B/"/>
+    <id>https://junbin123.github.io/2018/08/01/Markdown样式示例/</id>
     <published>2018-07-31T16:00:00.000Z</published>
-    <updated>2019-12-17T17:21:54.109Z</updated>
+    <updated>2019-12-16T09:54:07.080Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>Markdown</strong>是一种轻量级<strong>标记语言</strong>，它以纯文本形式(<em>易读、易写、易更改</em>)编写文档，并最终以HTML格式发布。</p><a id="more"></a><h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><p>另外，细心一点，会发现这部分有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;Markdown&lt;/strong&gt;是一种轻量级&lt;strong&gt;标记语言&lt;/strong&gt;，它以纯文本形式(&lt;em&gt;易读、易写、易更改&lt;/em&gt;)编写文档，并最终以HTML格式发布。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="markdown" scheme="https://junbin123.github.io/tags/markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdo</title>
-    <link href="https://junbin123.github.io/2018/08/01/1%E7%9A%84%E5%89%AF%E6%9C%AC%2017/"/>
-    <id>https://junbin123.github.io/2018/08/01/1的副本 17/</id>
-    <published>2018-07-31T16:00:00.000Z</published>
-    <updated>2019-12-17T17:21:54.109Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>Markdown</strong>是一种轻量级<strong>标记语言</strong>，它以纯文本形式(<em>易读、易写、易更改</em>)编写文档，并最终以HTML格式发布。</p><a id="more"></a><h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><p>另外，细心一点，会发现这部分有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;Markdown&lt;/strong&gt;是一种轻量级&lt;strong&gt;标记语言&lt;/strong&gt;，它以纯文本形式(&lt;em&gt;易读、易写、易更改&lt;/em&gt;)编写文档，并最终以HTML格式发布。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="markdown" scheme="https://junbin123.github.io/tags/markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdo</title>
-    <link href="https://junbin123.github.io/2018/08/01/1%E7%9A%84%E5%89%AF%E6%9C%AC%2018/"/>
-    <id>https://junbin123.github.io/2018/08/01/1的副本 18/</id>
-    <published>2018-07-31T16:00:00.000Z</published>
-    <updated>2019-12-17T17:21:54.109Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>Markdown</strong>是一种轻量级<strong>标记语言</strong>，它以纯文本形式(<em>易读、易写、易更改</em>)编写文档，并最终以HTML格式发布。</p><a id="more"></a><h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><p>另外，细心一点，会发现这部分有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p>]]></content>
+    <content type="html"><![CDATA[<p><strong>Markdown</strong>是一种轻量级<strong>标记语言</strong>，它以纯文本形式(<em>易读、易写、易更改</em>)编写文档，并最终以HTML格式发布。</p><a id="more"></a><h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><p>另外，细心一点，会发现这部分有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><p>另外，细心一点，会发现这部分有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><p>另外，细心一点，会发现这部分有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><p>另外，细心一点，会发现这部分<code>create database hero</code>有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><p>另外，细心一点，会发现这部分<code>create database hero</code>有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><p>另外，细心一点，会发现这部分<code>create database hero</code>有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><h6 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h6><p>另外，细心一点，会发现这部分<code>create database hero</code>有些情节和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><p><strong>这是加粗的文字</strong></p><p><em>这是倾斜的文字</em></p><p><strong><em>这是斜体加粗的文字</em></strong><br><del>这是加删除线的文字</del></p><p>东莱很快就感染了，接着就是尚州，离都城汉阳也就一步之遥。</p><p>两条主线合二为一。</p><p>另外，细心一点，会发现这部分有些情节<a href="http://baidu.com" target="_blank" rel="noopener">百度</a>和《釜山行》有异曲同工之处。比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><blockquote><p>这是引用的内容</p><blockquote><p>这是引用的内容</p></blockquote></blockquote><blockquote><p>这是引用的内容</p></blockquote><p><a href="http://baidu.com" target="_blank" rel="noopener">百度</a></p><p><a href="https://www.jianshu.com/u/1f5ac0cf6a8b" target="_blank">简书</a></p><ul><li>无序列表<ul><li>无序列表<ul><li>无序列表</li><li>无序列表</li><li>无序列表</li></ul></li><li>无序列表<ol><li>有序列表有序列表有序列表有序列表</li><li>有序列表有序列表有序列表有序列表有序列表有序列表</li><li>有序列表</li></ol></li></ul></li><li>无序列表</li><li>无序列表</li></ul><ol><li>有序列表</li><li>有序列表</li><li>有序列表</li></ol><table><thead><tr><th>姓名fsgsfdgjfsdkgjlfdhkjghfdslkjhgjkdfs</th><th>技能dsgfdghfdhfdh</th><th>排行dsgsdkljhgikldshghdsj</th></tr></thead><tbody><tr><td>刘备dsgsdgdsjhgjdshg</td><td>哭</td><td>大哥sdgsdghjdsahgjhdsjklghjkdshjkghjkdsbg</td></tr><tr><td>关羽</td><td>打</td><td>二哥</td></tr><tr><td>张飞</td><td>骂</td><td>三弟</td></tr></tbody></table><pre><code class="python"># pythonlower = int(input(&quot;输入区间最小值: &quot;))upper = int(input(&quot;输入区间最大值: &quot;))for num in range(lower,upper + 1):    if num &gt; 1:        for i in range(2,num):            if (num % i) == 0:                break        else:            print(num)</code></pre><pre><code class="javascript">// javascriptvar i=2,len=cars.length;for (; i&lt;len; i++){     document.write(cars[i] + &quot;&lt;br&gt;&quot;);}</code></pre><p><code>create database hero</code></p>]]></content>
     
     <summary type="html">
     
