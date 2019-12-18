@@ -18,12 +18,18 @@
     transition: all .3s linear;
 }
 
+.aside-tag{
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
 .tag {
     padding-right: 10px;
     margin: 0 10px 10px 0;
     float: left;
     background: #ECECEC;
     border-radius: 2px;
+    font-size: 16px;
 }
 
 .aside__item--li:hover {

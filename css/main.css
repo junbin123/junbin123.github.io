@@ -16,7 +16,6 @@
     padding: 0;
     border: 0;
     font-family: "Source Han Serif SC", "PingFang SC", sans-serif;
-    color: #34495E;
 }
 
 a {
@@ -28,6 +27,7 @@ body {
     animation-name: fadeIn;
     -webkit-animation-name: fadeIn;
     animation-duration: 1s;
+    color: #34495E;
 }
 
 html {
@@ -77,6 +77,9 @@ html {
     }
     #header {
         background: #BF4033;
+    }
+    .archive{
+        padding-left: 0;
     }
 }
 

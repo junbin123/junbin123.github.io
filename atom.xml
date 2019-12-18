@@ -67,9 +67,9 @@
       <category term="分享创造" scheme="https://junbin123.github.io/categories/%E5%88%86%E4%BA%AB%E5%88%9B%E9%80%A0/"/>
     
     
-      <category term="小程序" scheme="https://junbin123.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
       <category term="前端" scheme="https://junbin123.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="小程序" scheme="https://junbin123.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
@@ -78,7 +78,7 @@
     <link href="https://junbin123.github.io/2019/11/20/%20JavaScript%20%E4%B8%AD%EF%BC%8Cthis%20%E5%9C%A8%E4%B8%8D%E5%90%8C%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%8C%E5%A6%82%E4%BD%95%E5%8F%96%E5%80%BC%EF%BC%9F/"/>
     <id>https://junbin123.github.io/2019/11/20/ JavaScript 中，this 在不同应用场景，如何取值？/</id>
     <published>2019-11-19T16:00:00.000Z</published>
-    <updated>2019-12-18T12:12:42.414Z</updated>
+    <updated>2019-12-18T12:12:42.969Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a><h3 id="一、作为普通函数"><a href="#一、作为普通函数" class="headerlink" title="一、作为普通函数"></a>一、作为普通函数</h3><pre><code class="javascript">function printThis() {    console.log(this)}printThis()</code></pre><blockquote><p>Window {parent: Window, postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, …}</p></blockquote><h3 id="二、使用-call-apply-bind"><a href="#二、使用-call-apply-bind" class="headerlink" title="二、使用 call apply bind"></a>二、使用 <code>call</code> <code>apply</code> <code>bind</code></h3><pre><code class="javascript">function fn1() {    console.log(this)}fn1.call({ x: 100 })  // 100const fn2 = fn1.bind({ x: 200 })fn2()  // 200</code></pre><p>作用：<strong>改变函数执行时的上下文</strong>，即<strong>改变函数运行时的this指向</strong>。</p><ul><li><code>call</code> <code>apply</code> 和 <code>bind</code> 的区别：</li></ul><p>call 和 apply 改变了函数的 this 上下文后便执行该函数,而 bind 则是返回改变了上下文后的一个函数。</p><ul><li><code>call</code> 和 <code>apply</code> 的区别：</li></ul><p>他们俩之间的差别在于参数的区别，call 和 apply 的第一个参数都是要改变上下文的对象，而 call 从第二个参数开始以参数列表的形式展现，apply 则是把除了改变上下文对象的参数放在一个数组里面作为它的第二个参数。</p><pre><code class="javascript">let arr = [2, 5, 9]console.log(Math.max.call(null, 2, 5, 9))  // 9console.log(Math.max.call(null, arr))  // NaNconsole.log(Math.max.apply(null, arr))  // 9</code></pre><h3 id="三、作为对象方法被调用"><a href="#三、作为对象方法被调用" class="headerlink" title="三、作为对象方法被调用"></a>三、作为对象方法被调用</h3><pre><code class="javascript">const people = {    name: &quot;Merry&quot;,    sayHi() {        console.log(this)    },    wait() {        setTimeout(function () {            console.log(this)        })    }}people.sayHi()people.wait()</code></pre><blockquote><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p><p>Window {parent: Window, postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, …}</p></blockquote><h3 id="四、箭头函数"><a href="#四、箭头函数" class="headerlink" title="四、箭头函数"></a>四、箭头函数</h3><pre><code class="javascript">const people = {    name: &quot;Merry&quot;,    sayHi() {        console.log(this)    },    wait() {        setTimeout(() =&gt; {            console.log(this)        })    }}people.sayHi()people.wait()</code></pre><blockquote><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p></blockquote><h3 id="五、在-class-方法中调用"><a href="#五、在-class-方法中调用" class="headerlink" title="五、在 class 方法中调用"></a>五、在 class 方法中调用</h3><pre><code class="javascript">class People {    constructor(name) {        this.name = name        this.age = 20    }    sayHi() {        console.log(this)    }}const merry = new People(&quot;Merry&quot;)merry.sayHi()</code></pre><blockquote><p>People {name: “Merry”, age: 20}</p></blockquote>]]></content>
     
