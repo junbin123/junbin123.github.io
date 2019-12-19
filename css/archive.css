@@ -9,10 +9,14 @@
     transition: all .3s linear;
 }
 
+.archive-year{
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .archive-item__title {
     font-size: 16px;
     font-weight: 500;
-    
 }
 
 .archive-item__date {
@@ -21,4 +25,7 @@
 
 .archive-item:hover {
     color: #BF4033;
+    animation-name: shake;
+    -webkit-animation-name: shake;
+    animation-duration: 5s;
 }

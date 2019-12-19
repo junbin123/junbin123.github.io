@@ -11,20 +11,8 @@
     background: #ececec;
 }
 
-.section__title {
-    font-size: 24px;
-    font-weight: 500;
-    padding-bottom: 6px;
-    color: #000;
-}
-
-.section__info {
-    font-size: 14px;
-    padding-bottom: 12px;
-    color: #333;
-}
-
 .section__excerpt {
+    margin-top: 12px;
     font-size: 16px;
     color: #34495E;
 }

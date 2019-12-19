@@ -16,3 +16,15 @@
     justify-content: center;
     background: #eee;
 }
+
+.post-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 3px;
+}
+
+.post-info {
+    font-size: 14px;
+    color: #666;
+}
