@@ -54,7 +54,7 @@
     <link href="https://junbin123.github.io/2019/12/16/js%20%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
     <id>https://junbin123.github.io/2019/12/16/js 基本类型和引用类型的区别/</id>
     <published>2019-12-15T16:00:00.000Z</published>
-    <updated>2019-12-18T12:13:33.294Z</updated>
+    <updated>2019-12-21T04:23:52.891Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a><h3 id="一、基本类型和引用类型"><a href="#一、基本类型和引用类型" class="headerlink" title="一、基本类型和引用类型"></a>一、基本类型和引用类型</h3><p>JavaScript 规定了 7 种原始数据类型，他们分别是：</p><p>基本类型（6）：undefined、null、number、string、boolean、symbol（ES6 新引入）</p><p>引用类型（1）：object</p><p>基本类型指的是简单的数据段，而引用类型指那些可能由多个值构成的对象。</p><p>他们的最大区别在于：</p><p><strong>基本类型赋值给其他变量时，修改其他变量的值，不会影响原始值；而引用变量则会改变。</strong></p><p>通过下面的小栗子，你可以更直观地感受：</p><pre><code class="javascript">// 基本类型var num1 = 5var num2 = num1num2 = 8console.log(num1)  // 5console.log(num2)  // 8</code></pre><pre><code class="javascript">// 引用类型var obj1 = { a: 5, b: 6 }var obj2 = obj1obj2.a = 8console.log(obj1.a)  // 8console.log(obj2.a)  // 8</code></pre><p>好奇如我，为何 JavaScript 要这么做？</p><p>都像基本类型多好，也符合我们的认知，偏偏要弄出个引用类型，消耗脑细胞。</p><p>其实，这是因为，对象（Object）的大小不固定。</p><p>对于一个很大的 Object，如果每次将它赋值给一个新的变量，都重新分配一个新的内存空间，对于性能损耗是很大的。</p><h3 id="二、堆和栈"><a href="#二、堆和栈" class="headerlink" title="二、堆和栈"></a>二、堆和栈</h3><p>这便引出了 JS 中，基本类型和引用类型的数据保存机制：</p><ul><li><p>基本类型：占据内存空间大小固定，存放在栈内存（Stack），按值来访问。</p></li><li><p>引用类型：占据内存空间大小不固定，存放在堆内存（Heap），并由栈内存（Stack）中存放指向该堆内存（Heap）的地址，按引用访问。</p></li></ul><p>你可以这么理解：</p><p>基本类型就像现金，引用类型就像存折</p><p>下图可助你进一步理解</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191211195504.png" alt=""></p><h3 id="三、深拷贝和浅拷贝"><a href="#三、深拷贝和浅拷贝" class="headerlink" title="三、深拷贝和浅拷贝"></a>三、深拷贝和浅拷贝</h3><p>那么问题来了，我就想 Object 也想基本类型一样，可以吗？</p><p>可以呀！自己写个函数来实现。</p><p>实现思路就是：</p><p>递归调用，把所有属于对象的属性类型都遍历赋给另一个对象即可。</p><pre><code class="javascript">function deepClone(obj = {}) {    if (typeof obj !== &#39;object&#39; || obj == null) {        return obj    }    // 初始化返回结果    let result    if (obj instanceof Array) {        result = []    } else {        result = {}    }    for (let key in obj) {        if (obj.hasOwnProperty(key)) {            // 递归调用            result[key] = deepClone(obj[key])        }    }    return result}</code></pre><h3 id="四、typeof-和-instanceof-的区别"><a href="#四、typeof-和-instanceof-的区别" class="headerlink" title="四、typeof 和 instanceof 的区别"></a>四、typeof 和 instanceof 的区别</h3><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191212232448.png" alt=""></p>]]></content>
     
@@ -68,7 +68,7 @@
     
     </summary>
     
-      <category term="笔记" scheme="https://junbin123.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="学习笔记" scheme="https://junbin123.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
       <category term="前端" scheme="https://junbin123.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
@@ -111,7 +111,7 @@
     <link href="https://junbin123.github.io/2019/11/20/%20JavaScript%20%E4%B8%AD%EF%BC%8Cthis%20%E5%9C%A8%E4%B8%8D%E5%90%8C%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%8C%E5%A6%82%E4%BD%95%E5%8F%96%E5%80%BC%EF%BC%9F/"/>
     <id>https://junbin123.github.io/2019/11/20/ JavaScript 中，this 在不同应用场景，如何取值？/</id>
     <published>2019-11-19T16:00:00.000Z</published>
-    <updated>2019-12-18T12:12:42.969Z</updated>
+    <updated>2019-12-21T04:23:36.026Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a><h3 id="一、作为普通函数"><a href="#一、作为普通函数" class="headerlink" title="一、作为普通函数"></a>一、作为普通函数</h3><pre><code class="javascript">function printThis() {    console.log(this)}printThis()</code></pre><blockquote><p>Window {parent: Window, postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, …}</p></blockquote><h3 id="二、使用-call-apply-bind"><a href="#二、使用-call-apply-bind" class="headerlink" title="二、使用 call apply bind"></a>二、使用 <code>call</code> <code>apply</code> <code>bind</code></h3><pre><code class="javascript">function fn1() {    console.log(this)}fn1.call({ x: 100 })  // 100const fn2 = fn1.bind({ x: 200 })fn2()  // 200</code></pre><p>作用：<strong>改变函数执行时的上下文</strong>，即<strong>改变函数运行时的this指向</strong>。</p><ul><li><code>call</code> <code>apply</code> 和 <code>bind</code> 的区别：</li></ul><p>call 和 apply 改变了函数的 this 上下文后便执行该函数,而 bind 则是返回改变了上下文后的一个函数。</p><ul><li><code>call</code> 和 <code>apply</code> 的区别：</li></ul><p>他们俩之间的差别在于参数的区别，call 和 apply 的第一个参数都是要改变上下文的对象，而 call 从第二个参数开始以参数列表的形式展现，apply 则是把除了改变上下文对象的参数放在一个数组里面作为它的第二个参数。</p><pre><code class="javascript">let arr = [2, 5, 9]console.log(Math.max.call(null, 2, 5, 9))  // 9console.log(Math.max.call(null, arr))  // NaNconsole.log(Math.max.apply(null, arr))  // 9</code></pre><h3 id="三、作为对象方法被调用"><a href="#三、作为对象方法被调用" class="headerlink" title="三、作为对象方法被调用"></a>三、作为对象方法被调用</h3><pre><code class="javascript">const people = {    name: &quot;Merry&quot;,    sayHi() {        console.log(this)    },    wait() {        setTimeout(function () {            console.log(this)        })    }}people.sayHi()people.wait()</code></pre><blockquote><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p><p>Window {parent: Window, postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, …}</p></blockquote><h3 id="四、箭头函数"><a href="#四、箭头函数" class="headerlink" title="四、箭头函数"></a>四、箭头函数</h3><pre><code class="javascript">const people = {    name: &quot;Merry&quot;,    sayHi() {        console.log(this)    },    wait() {        setTimeout(() =&gt; {            console.log(this)        })    }}people.sayHi()people.wait()</code></pre><blockquote><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p></blockquote><h3 id="五、在-class-方法中调用"><a href="#五、在-class-方法中调用" class="headerlink" title="五、在 class 方法中调用"></a>五、在 class 方法中调用</h3><pre><code class="javascript">class People {    constructor(name) {        this.name = name        this.age = 20    }    sayHi() {        console.log(this)    }}const merry = new People(&quot;Merry&quot;)merry.sayHi()</code></pre><blockquote><p>People {name: “Merry”, age: 20}</p></blockquote>]]></content>
     
@@ -125,7 +125,7 @@
     
     </summary>
     
-      <category term="笔记" scheme="https://junbin123.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="学习笔记" scheme="https://junbin123.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
       <category term="前端" scheme="https://junbin123.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
@@ -141,7 +141,7 @@
     <link href="https://junbin123.github.io/2019/07/14/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%EF%BC%9AASCII%E3%80%81UNICODE%20%E5%92%8C%20UTF-8/"/>
     <id>https://junbin123.github.io/2019/07/14/字符编码：ASCII、UNICODE 和 UTF-8/</id>
     <published>2019-07-13T16:00:00.000Z</published>
-    <updated>2019-12-18T12:35:29.247Z</updated>
+    <updated>2019-12-21T04:24:04.294Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a><ol><li><p>ASCII 码</p><ul><li>计算机内部，所有信息最终都是一个二进制值。</li><li>每个二进制位（bit）有<code>0</code>和<code>1</code>两种状态。</li><li>8 个二进制位可组合出 256 种状态，称为一个字节（byte），每一个状态对应一个符号，即<code>00000000</code>到<code>11111111</code>。</li><li>ASCII 码一共规定了 128 个字符编码，这 128 个符号只占用一个字节后面 7 位，最前面同意规定为<code>0</code>。</li></ul></li><li><p>非 ASCII 编码</p><ul><li>英语 128 个字符编码就够了，但用来表示其他语言，却不够。</li><li>欧洲其他国家，如法国，利用字节第一个二进制位来编入新的符号。</li><li>不同国家，同一个 ASCII 表示不同字符，造成混乱。</li><li>汉字有多达 10 万个左右，需要引入新的编码方式。</li></ul></li><li><p>Unicode</p><ul><li>Unicode 是个很大的集合，可容纳 100 多万个字符，保证每个字符编码都不一样</li><li>Unicode 只是一个符号集合，规定符号二进制代码，却没有规定这个二进制代码应该如何储存。</li><li>有些字符</li></ul></li><li><p>UTF-8</p><ul><li><p>UTF-8 是 Unicode 的实现方式之一，此外还有UTF-16、UTF-32，这些在互联网基本不用。</p></li><li><p>UTF-8 最大的一个特点，就是它是一种可变的编码方式。它可以使用 1~4 个字节表示一个符号，根据不同的符号而变化字节长度。</p></li><li><p>UTF-8 编码规则很简单：如果一个字节的第一位是<code>0</code>，则这个字节单独就是一个字符（同 ASCII 码）；如果第一位是<code>1</code>，则连续有多少个<code>1</code>，就表示当前字符占用多少个字节。（如图：x 表示可编码的位置）</p><p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1fz3on3fumrj30r009idhb.jpg" alt="屏幕快照 2019-01-12 下午12.20.56"></p></li></ul></li></ol><p>编辑整理自<a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html" target="_blank" rel="noopener">阮一峰博客</a></p>]]></content>
     
@@ -160,7 +160,7 @@
     
     </summary>
     
-      <category term="笔记" scheme="https://junbin123.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="学习笔记" scheme="https://junbin123.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
       <category term="计算机知识" scheme="https://junbin123.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86/"/>
