@@ -102,20 +102,13 @@ th {
 }
 
 #article pre {
-    margin: 20px;
+    margin: 20px 0;
     box-shadow: 0 8px 12px rgba(189, 189, 189, .25);
-}
-
-#article pre:before {
-    content: "                                               ";
-    position: absolute;
-    background: url('../images/dot.png') no-repeat 20px 16px;
-    height: 40px;
 }
 
 #article pre>code {
     font-family: "codefont";
-    padding: 40px 16px 20px;
+    padding: 16px;
     border-radius: 8px;
 }
 
