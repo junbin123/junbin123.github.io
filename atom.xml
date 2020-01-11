@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junbin123.github.io/"/>
-  <updated>2019-12-25T15:07:29.315Z</updated>
+  <updated>2020-01-11T16:03:06.630Z</updated>
   <id>https://junbin123.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript 数组去重的常见方法</title>
+    <link href="https://junbin123.github.io/2020/01/10/%20JavaScript%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E7%9A%84%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/"/>
+    <id>https://junbin123.github.io/2020/01/10/ JavaScript数组去重的常见方法/</id>
+    <published>2020-01-09T16:00:00.000Z</published>
+    <updated>2020-01-11T16:03:06.630Z</updated>
+    
+    <content type="html"><![CDATA[<p>数组去重是常见的面试考题，最近面试就连续被问到了两次。</p><p>虽然自认为已经了解并掌握了，但每次问到还是不能很流畅地回答，于是做了整理。</p><a id="more"></a><p>网上关于数组去重的实现方法有很多，这里我打算根据代码的时间复杂度分类，这样足以把网上许多方法都归类。</p><p>这些方法大致可以分为下面四种：</p><h5 id="时间复杂度-O-n-2"><a href="#时间复杂度-O-n-2" class="headerlink" title="时间复杂度 O(n^2^)"></a>时间复杂度 O(n^2^)</h5><ol><li>双重循环</li><li>indexOf 方法</li></ol><h5 id="时间复杂度-O-n"><a href="#时间复杂度-O-n" class="headerlink" title="时间复杂度 O(n)"></a>时间复杂度 O(n)</h5><ol start="3"><li>Object 作为哈希表</li><li>ES6 Set 数据结构</li></ol><h3 id="时间复杂度-O-n-2-1"><a href="#时间复杂度-O-n-2-1" class="headerlink" title="时间复杂度 O(n^2^)"></a>时间复杂度 O(n^2^)</h3><h5 id="1-双重循环"><a href="#1-双重循环" class="headerlink" title="1. 双重循环"></a>1. 双重循环</h5><p>双重 for 循环时最容易想到的方法，每次从原数组取出一个元素，拿它和新数组一一比较。</p><p>若新数组没有发现与该元素相等的元素，就将其放入新数组中；否则不放入。</p><p>这种需要用到两次 for 循环的方法，时间复杂度时 O(n^2^)。</p><pre><code class="js">var unique = function(arr) {  var newArr = [];  for (var i = 0; i &lt; arr.length; i++) {    for (var j = 0; j &lt; newArr.length; j++) {      if (newArr[j] === arr[i]) break;    }    if (j === newArr.length) newArr.push(arr[i]);  }  return newArr;};</code></pre><h5 id="2-indexOf-方法"><a href="#2-indexOf-方法" class="headerlink" title="2. indexOf() 方法"></a>2. indexOf() 方法</h5><p>我们还可以利用数组的 <strong>indexOf()</strong> 方法，这样写起来代码更简洁。</p><p>虽然代码看起来只用到了一次循环，但 <strong>indexOf()</strong> 方法实现原理也是循环，所以时间复杂度还是 O(n^2^)。</p><p>不过，<strong>indexOf()</strong> 是 ES5 新增的方法，<a href="https://caniuse.com/#search=indexOf" target="_blank" rel="noopener">IE8 及以前的浏览器不支持</a>。</p><pre><code class="js">var unique = function(arr) {  var newArr = [];  for (var i = 0; i &lt; arr.length; i++) {    if (newArr.indexOf(arr[i]) === -1) newArr.push(arr[i]);  }  return newArr;};</code></pre><p>既然为了让代码更简洁，不妨再使用 <strong>filter()</strong> 方法。同样 <a href="https://caniuse.com/#search=indexOf" target="_blank" rel="noopener">IE8 及以前的浏览器不支持</a>。</p><pre><code class="js">var unique = function(arr) {  var newArr = arr.filter((item, index, array) =&gt; {    // 这一步很有趣，利用 indexOf 方法的特性（返回给定元素的第一个索引）。    // 当遍历到某个重复元素的第二个索引（index）及以后，由于和 indexOf 返回的不一样。    // 因此下面的语句会返回 false，当前 item 不会添加到 newArr，最终实现去重。    return array.indexOf(item) === index;  });  return newArr;};</code></pre><h3 id="时间复杂度-O-n-1"><a href="#时间复杂度-O-n-1" class="headerlink" title="时间复杂度 O(n)"></a>时间复杂度 O(n)</h3><h5 id="3-Object-作为哈希表"><a href="#3-Object-作为哈希表" class="headerlink" title="3. Object 作为哈希表"></a>3. Object 作为哈希表</h5><p>第三种方法是利用对象属性唯一的特性，而读取对象属性的时间复杂度是 O(1)，因此时间复杂度是 O(n)。</p><p>这应该是最高效的排序方法。</p><p>实现原理是：遍历数组，用对象来记录当前元素是否已经在新数组中，若不存在，则添加到新数组，否则跳过。</p><p>需要说明的是，</p><p>对于普通对象，<code>obj[1]</code>和<code>obj[&quot;1&quot;]</code>是等价的，因为 Object 的 key 值都是 String 类型，<code>1</code>会转换成<code>&quot;1&quot;</code>，无法分辨出他们区别。</p><p>因此代码中，<code>key = arr[i] + typeof arr[i]</code>来替代<code>key = arr[i]</code>，可有效解决这个问题。</p><pre><code class="js">var unique = function(arr) {  var hash = {};  var newArr = [];  for (let i = 0; i &lt; arr.length; i++) {    var key = arr[i] + typeof arr[i];     if (hash[key] !== true) {      newArr.push(arr[i]);      hash[key] = true;    }  }  return newArr;};</code></pre><p>上面的代码，你还可以简化一下：</p><pre><code class="js">var unique = function(arr) {  var hash = {};  return arr.filter(item =&gt; {    var key = item + typeof item;    return hash[key] !== true ? (hash[key] = true) : false;  });};</code></pre><h5 id="4-ES6-Set-数据结构"><a href="#4-ES6-Set-数据结构" class="headerlink" title="4. ES6 Set 数据结构"></a>4. ES6 Set 数据结构</h5><p>这是最简洁的方案。如果运行环境支持 ES6，推荐使用这个去重方案。</p><p>实现原理是：</p><p>ES6 提供了新数据结构 Set。它类似于数组，但是元素都是唯一的。</p><p><code>Set</code>函数可以接受一个数组作为参数，用来初始化。</p><pre><code class="js">var unique = function(arr) {  return [...new Set(arr)];};</code></pre><p>以上方法，只适用于 String 或 Number 类型数组的去重，若数组中含有 Object 元素，会使结果出现难以预料的情况。</p><h3 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h3><p>针对纯数字的数组，进行性能测试。</p><p>当数据量 1000 以内时，性能的差异可以忽略不计。</p><p>当数据量在一百万量级时，表现如下：</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20200111232727.png" alt=""></p><p>由图中，可以得出性能对比：</p><p>ES6 Set &gt; Object 作为哈希表 &gt; 双重 for 循环 &gt; indexOf() 方法</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;数组去重是常见的面试考题，最近面试就连续被问到了两次。&lt;/p&gt;
+&lt;p&gt;虽然自认为已经了解并掌握了，但每次问到还是不能很流畅地回答，于是做了整理。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://junbin123.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="JavaScript" scheme="https://junbin123.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/JavaScript/"/>
+    
+    
+      <category term="前端" scheme="https://junbin123.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="编程" scheme="https://junbin123.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="JavaScript" scheme="https://junbin123.github.io/tags/JavaScript/"/>
+    
+      <category term="数组" scheme="https://junbin123.github.io/tags/%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="for 循环" scheme="https://junbin123.github.io/tags/for-%E5%BE%AA%E7%8E%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>常用 Git 命令清单</title>
@@ -285,32 +318,6 @@
       <category term="Netflix" scheme="https://junbin123.github.io/tags/Netflix/"/>
     
       <category term="丧尸" scheme="https://junbin123.github.io/tags/%E4%B8%A7%E5%B0%B8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>7个超棒的Mac使用技巧</title>
-    <link href="https://junbin123.github.io/2019/01/25/7%E4%B8%AA%E8%B6%85%E6%A3%92%E7%9A%84Mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
-    <id>https://junbin123.github.io/2019/01/25/7个超棒的Mac使用技巧/</id>
-    <published>2019-01-24T16:00:00.000Z</published>
-    <updated>2019-12-02T06:22:53.190Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用苹果电脑不仅仅因为优雅的设计，更因为其诸多便利，给生产者带来超高的工作效率。</p><a id="more"></a><p>下面分享 Mac 电脑的几个实用技巧。</p><h3 id="1️⃣简单快速的分屏功能"><a href="#1️⃣简单快速的分屏功能" class="headerlink" title="1️⃣简单快速的分屏功能"></a>1️⃣简单快速的分屏功能</h3><p>日常使用电脑，如果需要频繁在两个软件之间进行劳作，那么分屏无疑适合你。</p><p>比如需要一边查找资料，一边打字。</p><p>Mac 电脑自带的分屏功能，就足以满足很多普通用户的需求。</p><p>方法也简单，只需鼠标长按任何软件左上角的<strong>小绿点</strong>👇</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fziajruvvug30dc08m7wh.gif" alt="1"></p><p>屏幕就一分为二了！</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzib1arvxbg30hs0b4ans.gif" alt="2"></p><p>善用电脑的分屏功能，不仅可以大大提高工作效率，而且最大程度利用屏幕空间。</p><h3 id="2️⃣好用的「三指拖移」手势"><a href="#2️⃣好用的「三指拖移」手势" class="headerlink" title="2️⃣好用的「三指拖移」手势"></a>2️⃣好用的「三指拖移」手势</h3><p>要细数 Mac 和 Windows 的区别，那么触控板丰富的手势操作就不得不提。</p><p>其中三指拖移就是非常好用的功能，</p><p>只需三个手指放在触控板上，就可以拖拽任何东西，相当于点按的效果。</p><p>比如要保存一张网页的图片👇</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzic3yoy8og30p20dk7ni.gif" alt="5"></p><p>找回这个功能也简单，可以在「系统偏好设置」-「辅助功能」-「鼠标与触控版」-「触控版选项」中开启。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzic5jdpajj313t0u0113.jpg" alt="屏幕快照 2019-01-25 上午4.21.07"></p><h3 id="3️⃣快速输入-emoji-表情"><a href="#3️⃣快速输入-emoji-表情" class="headerlink" title="3️⃣快速输入 emoji 表情"></a>3️⃣快速输入 emoji 表情</h3><p>作为一门通用语言，emoji 表情😎很多时候比文字要来的更直接有力。</p><p>如何在聊天中快速输入 emoji 表情，对于 Mac 用户完全不是问题。</p><p>只需使用 <strong>control + command + 空格键</strong> ，就可以快速调用出 emoji 表情。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzici5z2zxj30vs0hb0wa.jpg" alt="MLA22LL"></p><p>另外，Mac 还有其他特殊符号的快捷键输入👇</p><table><thead><tr><th>符号</th><th>快捷键</th></tr></thead><tbody><tr><td>™</td><td>option + 2</td></tr><tr><td>∞</td><td>option + 5</td></tr><tr><td>•</td><td>option + 8</td></tr><tr><td>≠</td><td>option + =</td></tr><tr><td>emoji 表情</td><td>control + command + 空格键</td></tr><tr><td>大写字母</td><td>shift + 字母</td></tr><tr><td>√</td><td>option + v</td></tr></tbody></table><h3 id="4️⃣显示文件扩展名"><a href="#4️⃣显示文件扩展名" class="headerlink" title="4️⃣显示文件扩展名"></a>4️⃣显示文件扩展名</h3><p>一部分用户可能有这个需求，需要随时查看文件的扩展名。</p><p>一般情况我们是通过显示简介来查看，但显然太慢了。</p><p>这时候，只需打开 Finder（访达），在「偏好设置」-「高级」-「显示所有文件扩展名」中开启。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzicnfnuryj30l00nsn1z.jpg" alt="屏幕快照_2019-01-25_上午4_49_45"></p><h3 id="5️⃣隐藏其他所有窗口"><a href="#5️⃣隐藏其他所有窗口" class="headerlink" title="5️⃣隐藏其他所有窗口"></a>5️⃣隐藏其他所有窗口</h3><p>当你打开太多软件，导致桌面变得很乱，那么有没有什么办法可以快速隐藏掉其他窗口？</p><p>记住，是隐藏，不是关闭。</p><p>当然有啦，以 Chrome 为例，每个软件都有这个选项「隐藏其他应用」。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzid0o82lgj30n60is7dr.jpg" alt="屏幕快照_2019-01-25_上午5_01_08"></p><p>隐藏后就是这样的👇</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzid3yyo9ag30hs0a97wh.gif" alt="6"></p><h3 id="6️⃣关于软件的关闭-退出-强制退出"><a href="#6️⃣关于软件的关闭-退出-强制退出" class="headerlink" title="6️⃣关于软件的关闭/退出/强制退出"></a>6️⃣关于软件的关闭/退出/强制退出</h3><p>新手有时会对关闭软件存在疑惑，比如点击左上角的红色圆点🔴，只是关闭了软件窗口而已，并非真正退出软件。</p><p>下面讲讲 Mac 电脑的关闭、退出、强制退出的效果和快捷键。</p><p><strong>关闭（⌘ + W）</strong>：关闭当前的软件窗口（软件并没有真正退出进程），相当于点了左上角的🔴。</p><p><strong>退出（⌘ + Q）</strong>：真正退出软件。</p><p><strong>强制退出（⌘ + option + esc）</strong>：强制退出某个软件，通常在软件无响应时使用。</p><h3 id="7️⃣批量命名文件"><a href="#7️⃣批量命名文件" class="headerlink" title="7️⃣批量命名文件"></a>7️⃣批量命名文件</h3><p>Mac 电脑对于批量命名文件也非常简单，只需选中所有要命名 的文件，右键选中「给11个项目重新命名」。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzifo5gra7j310u0n8age.jpg" alt="屏幕快照 2019-01-25 上午6.33.26"></p><p>然后设置命名规则</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzifpb7b9pj30v80c4gog.jpg" alt="屏幕快照 2019-01-25 上午6.35.21"></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用苹果电脑不仅仅因为优雅的设计，更因为其诸多便利，给生产者带来超高的工作效率。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Mac" scheme="https://junbin123.github.io/categories/Mac/"/>
-    
-    
-      <category term="Mac" scheme="https://junbin123.github.io/tags/Mac/"/>
-    
-      <category term="技巧" scheme="https://junbin123.github.io/tags/%E6%8A%80%E5%B7%A7/"/>
-    
-      <category term="习惯" scheme="https://junbin123.github.io/tags/%E4%B9%A0%E6%83%AF/"/>
     
   </entry>
   

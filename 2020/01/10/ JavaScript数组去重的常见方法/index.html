@@ -72,71 +72,168 @@
         <!-- 引入内容 -->
         <div id="center">
             <div id="content">
-                
-
-<section class="archive">
-    
+                <div id="post-container">
+    <div id="post">
         
-    
-    
-     
-    <div class="archive-year">
-        2019
+        
+        <a href="https://junbin123.github.io/categories/学习笔记/">
+            <div class="post-category">
+                <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
+                <div class="category-name"> 学习笔记
+                </div>
+            </div>
+        </a>
+        
+        <a href="https://junbin123.github.io/categories/学习笔记/JavaScript/">
+            <div class="post-category">
+                <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
+                <div class="category-name"> JavaScript
+                </div>
+            </div>
+        </a>
+        
+        
+        <div class="post-title">
+            JavaScript 数组去重的常见方法
+        </div>
+        <div class="post-info">
+            <span>2020-01-10</span> ·
+            <span>吾儿滨滨</span>
+        </div>
+        <div class="post-line"></div>
     </div>
+
+    <div id="article">
+        <p>数组去重是常见的面试考题，最近面试就连续被问到了两次。</p>
+<p>虽然自认为已经了解并掌握了，但每次问到还是不能很流畅地回答，于是做了整理。</p>
+<a id="more"></a>
+<p>网上关于数组去重的实现方法有很多，这里我打算根据代码的时间复杂度分类，这样足以把网上许多方法都归类。</p>
+<p>这些方法大致可以分为下面四种：</p>
+<h5 id="时间复杂度-O-n-2"><a href="#时间复杂度-O-n-2" class="headerlink" title="时间复杂度 O(n^2^)"></a>时间复杂度 O(n^2^)</h5><ol>
+<li>双重循环</li>
+<li>indexOf 方法</li>
+</ol>
+<h5 id="时间复杂度-O-n"><a href="#时间复杂度-O-n" class="headerlink" title="时间复杂度 O(n)"></a>时间复杂度 O(n)</h5><ol start="3">
+<li>Object 作为哈希表</li>
+<li>ES6 Set 数据结构</li>
+</ol>
+<h3 id="时间复杂度-O-n-2-1"><a href="#时间复杂度-O-n-2-1" class="headerlink" title="时间复杂度 O(n^2^)"></a>时间复杂度 O(n^2^)</h3><h5 id="1-双重循环"><a href="#1-双重循环" class="headerlink" title="1. 双重循环"></a>1. 双重循环</h5><p>双重 for 循环时最容易想到的方法，每次从原数组取出一个元素，拿它和新数组一一比较。</p>
+<p>若新数组没有发现与该元素相等的元素，就将其放入新数组中；否则不放入。</p>
+<p>这种需要用到两次 for 循环的方法，时间复杂度时 O(n^2^)。</p>
+<pre><code class="js">var unique = function(arr) {
+  var newArr = [];
+  for (var i = 0; i &lt; arr.length; i++) {
+    for (var j = 0; j &lt; newArr.length; j++) {
+      if (newArr[j] === arr[i]) break;
+    }
+    if (j === newArr.length) newArr.push(arr[i]);
+  }
+  return newArr;
+};
+</code></pre>
+<h5 id="2-indexOf-方法"><a href="#2-indexOf-方法" class="headerlink" title="2. indexOf() 方法"></a>2. indexOf() 方法</h5><p>我们还可以利用数组的 <strong>indexOf()</strong> 方法，这样写起来代码更简洁。</p>
+<p>虽然代码看起来只用到了一次循环，但 <strong>indexOf()</strong> 方法实现原理也是循环，所以时间复杂度还是 O(n^2^)。</p>
+<p>不过，<strong>indexOf()</strong> 是 ES5 新增的方法，<a href="https://caniuse.com/#search=indexOf" target="_blank" rel="noopener">IE8 及以前的浏览器不支持</a>。</p>
+<pre><code class="js">var unique = function(arr) {
+  var newArr = [];
+  for (var i = 0; i &lt; arr.length; i++) {
+    if (newArr.indexOf(arr[i]) === -1) newArr.push(arr[i]);
+  }
+  return newArr;
+};
+</code></pre>
+<p>既然为了让代码更简洁，不妨再使用 <strong>filter()</strong> 方法。同样 <a href="https://caniuse.com/#search=indexOf" target="_blank" rel="noopener">IE8 及以前的浏览器不支持</a>。</p>
+<pre><code class="js">var unique = function(arr) {
+  var newArr = arr.filter((item, index, array) =&gt; {
+    // 这一步很有趣，利用 indexOf 方法的特性（返回给定元素的第一个索引）。
+    // 当遍历到某个重复元素的第二个索引（index）及以后，由于和 indexOf 返回的不一样。
+    // 因此下面的语句会返回 false，当前 item 不会添加到 newArr，最终实现去重。
+    return array.indexOf(item) === index;
+  });
+  return newArr;
+};
+</code></pre>
+<h3 id="时间复杂度-O-n-1"><a href="#时间复杂度-O-n-1" class="headerlink" title="时间复杂度 O(n)"></a>时间复杂度 O(n)</h3><h5 id="3-Object-作为哈希表"><a href="#3-Object-作为哈希表" class="headerlink" title="3. Object 作为哈希表"></a>3. Object 作为哈希表</h5><p>第三种方法是利用对象属性唯一的特性，而读取对象属性的时间复杂度是 O(1)，因此时间复杂度是 O(n)。</p>
+<p>这应该是最高效的排序方法。</p>
+<p>实现原理是：遍历数组，用对象来记录当前元素是否已经在新数组中，若不存在，则添加到新数组，否则跳过。</p>
+<p>需要说明的是，</p>
+<p>对于普通对象，<code>obj[1]</code>和<code>obj[&quot;1&quot;]</code>是等价的，因为 Object 的 key 值都是 String 类型，<code>1</code>会转换成<code>&quot;1&quot;</code>，无法分辨出他们区别。</p>
+<p>因此代码中，<code>key = arr[i] + typeof arr[i]</code>来替代<code>key = arr[i]</code>，可有效解决这个问题。</p>
+<pre><code class="js">var unique = function(arr) {
+  var hash = {};
+  var newArr = [];
+  for (let i = 0; i &lt; arr.length; i++) {
+    var key = arr[i] + typeof arr[i]; 
+    if (hash[key] !== true) {
+      newArr.push(arr[i]);
+      hash[key] = true;
+    }
+  }
+  return newArr;
+};
+</code></pre>
+<p>上面的代码，你还可以简化一下：</p>
+<pre><code class="js">var unique = function(arr) {
+  var hash = {};
+  return arr.filter(item =&gt; {
+    var key = item + typeof item;
+    return hash[key] !== true ? (hash[key] = true) : false;
+  });
+};
+</code></pre>
+<h5 id="4-ES6-Set-数据结构"><a href="#4-ES6-Set-数据结构" class="headerlink" title="4. ES6 Set 数据结构"></a>4. ES6 Set 数据结构</h5><p>这是最简洁的方案。如果运行环境支持 ES6，推荐使用这个去重方案。</p>
+<p>实现原理是：</p>
+<p>ES6 提供了新数据结构 Set。它类似于数组，但是元素都是唯一的。</p>
+<p><code>Set</code>函数可以接受一个数组作为参数，用来初始化。</p>
+<pre><code class="js">var unique = function(arr) {
+  return [...new Set(arr)];
+};
+</code></pre>
+<p>以上方法，只适用于 String 或 Number 类型数组的去重，若数组中含有 Object 元素，会使结果出现难以预料的情况。</p>
+<h3 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h3><p>针对纯数字的数组，进行性能测试。</p>
+<p>当数据量 1000 以内时，性能的差异可以忽略不计。</p>
+<p>当数据量在一百万量级时，表现如下：</p>
+<p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20200111232727.png" alt=""></p>
+<p>由图中，可以得出性能对比：</p>
+<p>ES6 Set &gt; Object 作为哈希表 &gt; 双重 for 循环 &gt; indexOf() 方法</p>
+
+    </div>
+
+    <div class="post-line"></div>
+
     
-    <a href="/2019/01/30/《王国》：假如皇帝变成丧尸/">
-        <div class="animated archive-item">
-            <div class="archive-item__date">2019-01-30</div>
-            <div class="archive-item__title"> 《王国》：假如皇帝变成丧尸</div>
+    
+    <a href="https://junbin123.github.io/tags/前端/">
+        <div class="post-tag animated">
+            # 前端
         </div>
     </a>
     
-        
-    
-    
-    
-    <a href="/2019/01/25/7个超棒的Mac使用技巧/">
-        <div class="animated archive-item">
-            <div class="archive-item__date">2019-01-25</div>
-            <div class="archive-item__title"> 7个超棒的Mac使用技巧</div>
+    <a href="https://junbin123.github.io/tags/编程/">
+        <div class="post-tag animated">
+            # 编程
         </div>
     </a>
     
-        
-    
-    
-    
-    <a href="/2019/01/16/使用双拼之后，整个人都不一样了！/">
-        <div class="animated archive-item">
-            <div class="archive-item__date">2019-01-16</div>
-            <div class="archive-item__title"> 使用双拼之后，整个人都不一样了！</div>
+    <a href="https://junbin123.github.io/tags/JavaScript/">
+        <div class="post-tag animated">
+            # JavaScript
         </div>
     </a>
     
-        
-    
-    
-    
-    <a href="/2019/01/03/RSS阅读入门指南/">
-        <div class="animated archive-item">
-            <div class="archive-item__date">2019-01-03</div>
-            <div class="archive-item__title"> RSS 阅读入门指南</div>
+    <a href="https://junbin123.github.io/tags/数组/">
+        <div class="post-tag animated">
+            # 数组
         </div>
     </a>
     
-</section>
-
-
-
-
-
-<!-- 辅助函数，参考 https://hexo.io/zh-cn/docs/helpers#paginator -->
-<div id="page-nav-box"></div>
-
-
-<div id="page-count">
-  <p>当前第 <span style="color: #BF4033;">1</span> 页</p>
-  <p>共 1 页</p>
+    <a href="https://junbin123.github.io/tags/for-循环/">
+        <div class="post-tag animated">
+            # for 循环
+        </div>
+    </a>
+    
+    
 </div>            </div>
         </div>
         <!-- 引入侧边栏 -->
