@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junbin123.github.io/"/>
-  <updated>2020-01-11T16:03:06.630Z</updated>
+  <updated>2020-01-13T15:24:48.652Z</updated>
   <id>https://junbin123.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS 实现水平垂直居中之方法总结</title>
+    <link href="https://junbin123.github.io/2020/01/13/CSS%E5%AE%9E%E7%8E%B0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E4%B9%8B%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/"/>
+    <id>https://junbin123.github.io/2020/01/13/CSS实现水平垂直居中之方法总结/</id>
+    <published>2020-01-12T16:00:00.000Z</published>
+    <updated>2020-01-13T15:24:48.652Z</updated>
+    
+    <content type="html"><![CDATA[<p>水平垂直居中是 CSS 布局常常遇到的问题，同时也是面试常考的。</p><p>查阅了很多文章，实现的方法有很多，但比较杂。</p><p>因此，本文将分别从行内元素和块状元素出发，总结各自的实现方案。</p><a id="more"></a><h3 id="1-行内元素"><a href="#1-行内元素" class="headerlink" title="1. 行内元素"></a>1. 行内元素</h3><p>对于行内元素（inline、inline-block），水平居中很好实现，只需对其父元素设置<code>text-align: center</code>。</p><p>而实现垂直居中，有两种方案：</p><h5 id="1-1-使用-line-height"><a href="#1-1-使用-line-height" class="headerlink" title="1.1 使用 line-height"></a>1.1 使用 line-height</h5><p>将父元素的<code>line-height</code>属性设置为高度，此方案需要知道父元素的高度。</p><pre><code class="css">&lt;style&gt;.parent {  width: 400px;  height: 100px;  background: gray;  text-align: center;  line-height: 100px;}.children {  display: inline;  background: red;}&lt;/style&gt;&lt;div class=&quot;parent&quot;&gt;    &lt;div class=&quot;children&quot;&gt;行内元素&lt;/div&gt;&lt;/div&gt;</code></pre><h5 id="1-2-使用-vertical-align"><a href="#1-2-使用-vertical-align" class="headerlink" title="1.2 使用 vertical-align"></a>1.2 使用 vertical-align</h5><p>为父元素设置<code>display: table-cell</code>和<code>vertical-align: middle</code>属性，此方案无需知道父元素的高度。</p><pre><code class="html">&lt;style&gt;  .parent {    width: 400px;    height: 100px;    background: gray;    display: table-cell;    text-align: center;    vertical-align: middle;  }  .children {    display: inline;    background: red;  }&lt;/style&gt;&lt;div class=&quot;parent&quot;&gt;  &lt;div class=&quot;children&quot;&gt;行内元素&lt;/div&gt;&lt;/div&gt;</code></pre><p>上面两种方案实现的效果是一样的。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20200113214341.png" alt=""></p><h3 id="2-块状元素"><a href="#2-块状元素" class="headerlink" title="2. 块状元素"></a>2. 块状元素</h3><p>对于块状元素，如果只想实现水平居中，一个常见的方法就是，设置<code>margin: 0 auto</code>。</p><pre><code class="html">&lt;style&gt;  .parent {    width: 400px;    height: 200px;    background: gray;  }  .children {    margin: 0 auto;    width: 100px;    height: 100px;    background: red;  }&lt;/style&gt;&lt;div class=&quot;parent&quot;&gt;  &lt;div class=&quot;children&quot;&gt;&lt;/div&gt;&lt;/div&gt;</code></pre><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20200113222237.png" alt=""></p><p>如果需要水平垂直居中，实现方式大致可以分成两种。</p><p>可以提前说明的是，下面介绍的具体方案，最终呈现的效果是一样的。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20200113211157.png" alt=""></p><h5 id="2-1-绝对定位"><a href="#2-1-绝对定位" class="headerlink" title="2.1 绝对定位"></a>2.1 绝对定位</h5><p>利用绝对定位，第一步将被居中元素的 top 和 left 属性均设为 50%，此时，元素的左上角位于父元素的中心点。</p><p>第二步需要将元素拉回自身高度和宽度的一半。</p><p>有三种方法可以实现第二步。</p><p>①如果知道被居中元素的高宽，可以直接使用 margin 属性。</p><pre><code class="html">&lt;style&gt;  .parent {    width: 400px;    height: 400px;    background: gray;    position: relative;  }  .children {    width: 100px;    height: 100px;    background: red;    position: absolute;    top: 50%;    left: 50%;    margin: -50px 0 0 -50px;  }&lt;/style&gt;&lt;div class=&quot;parent&quot;&gt;  &lt;div class=&quot;children&quot;&gt;&lt;/div&gt;&lt;/div&gt;</code></pre><p>②第二种方法也是利用 margin，但不需要知道被居中元素的高宽。</p><pre><code class="html">&lt;style&gt;  .parent {    width: 400px;    height: 400px;    background: gray;    position: relative;  }  .children {    width: 100px;    height: 100px;    background: red;    position: absolute;    margin: auto;    top: 0;    bottom: 0;    left: 0;    right: 0;  }&lt;/style&gt;&lt;div class=&quot;parent&quot;&gt;  &lt;div class=&quot;children&quot;&gt;&lt;/div&gt;&lt;/div&gt;</code></pre><p>③利用 CSS3 的 transfrom，也能在不知道元素高宽的情况下实现居中。</p><pre><code class="html">&lt;style&gt;  .parent {    width: 400px;    height: 400px;    background: gray;    position: relative;  }  .children {    width: 100px;    height: 100px;    background: red;    position: absolute;    top: 50%;    left: 50%;    transform: translate(-50%, -50%);  }&lt;/style&gt;&lt;div class=&quot;parent&quot;&gt;  &lt;div class=&quot;children&quot;&gt;&lt;/div&gt;&lt;/div&gt;</code></pre><h5 id="2-2-Flex-布局"><a href="#2-2-Flex-布局" class="headerlink" title="2.2 Flex 布局"></a>2.2 Flex 布局</h5><p>有别于传统的文档流布局，使用 Flex 布局，可以轻松实现元素的水平垂直居中。</p><pre><code class="html">&lt;style&gt;  .parent {    width: 400px;    height: 400px;    background: gray;    display: flex;    align-items: center;     justify-content: center;  }  .children {    width: 100px;    height: 100px;    background: red;  }&lt;/style&gt;&lt;div class=&quot;parent&quot;&gt;  &lt;div class=&quot;children&quot;&gt;&lt;/div&gt;&lt;/div&gt;</code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>最后，CSS3 transform 属性和 Flex 布局固然好用，但在实际项目中，需要考虑兼容问题。</p><p>例如，IE8 不支持 transform 属性。</p><p>而浏览器对于 Flex 布局的支持，要更严格。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20200113230504.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;水平垂直居中是 CSS 布局常常遇到的问题，同时也是面试常考的。&lt;/p&gt;
+&lt;p&gt;查阅了很多文章，实现的方法有很多，但比较杂。&lt;/p&gt;
+&lt;p&gt;因此，本文将分别从行内元素和块状元素出发，总结各自的实现方案。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://junbin123.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程基础" scheme="https://junbin123.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="前端" scheme="https://junbin123.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="编程" scheme="https://junbin123.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="CSS" scheme="https://junbin123.github.io/tags/CSS/"/>
+    
+      <category term="CSS 布局" scheme="https://junbin123.github.io/tags/CSS-%E5%B8%83%E5%B1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript 数组去重的常见方法</title>
@@ -292,32 +324,6 @@
       <category term="保险" scheme="https://junbin123.github.io/tags/%E4%BF%9D%E9%99%A9/"/>
     
       <category term="理财" scheme="https://junbin123.github.io/tags/%E7%90%86%E8%B4%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《王国》：假如皇帝变成丧尸</title>
-    <link href="https://junbin123.github.io/2019/01/30/%E3%80%8A%E7%8E%8B%E5%9B%BD%E3%80%8B%EF%BC%9A%E5%81%87%E5%A6%82%E7%9A%87%E5%B8%9D%E5%8F%98%E6%88%90%E4%B8%A7%E5%B0%B8/"/>
-    <id>https://junbin123.github.io/2019/01/30/《王国》：假如皇帝变成丧尸/</id>
-    <published>2019-01-29T16:00:00.000Z</published>
-    <updated>2019-12-02T06:26:09.148Z</updated>
-    
-    <content type="html"><![CDATA[<p>周末刷了一部剧《王国》， 这是 Netflix 为韩国人拍的，也是其进军亚洲的第三部剧。</p><a id="more"></a><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzn84o8668j30u00c8q7x.jpg" alt="cb2uj-l2x8d"></p><p>剧情说到底，就是庸俗的古代宫廷皇权争斗，可棒子国硬是玩出了花样，皇帝变成了丧尸，光脑补这剧情就很有看头。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fznrnz96ydg30hs09i4qp.gif" alt="3"></p><p>演员阵容也是豪华配置，来的都是实力明星，女主由高级脸裴斗娜担当，熟悉韩剧对她肯定不会陌生。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzn8w7f5g5j30u00jzdm8.jpg" alt="p2542945784"></p><p>男主则是人气演员朱智勋，出演不少像《特工》、《与神同行》这样的高分作品。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzn94m9gi5j30u00gvabn.jpg" alt="p2546382490"></p><p>其他实力演员包括柳承龙（《七号房的礼物》）、金相浩（《素媛》）、许峻豪（《国家破产之日》）等。</p><p>Netflix 就是凭借本土实力明星 + 好莱坞顶级制作 + 超大投资这套组合拳，在全球各地所向披靡。</p><p>《王国》是《Kingdom》的直译，港台地区叫《李尸朝鲜》，李尸通李氏，这个名字无疑更贴切。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fznnxauuyyj30u00gvdkm.jpg" alt="下载 (https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fznnxauuyyj30u00gvdkm.jpg)"></p><p>片头一看就特别有质感，故事开端也要从这里说起，权臣赵大人用「生死草」将王变成活死人，以确保女儿继后的孩子出生并顺利继承王位。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fznm1tspgog30hs09iu0x.gif" alt="5"></p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fznmfjf7x3g30hs09ix6p.gif" alt="6"></p><p>权贵这么做，当然是因为皇帝已经有了一位年龄合适、长相一脸正义同时跟我不对付的世子李苍，怎么看都觉得，就算你把你老子干掉，我们做大臣的还是会让你来当继承人的。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fznrirctvuj317w0qwu0x.jpg" alt="屏幕快照 2019-01-29 下午9.12.06"></p><p>而皇后肚子那个还只是个胎盘，怎么斗？挟胎盘以令诸侯吗？</p><p>啊~~~皇帝都变丧尸了，宫中谣言四起，世子李苍又想当皇帝太久了，就偷偷溜进他爹的寝宫，果然发现了不可告人的秘密，却被赶来的大臣硬刚得无 Fuck 可说。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzno86y1pdg30hs09ihdt.gif" alt="2-min"></p><p>看到他老爹的宫里出现这么一个披头散发还嗷嗷叫的背影，世子李苍顺着得来的线索，来到一个叫东莱的地方。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fznsitsz3yg30hs0a0npd.gif" alt="7-min"></p><p>一方面是为了探究他爹的事，另一方面也是为了推动剧情的发展。</p><p>皇权斗争这条线算交代完成了，另一条主线，就发生在这个叫东莱的地方，东莱也是现在的釜山。</p><p>是不是想起了《釜山行》这部口碑吹爆的电影，看来釜山可以评为年度丧尸最爱去的城市。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzns1iegdfj30u00k0n2c.jpg" alt="下载 ()"></p><p>这个地方人民穷啊，穷到吃人肉，而且是被皇帝这个丧门星咬死的人，结果不用想了，我们印象中叠罗汉一样的丧尸就从这里蔓延。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fznnv3c4k3j30u00k0aeq.jpg" alt="下载"></p><p>而且这里的丧尸有一个特点，白天跟死猪一样，到了晚上，就兴奋得见人就咬。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fznt9imn0ij31dm0pk4qr.jpg" alt="屏幕快照 2019-01-29 下午10.12.32"></p><p>因为在晚上，所以这部剧有丧尸的画面都挺影响观感。</p><p>开始时，老百姓挺勇敢的，不相信医女，说什么到晚上就变成乱咬人的怪物，还煞有介事研究起尸体来。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fznt8plhdug30hs0a0kjl.gif" alt="8-min ()"></p><p>结果可想而知，医女的话变成了真香警告。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fznt2qovk8g30hs0a0b29.gif" alt="9"></p><p>东莱很快就感染了，接着就是尚州，离都城汉阳也就一步之遥。</p><p>两条主线合二为一。</p><p>另外，细心一点，会发现这部分有些情节和《釜山行》有异曲同工之处。</p><p>比如当地有权势的人都跑到船上避难，偏偏一个老太婆因思念儿子，把变成丧尸的儿子带到船上，船上的人几乎团灭。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzntvt6b1kg30hs0a0u0x.gif" alt="11"></p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fzntzykblcj316e0qgkjl.jpg" alt="屏幕快照 2019-01-29 下午10.37.55"></p><p>是不是很像《釜山行》，那个老太婆放进一车厢丧尸的骚操作。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fznu8m4wikj30yw0j2kiu.jpg" alt="屏幕快照 2019-01-29 下午10.46.15"></p><p>还有追车的环节，也有点相像。（看吧，我说了影响观感）</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fznugpt8mxg30hs09lhbp.gif" alt="14"></p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fznuidgmzcg30hs09lkjl.gif" alt="13"></p><p>总之，品行不端的人都不能有好结果。</p><p>第一季一共六集，Netflix 一次性放了出来，一口气看完，实在畅快。</p><p>所以，看完之后有一种看一部五个小时的电影的满足感。</p><p>这也不是我吹的，Netflix 一贯精良的制作，给画面带来电影的质感，不落俗套的剧情，苛刻的豆瓣也给出了 8.5 的高分。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNc79gy1fznvme6jbkj30u00tz0zo.jpg" alt="291548776048_.pic_hd"></p><p>什么时候 Netflix 也来我朝拍一部剧，我国历史可比棒子国悠久多了。</p><p>秦始皇不是很想长生不老吗？明代的嘉靖皇帝不是痴迷炼丹吗？</p><p>随便让他们吃错点药变成丧尸，也是可以的嘛！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;周末刷了一部剧《王国》， 这是 Netflix 为韩国人拍的，也是其进军亚洲的第三部剧。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="生活指南" scheme="https://junbin123.github.io/categories/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/"/>
-    
-    
-      <category term="韩剧" scheme="https://junbin123.github.io/tags/%E9%9F%A9%E5%89%A7/"/>
-    
-      <category term="Netflix" scheme="https://junbin123.github.io/tags/Netflix/"/>
-    
-      <category term="丧尸" scheme="https://junbin123.github.io/tags/%E4%B8%A7%E5%B0%B8/"/>
     
   </entry>
   
