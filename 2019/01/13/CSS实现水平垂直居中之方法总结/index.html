@@ -76,15 +76,15 @@
     <div id="post">
         
         
-        <a href="https://junbin123.github.io/categories/学习笔记/">
+        <a href="https://junbin123.github.io/categories/笔记/">
             <div class="post-category">
                 <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
-                <div class="category-name"> 学习笔记
+                <div class="category-name"> 笔记
                 </div>
             </div>
         </a>
         
-        <a href="https://junbin123.github.io/categories/学习笔记/编程基础/">
+        <a href="https://junbin123.github.io/categories/笔记/编程基础/">
             <div class="post-category">
                 <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
                 <div class="category-name"> 编程基础
@@ -94,83 +94,178 @@
         
         
         <div class="post-title">
-            HTTP 协议基础知识
+            CSS 实现水平垂直居中之方法总结
         </div>
         <div class="post-info">
-            <span>2018-11-10</span> ·
+            <span>2019-01-13</span> ·
             <span>吾儿滨滨</span>
         </div>
         <div class="post-line"></div>
     </div>
 
     <div id="article">
-        <h3 id="什么是-HTTP-？"><a href="#什么是-HTTP-？" class="headerlink" title="什么是 HTTP ？"></a>什么是 HTTP ？</h3><p>HTTP 协议是 Hyper Text Transfer Protocol (超文本传输协议) 的缩写，用于从万维网服务器传输超文本到本地浏览器的传输协议。</p>
+        <p>水平垂直居中是 CSS 布局常常遇到的问题，同时也是面试常考的。</p>
+<p>查阅了很多文章，实现的方法有很多，但比较杂。</p>
+<p>因此，本文将分别从行内元素和块状元素出发，总结各自的实现方案。</p>
 <a id="more"></a>
-<p>设计 HTTP 最初的目的设计为了提供一种<strong>发布和接收 HTML 页面的方法</strong>，现在 HTTP 是万维网数据通信的基础。</p>
-<p>这是我们通过浏览器和服务端对话的方式，大到网页的刷新，小到按钮的点击，都是通过http协议来实现的。</p>
-<h3 id="HTTP-工作原理"><a href="#HTTP-工作原理" class="headerlink" title="HTTP 工作原理"></a>HTTP 工作原理</h3><p><strong>HTTP 协议</strong>工作在<strong>客户端-服务端</strong>架构上，即浏览器作为客户端通过 <strong>URL</strong> 向 <strong>Web 服务器</strong>发送所有请求，Web服务器接收请求后，向浏览器发送响应信息。</p>
-<p><img src="https://ws1.sinaimg.cn/large/ee2b6429gy1fw1ohcon6zj211c0a00tc.jpg" alt="img"></p>
-<p><img src="https://ws1.sinaimg.cn/large/ee2b6429gy1fw1q70jrb9j217e0r8q8u.jpg" alt="img"></p>
-<h3 id="HTTP-的特点？"><a href="#HTTP-的特点？" class="headerlink" title="HTTP 的特点？"></a>HTTP 的特点？</h3><ol>
-<li><p>HTTP 是无连接的</p>
-<p>即每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。这种方式可以节省传输时间。</p>
-</li>
-<li><p>HTTP 是媒体独立的</p>
-<p>只要客户端和服务器知道如何处理的数据内容，HTTP 允许传输任意类型的数据对象。传输的类型由 <a href="https://www.cnblogs.com/jsean/articles/1610265.html" target="_blank" rel="noopener">Content-Type</a>加以标记。</p>
-</li>
-<li><p>HTTP 是无状态的的</p>
-<p>无状态是指协议对于事务处理没有记忆，后续处理需要前面的信息，则必须重传。</p>
-</li>
-</ol>
-<h3 id="http-和-https-的区别？"><a href="#http-和-https-的区别？" class="headerlink" title="http 和 https 的区别？"></a>http 和 https 的区别？</h3><p>HTTPS 是 HTTP 协议的安全版本，HTTP 协议的数据传输是明文的，是不安全的。HTTPS 使用了 SSL/TLS 协议进行了加密处理。</p>
-<p>Chrome 68 浏览器已经把所有未采用 HTTPS 的网站<a href="http://tech.sina.com.cn/i/2018-02-09/doc-ifyrmfmc0425032.shtml" target="_blank" rel="noopener">都标记为 「不安全」 网站</a>。</p>
-<p><img src="https://ws1.sinaimg.cn/large/ee2b6429gy1fw1powivefj20jw05ct95.jpg" alt="img"></p>
-<h3 id="HTTP-的请求方法"><a href="#HTTP-的请求方法" class="headerlink" title="HTTP 的请求方法"></a>HTTP 的请求方法</h3><p>HTTP 有多种<a href="http://www.runoob.com/http/http-methods.html" target="_blank" rel="noopener">请求方法</a>，绝大部分情况下，我们只需了解 <strong>GET</strong> 和 <strong>POST</strong>。</p>
-<p><strong>GET</strong> 和 <strong>POST</strong> 都是表单提交数据的两种基本方式，<strong>GET</strong> 请求数据通过域名后缀 url 传送，用户可见，不安全。<strong>POST</strong> 请求数据通过在请求报文正文里传输，相对比较安全。</p>
-<p>关于 <strong>GET</strong> 和 <strong>POST</strong> 的区别，<a href="https://www.cnblogs.com/logsharing/p/8448446.html" target="_blank" rel="noopener">这篇文章讲的很有趣</a>！</p>
-<h3 id="HTTP-状态码"><a href="#HTTP-状态码" class="headerlink" title="HTTP 状态码"></a>HTTP 状态码</h3><p>当我们访问网站时，有时候，网站会出现「404 错误」的字样，我们知道这就是页面丢失了。</p>
-<p>作为一种标准的 HTTP 返回代码，404 被用来表示请求的资源不存在。</p>
-<p>常见的 HTTP 状态码还有 200、301、500 等。</p>
-<p>HTTP 状态码根据第一个数字不同，可以分为 5 钟类型：</p>
-<table>
-<thead>
-<tr>
-<th>分类</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1**</td>
-<td>信息，服务器收到请求，需要请求者继续执行操作</td>
-</tr>
-<tr>
-<td>2**</td>
-<td>成功，操作被成功接收并处理</td>
-</tr>
-<tr>
-<td>3**</td>
-<td>重定向，需要进一步的操作以完成请求</td>
-</tr>
-<tr>
-<td>4**</td>
-<td>客户端错误，请求包含语法错误或无法完成请求</td>
-</tr>
-<tr>
-<td>5**</td>
-<td>服务器错误，服务器在处理请求的过程中发生了错误</td>
-</tr>
-</tbody>
-</table>
-<h4 id="常见-HTTP-状态码："><a href="#常见-HTTP-状态码：" class="headerlink" title="常见 HTTP 状态码："></a>常见 HTTP 状态码：</h4><ul>
-<li>200 (OK)：请求成功，一般用于 GET 和 POST 请求。</li>
-<li>301 (Moved Permanently)：永久移动，请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</li>
-<li>404 (Not Found)：未找到，服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置 “您所请求的资源无法找到” 的个性页面。</li>
-<li>500 (Internal Server Error)：服务器内部错误，无法完成请求。</li>
-</ul>
-<p><strong>延伸阅读：</strong></p>
-<p><a href="https://blog.csdn.net/dufufd/article/details/53112184" target="_blank" rel="noopener">常见的HTTP状态码</a></p>
-<p><a href="http://www.techweb.com.cn/data/2017-12-11/2616686.shtml" target="_blank" rel="noopener">都知道网站 404 可你知道为啥是 404 吗？</a></p>
+<h3 id="1-行内元素"><a href="#1-行内元素" class="headerlink" title="1. 行内元素"></a>1. 行内元素</h3><p>对于行内元素（inline、inline-block），水平居中很好实现，只需对其父元素设置<code>text-align: center</code>。</p>
+<p>而实现垂直居中，有两种方案：</p>
+<h5 id="1-1-使用-line-height"><a href="#1-1-使用-line-height" class="headerlink" title="1.1 使用 line-height"></a>1.1 使用 line-height</h5><p>将父元素的<code>line-height</code>属性设置为高度，此方案需要知道父元素的高度。</p>
+<pre><code class="css">&lt;style&gt;
+.parent {
+  width: 400px;
+  height: 100px;
+  background: gray;
+  text-align: center;
+  line-height: 100px;
+}
+.children {
+  display: inline;
+  background: red;
+}
+&lt;/style&gt;
+&lt;div class=&quot;parent&quot;&gt;
+    &lt;div class=&quot;children&quot;&gt;行内元素&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h5 id="1-2-使用-vertical-align"><a href="#1-2-使用-vertical-align" class="headerlink" title="1.2 使用 vertical-align"></a>1.2 使用 vertical-align</h5><p>为父元素设置<code>display: table-cell</code>和<code>vertical-align: middle</code>属性，此方案无需知道父元素的高度。</p>
+<pre><code class="html">&lt;style&gt;
+  .parent {
+    width: 400px;
+    height: 100px;
+    background: gray;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .children {
+    display: inline;
+    background: red;
+  }
+&lt;/style&gt;
+&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;children&quot;&gt;行内元素&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>上面两种方案实现的效果是一样的。</p>
+<p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20200113214341.png" alt=""></p>
+<h3 id="2-块状元素"><a href="#2-块状元素" class="headerlink" title="2. 块状元素"></a>2. 块状元素</h3><p>对于块状元素，如果只想实现水平居中，一个常见的方法就是，设置<code>margin: 0 auto</code>。</p>
+<pre><code class="html">&lt;style&gt;
+  .parent {
+    width: 400px;
+    height: 200px;
+    background: gray;
+  }
+  .children {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    background: red;
+  }
+&lt;/style&gt;
+&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;children&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20200113222237.png" alt=""></p>
+<p>如果需要水平垂直居中，实现方式大致可以分成两种。</p>
+<p>可以提前说明的是，下面介绍的具体方案，最终呈现的效果是一样的。</p>
+<p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20200113211157.png" alt=""></p>
+<h5 id="2-1-绝对定位"><a href="#2-1-绝对定位" class="headerlink" title="2.1 绝对定位"></a>2.1 绝对定位</h5><p>利用绝对定位，第一步将被居中元素的 top 和 left 属性均设为 50%，此时，元素的左上角位于父元素的中心点。</p>
+<p>第二步需要将元素拉回自身高度和宽度的一半。</p>
+<p>有三种方法可以实现第二步。</p>
+<p>①如果知道被居中元素的高宽，可以直接使用 margin 属性。</p>
+<pre><code class="html">&lt;style&gt;
+  .parent {
+    width: 400px;
+    height: 400px;
+    background: gray;
+    position: relative;
+  }
+  .children {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+  }
+&lt;/style&gt;
+&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;children&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>②第二种方法也是利用 margin，但不需要知道被居中元素的高宽。</p>
+<pre><code class="html">&lt;style&gt;
+  .parent {
+    width: 400px;
+    height: 400px;
+    background: gray;
+    position: relative;
+  }
+  .children {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+&lt;/style&gt;
+&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;children&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>③利用 CSS3 的 transfrom，也能在不知道元素高宽的情况下实现居中。</p>
+<pre><code class="html">&lt;style&gt;
+  .parent {
+    width: 400px;
+    height: 400px;
+    background: gray;
+    position: relative;
+  }
+  .children {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+&lt;/style&gt;
+&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;children&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h5 id="2-2-Flex-布局"><a href="#2-2-Flex-布局" class="headerlink" title="2.2 Flex 布局"></a>2.2 Flex 布局</h5><p>有别于传统的文档流布局，使用 Flex 布局，可以轻松实现元素的水平垂直居中。</p>
+<pre><code class="html">&lt;style&gt;
+  .parent {
+    width: 400px;
+    height: 400px;
+    background: gray;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+  }
+  .children {
+    width: 100px;
+    height: 100px;
+    background: red;
+  }
+&lt;/style&gt;
+&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;children&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>最后，CSS3 transform 属性和 Flex 布局固然好用，但在实际项目中，需要考虑兼容问题。</p>
+<p>例如，IE8 不支持 transform 属性。</p>
+<p>而浏览器对于 Flex 布局的支持，要更严格。</p>
+<p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20200113230504.png" alt=""></p>
 
     </div>
 
@@ -178,27 +273,21 @@
 
     
     
+    <a href="https://junbin123.github.io/tags/前端/">
+        <div class="post-tag animated">
+            # 前端
+        </div>
+    </a>
+    
     <a href="https://junbin123.github.io/tags/编程/">
         <div class="post-tag animated">
             # 编程
         </div>
     </a>
     
-    <a href="https://junbin123.github.io/tags/计算机知识/">
+    <a href="https://junbin123.github.io/tags/CSS/">
         <div class="post-tag animated">
-            # 计算机知识
-        </div>
-    </a>
-    
-    <a href="https://junbin123.github.io/tags/HTTP/">
-        <div class="post-tag animated">
-            # HTTP
-        </div>
-    </a>
-    
-    <a href="https://junbin123.github.io/tags/网站/">
-        <div class="post-tag animated">
-            # 网站
+            # CSS
         </div>
     </a>
     
