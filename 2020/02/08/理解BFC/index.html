@@ -72,53 +72,246 @@
         <!-- 引入内容 -->
         <div id="center">
             <div id="content">
-                
-
-<section class="archive">
-    
+                <div id="post-container">
+    <div id="post">
         
-    
-    
-     
-    <div class="archive-year">
-        2019
+        
+        <a href="https://junbin123.github.io/categories/学习笔记/">
+            <div class="post-category">
+                <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
+                <div class="category-name"> 学习笔记
+                </div>
+            </div>
+        </a>
+        
+        <a href="https://junbin123.github.io/categories/学习笔记/前端/">
+            <div class="post-category">
+                <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
+                <div class="category-name"> 前端
+                </div>
+            </div>
+        </a>
+        
+        
+        <div class="post-title">
+            理解 BFC
+        </div>
+        <div class="post-info">
+            <span>2020-02-08</span> ·
+            <span>吾儿滨滨</span>
+        </div>
+        <div class="post-line"></div>
     </div>
+
+    <div id="article">
+        <p>BFC（Block Formatting Context，块级格式化上下文） 是 CSS 布局中的一个概念，是元素的一种特性。</p>
+<p>它<strong>是一个独立的渲染区域</strong>，容器里面的子元素不会影响到外面元素。</p>
+<a id="more"></a>
+<p>通俗的讲，可以把 BFC 理解成一个封闭的大箱子，不管里面的元素如何变化，都不会影响到外部。</p>
+<p>为了更好地理解，先从一个例子说起。</p>
+<p><img src="/Users/apple/Desktop/mytypora/img/image-20200206143755566.png" alt="image-20200206143755566"></p>
+<p><em>HTML</em></p>
+<pre><code class="html">&lt;div id=&quot;father&quot;&gt;
+  &lt;div id=&quot;child1&quot;&gt;I am a floated box!&lt;/div&gt;
+  &lt;div id=&quot;child2&quot;&gt;I am content inside the container.&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><em>CSS</em></p>
+<pre><code class="css">#father {
+  background: lightblue;
+}
+
+#child1 {
+  width: 100px;
+  height: 100px;
+  background: lightgreen;
+  float: left;
+}
+</code></pre>
+<p>上面的例子中，父元素下有两个子元素，其中子元素 child1 设置浮动，因此脱离了文档流。</p>
+<p>父元素仅仅包含了子元素 child2。</p>
+<p>现在，创建一个包含这个浮动元素的 BFC，通常的做法是设置父元素<code>overflow: auto</code>。</p>
+<p><img src="/Users/apple/Desktop/mytypora/img/image-20200206145200838.png" alt="image-20200206145200838"></p>
+<p><em>CSS</em></p>
+<pre><code class="css">#father {
+  background: lightblue;
+  overflow: auto; // 创建BFC
+}
+
+#child1 {
+  width: 100px;
+  height: 100px;
+  background: lightgreen;
+  float: left;
+}
+</code></pre>
+<p> <code>overflow</code> 属性告诉浏览器，要怎样处理溢出的内容。</p>
+<h3 id="如何创建-BFC？"><a href="#如何创建-BFC？" class="headerlink" title="如何创建 BFC？"></a>如何创建 BFC？</h3><p>可以通过为元素添加属性，触发 BFC 特性。其中，根元素<code>&lt;body&gt;</code>本身就是具有 BFC 特性。</p>
+<p>元素只要满足下面任意一条，即可触发 BFC 特性。</p>
+<ul>
+<li><code>overflow: auto/hidden/scroll</code></li>
+<li><code>display: inline-block/table-cells/flex/grid/flow-root</code></li>
+<li>浮动元素：<code>float: left/right</code></li>
+<li>绝对定位元素：<code>position: absolute/fixed</code></li>
+</ul>
+<h3 id="BFC-的作用"><a href="#BFC-的作用" class="headerlink" title="BFC 的作用"></a>BFC 的作用</h3><p>关于 BFC 的作用可以罗列三四条，实际上，主要的只有两个，其他的都是在此基础的扩展。</p>
+<p>分别为：</p>
+<ol>
+<li><p>避免 margin 塌陷。</p>
+</li>
+<li><p>处理浮动元素。</p>
+<p>包含浮动元素 &amp; 避免元素被浮动元素覆盖。</p>
+</li>
+</ol>
+<h4 id="1-避免-margin-塌陷"><a href="#1-避免-margin-塌陷" class="headerlink" title="1. 避免 margin 塌陷"></a>1. 避免 margin 塌陷</h4><p>margin 塌陷的意思是，垂直方向上的两个盒子，外边距会重叠在一起（取 margin 最大的那个）。</p>
+<p>下面通过一个例子来说明。</p>
+<p><img src="/Users/apple/Desktop/mytypora/img/image-20200206153527403.png" alt="image-20200206153527403"></p>
+<p><em>HTML</em></p>
+<pre><code class="html">&lt;div id=&quot;brother1&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;brother2&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p><em>CSS</em></p>
+<pre><code class="css">#brother1 {
+  width: 200px;
+  height: 60px;
+  margin: 30px;
+  background: lightgreen;
+}
+
+#brother2 {
+  width: 200px;
+  height: 60px;
+  margin: 30px;
+  background: lightblue;
+}
+</code></pre>
+<p>例子中，两个 div 元素均设置 margin 为 30px，正常情况下，它们之间的间隔应该为 60px。</p>
+<p>实际上，它们的间隔为 30px。</p>
+<p>可以理解为这两个 div 元素处于同一个 BFC 容器。</p>
+<p>首先，这是 CSS 的一种规范，若要避免 margin 塌陷，可以将它们放在不同的 BFC 容器中。</p>
+<p>代码修改如下。</p>
+<p><img src="/Users/apple/Desktop/mytypora/img/image-20200206155257938.png" alt="image-20200206155257938"></p>
+<p><em>HTML</em></p>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;div id=&quot;brother1&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;container&quot;&gt;
+  &lt;div id=&quot;brother2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><em>CSS</em></p>
+<pre><code class="css">.container {
+  overflow: hidden;
+}
+
+#brother1 {
+  width: 200px;
+  height: 60px;
+  background: lightgreen;
+  margin: 30px;
+}
+
+#brother2 {
+  width: 200px;
+  height: 60px;
+  margin: 30px;
+  background: lightblue;
+}
+</code></pre>
+<h4 id="2-处理浮动元素"><a href="#2-处理浮动元素" class="headerlink" title="2. 处理浮动元素"></a>2. 处理浮动元素</h4><p>关于 BFC 特性如何包含浮动元素，第一个例子已经说过。</p>
+<p>下面通过一个例子，理解 BFC 特性如何避免元素被浮动元素覆盖。</p>
+<p><img src="/Users/apple/Desktop/mytypora/img/image-20200206162243294.png" alt="image-20200206162243294"></p>
+<p><em>HTML</em></p>
+<pre><code class="html">&lt;div id=&quot;brother1&quot;&gt;我是浮动元素&lt;/div&gt;
+&lt;div id=&quot;brother2&quot;&gt;
+    这雨愈下愈老成，水点贯串作丝，河面上像出了痘，无数麻瘢似的水涡，随生随灭，息息不停，到雨线更密，又仿佛光滑的水面上在长毛。
+&lt;/div&gt;
+</code></pre>
+<p><em>CSS</em></p>
+<pre><code class="css">#brother1 {
+  width: 100px;
+  height: 100px;
+  background: lightgreen;
+  float: left;
+}
+
+#brother2 {
+  width: 200px;
+  height: 200px;
+  background: lightblue;
+}
+</code></pre>
+<p>上面的例子中，相邻的两个元素，第一个元素设置浮动，导致第二个元素的内容出现文字环绕的效果。</p>
+<p>通过触发第二个元素的 BFC 特性，为元素添加<code>overflow: hidden</code>，就会变成：</p>
+<p><img src="/Users/apple/Desktop/mytypora/img/image-20200206162508321.png" alt="image-20200206162508321"></p>
+<p>这个方法也可以用来实现两列自适应布局。</p>
+<p>左边宽度固定，右边宽度自适应。</p>
+<h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><h4 id="Box-和-FC"><a href="#Box-和-FC" class="headerlink" title="Box 和 FC"></a>Box 和 FC</h4><p>BFC 是 FC 的一种方案，相对应的，还有 IFC（Inline formatting context，行内格式化上下文）、GFC、FFC。</p>
+<p>其中 CSS2.1 只有 BFC 和 IFC，CSS3 新增了 GFC 和 FFC。</p>
+<p>理解 FC 之前，先了解一下 Box。</p>
+<p>Box 是 CSS 布局中最基本的单位。直观的说，就是一个页面有很多个 Box 组成。</p>
+<p>常用的 Box 类型有两个，分别是 block box 和 inline box，由元素的<code>display</code>属性决定。不同的 box 对应不同渲染方式。</p>
+<p>下面，再来了解一下什么是 FC。</p>
+<p>FC（Formatting Context，格式化上下文）是 CSS2.1 规范中的一个概念，它是页面中的一块渲染区域，并且有一套渲染规则。</p>
+<p>这里概念比较多，可以用下面这张表总结一下。</p>
+<table>
+<thead>
+<tr>
+<th>box 类型</th>
+<th>对应元素</th>
+<th>特性</th>
+<th>渲染方式</th>
+<th>display 值</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>block box</td>
+<td>块级元素</td>
+<td>BFC</td>
+<td>block-level</td>
+<td><code>block</code>/<code>list-item</code>/<code>table</code></td>
+<td></td>
+</tr>
+<tr>
+<td>inline box</td>
+<td>行内元素</td>
+<td>IFC</td>
+<td>inline-level</td>
+<td><code>inline</code>/<code>inline-block</code>/<code>inline-table</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="定位方案"><a href="#定位方案" class="headerlink" title="定位方案"></a>定位方案</h4><p>很多 Box 放在一起，需要一套机制规定它们的位置。</p>
+<p>于是就有了定位方案，浏览器会根据<strong>元素的类型</strong>和<strong>上下文</strong>对这些元素进行定位。</p>
+<p>有三种方案，分别是：常规流（Normal Flow）、浮动（Float）、绝对定位（Absolute Position）。</p>
+
+    </div>
+
+    <div class="post-line"></div>
+
     
-    <a href="/2019/01/03/RSS阅读入门指南/">
-        <div class="animated archive-item">
-            <div class="archive-item__date">2019-01-03</div>
-            <div class="archive-item__title"> RSS 阅读入门指南</div>
+    
+    <a href="https://junbin123.github.io/tags/前端/">
+        <div class="post-tag animated">
+            # 前端
         </div>
     </a>
     
-        
-    
-    
-     
-    <div class="archive-year">
-        2018
-    </div>
-    
-    <a href="/2018/09/23/手汗症患者生活指南/">
-        <div class="animated archive-item">
-            <div class="archive-item__date">2018-09-23</div>
-            <div class="archive-item__title"> 手汗症患者生活指南</div>
+    <a href="https://junbin123.github.io/tags/编程/">
+        <div class="post-tag animated">
+            # 编程
         </div>
     </a>
     
-</section>
-
-
-
-
-
-<!-- 辅助函数，参考 https://hexo.io/zh-cn/docs/helpers#paginator -->
-<div id="page-nav-box"></div>
-
-
-<div id="page-count">
-  <p>当前第 <span style="color: #BF4033;">1</span> 页</p>
-  <p>共 1 页</p>
+    <a href="https://junbin123.github.io/tags/CSS/">
+        <div class="post-tag animated">
+            # CSS
+        </div>
+    </a>
+    
+    
 </div>            </div>
         </div>
         <!-- 引入侧边栏 -->
