@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junbin123.github.io/"/>
-  <updated>2020-03-01T07:32:45.818Z</updated>
+  <updated>2020-05-01T19:00:49.197Z</updated>
   <id>https://junbin123.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git 常用命令</title>
+    <link href="https://junbin123.github.io/2020/05/02/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://junbin123.github.io/2020/05/02/Git常用命令/</id>
+    <published>2020-05-01T16:00:00.000Z</published>
+    <updated>2020-05-01T19:00:49.197Z</updated>
+    
+    <content type="html"><![CDATA[<p>Git 易学难精。</p><p>Git 只在乎文件内容，不在乎文件名称。</p><p>Git 分支廉价好用。</p><a id="more"></a><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre><code class="bash"># 查看信息git config user.namegit config user.email# 修改信息git config --global user.name &quot;junbin123&quot;git config --global user.email &quot;540965117@qq.com&quot;</code></pre><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><pre><code class="bash"># 显示一行显示所有commitgit log --oneline# 显示统计信息git log --stat# 查看详细修改git log -pgit show# 从暂存区和工作区删除index.htmlgit rm index.html# 从暂存区删除index.htmlgit rm -cached index.html# 修改最近一次 commit 的 msg，同时把暂存区的修改提交到仓库git commit --amend -m &quot;feature header&quot;# 重做上一次commit，并包括指定文件的新变化git commit --amend [file1] [file2] ...# 显示你已经保存但是尚未 commit 的更改git diff</code></pre><h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><pre><code class="bash"># 为当前commit添加v1.0的taggit tag v1.0.0#为当前commit添加v1.0的tag，带注释（标签创建者、标签创建日期、标签信息）git tag -a v1.0.0# 删除名称我v1.0的taggit tag -d v1.0# 删除SHA为a87984的taggit tag -a v1.0 a87984</code></pre><h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><pre><code class="bash"># 创建并切换到 footer 分支，同时分支的起点与 master 分支的一样git checkout -b footer master# 从 commit 为 ed5f0dd 上创建分支 sidebargit branch sidebar ed5f0dd# 删除本地 sidebar 分支（此时位于其他分支） git branch -d sidebar# 删除远程 sidebar 分支git push origin -d sidebar# 合并sidebar分支（此时位于其他分支）git merge sidebar </code></pre><h3 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h3><p>git revert 用一次新的 commit 回滚之前的 commit，git reset 直接删除指定的 commit。 </p><pre><code class="bash"># 撤销前一次 commitgit revert HEAD# 撤销前前一次 commitgit revert HEAD^# 撤销 commit 为 fa042c 的操作git revert fa042c# 撤回你最近一次的commit，把修改保存在暂存区git reset --soft HEAD^# 撤回你最近一次的commit，把修改也删除掉git reset --hard HEAD^</code></pre><ul><li><code>--hard</code>：清除 commit，回收站；</li><li><code>--soft</code>：将 commit 的更改移至暂存区；</li><li><code>--mixed</code>：取消暂存已被 commit 的更改，工作区。</li></ul><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h3><p>希望 git 忽略一些文件，可以在 <em>.gitignore</em> 文件，使用通配符配置。</p><pre><code># 忽略images文件夹中jpg格式的图片samples/*.jpg# </code></pre><ul><li>空白行作为空格</li><li><code>#</code> - 将行标记为注释</li><li><code>*</code> - 与 0 个或多个字符匹配</li><li><code>?</code> - 与 1 个字符匹配</li><li><code>[abc]</code> - 与 a、b 或 c 匹配</li></ul><h3 id="Vim编辑"><a href="#Vim编辑" class="headerlink" title="Vim编辑"></a>Vim编辑</h3><ul><li>退出：:q</li><li>保存并退出v：ese→:wq</li></ul><h3 id="一些场景"><a href="#一些场景" class="headerlink" title="一些场景"></a>一些场景</h3><ul><li>设置本地 dev 分支跟踪远程 dev 分支，以后只需执行 <code>git pull</code> 就行了。</li></ul><pre><code class="bash">git branch --set-upstream-to=origin/dev dev</code></pre><ul><li>有时候同一个分支，远程的和本地的都被修改的面目全非了，如果想要把本地的替换成远程的，用下面的命令</li></ul><pre><code class="bash">git fetch --all# master为要修改的分支名git reset --hard origin/mastergit pull</code></pre><ul><li><p><code>-u</code> 指定 origin 为默认主机，后面可以不加任何参数，直接使用 <code>git push</code> 了。</p><p>  <em>不带任何参数的 <code>git push</code>，默认只推送当前分支，这叫做 simple 方式。此外，还有一种 matching 方式，会推送所有有对应的远程分支的本地分支。Git 2.0 版本之前，默认采用 matching 方法，现在改为默认采用 simple 方式。</em></p></li></ul><pre><code class="bash">git push -u origin master</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Git 易学难精。&lt;/p&gt;
+&lt;p&gt;Git 只在乎文件内容，不在乎文件名称。&lt;/p&gt;
+&lt;p&gt;Git 分支廉价好用。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://junbin123.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程基础" scheme="https://junbin123.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="编程" scheme="https://junbin123.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Git" scheme="https://junbin123.github.io/tags/Git/"/>
+    
+      <category term="基础" scheme="https://junbin123.github.io/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="版本管理" scheme="https://junbin123.github.io/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>理解 BFC</title>
@@ -287,38 +319,6 @@
       <category term="前端" scheme="https://junbin123.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="小程序" scheme="https://junbin123.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript 中，this 在不同应用场景，如何取值？</title>
-    <link href="https://junbin123.github.io/2019/11/20/%20JavaScript%20%E4%B8%AD%EF%BC%8Cthis%20%E5%9C%A8%E4%B8%8D%E5%90%8C%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%8C%E5%A6%82%E4%BD%95%E5%8F%96%E5%80%BC%EF%BC%9F/"/>
-    <id>https://junbin123.github.io/2019/11/20/ JavaScript 中，this 在不同应用场景，如何取值？/</id>
-    <published>2019-11-19T16:00:00.000Z</published>
-    <updated>2019-12-25T06:12:38.621Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><h3 id="一、作为普通函数"><a href="#一、作为普通函数" class="headerlink" title="一、作为普通函数"></a>一、作为普通函数</h3><pre><code class="javascript">function printThis() {    console.log(this)}printThis()</code></pre><blockquote><p>Window {parent: Window, postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, …}</p></blockquote><h3 id="二、使用-call-apply-bind"><a href="#二、使用-call-apply-bind" class="headerlink" title="二、使用 call apply bind"></a>二、使用 <code>call</code> <code>apply</code> <code>bind</code></h3><pre><code class="javascript">function fn1() {    console.log(this)}fn1.call({ x: 100 })  // 100const fn2 = fn1.bind({ x: 200 })fn2()  // 200</code></pre><p>作用：<strong>改变函数执行时的上下文</strong>，即<strong>改变函数运行时的this指向</strong>。</p><ul><li><code>call</code> <code>apply</code> 和 <code>bind</code> 的区别：</li></ul><p>call 和 apply 改变了函数的 this 上下文后便执行该函数,而 bind 则是返回改变了上下文后的一个函数。</p><ul><li><code>call</code> 和 <code>apply</code> 的区别：</li></ul><p>他们俩之间的差别在于参数的区别，call 和 apply 的第一个参数都是要改变上下文的对象，而 call 从第二个参数开始以参数列表的形式展现，apply 则是把除了改变上下文对象的参数放在一个数组里面作为它的第二个参数。</p><pre><code class="javascript">let arr = [2, 5, 9]console.log(Math.max.call(null, 2, 5, 9))  // 9console.log(Math.max.call(null, arr))  // NaNconsole.log(Math.max.apply(null, arr))  // 9</code></pre><h3 id="三、作为对象方法被调用"><a href="#三、作为对象方法被调用" class="headerlink" title="三、作为对象方法被调用"></a>三、作为对象方法被调用</h3><pre><code class="javascript">const people = {    name: &quot;Merry&quot;,    sayHi() {        console.log(this)    },    wait() {        setTimeout(function () {            console.log(this)        })    }}people.sayHi()people.wait()</code></pre><blockquote><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p><p>Window {parent: Window, postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, …}</p></blockquote><h3 id="四、箭头函数"><a href="#四、箭头函数" class="headerlink" title="四、箭头函数"></a>四、箭头函数</h3><pre><code class="javascript">const people = {    name: &quot;Merry&quot;,    sayHi() {        console.log(this)    },    wait() {        setTimeout(() =&gt; {            console.log(this)        })    }}people.sayHi()people.wait()</code></pre><blockquote><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p><p>{name: “Merry”, sayHi: ƒ, wait: ƒ}</p></blockquote><h3 id="五、在-class-方法中调用"><a href="#五、在-class-方法中调用" class="headerlink" title="五、在 class 方法中调用"></a>五、在 class 方法中调用</h3><pre><code class="javascript">class People {    constructor(name) {        this.name = name        this.age = 20    }    sayHi() {        console.log(this)    }}const merry = new People(&quot;Merry&quot;)merry.sayHi()</code></pre><blockquote><p>People {name: “Merry”, age: 20}</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;一、作为普通函数&quot;&gt;&lt;a href=&quot;#一、作为普通函数&quot; class=&quot;headerlink&quot; title=&quot;一、作为普通函数&quot;&gt;&lt;/a&gt;一、作为普通函数&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;f
-      
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="https://junbin123.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="JavaScript" scheme="https://junbin123.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/JavaScript/"/>
-    
-    
-      <category term="前端" scheme="https://junbin123.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="编程" scheme="https://junbin123.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="JavaScript" scheme="https://junbin123.github.io/tags/JavaScript/"/>
     
   </entry>
   

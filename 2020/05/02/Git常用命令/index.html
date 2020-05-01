@@ -72,38 +72,190 @@
         <!-- 引入内容 -->
         <div id="center">
             <div id="content">
-                
-
-<section class="archive">
-    
+                <div id="post-container">
+    <div id="post">
         
-    
-    
-     
-    <div class="archive-year">
-        2020
+        
+        <a href="https://junbin123.github.io/categories/学习笔记/">
+            <div class="post-category">
+                <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
+                <div class="category-name"> 学习笔记
+                </div>
+            </div>
+        </a>
+        
+        <a href="https://junbin123.github.io/categories/学习笔记/编程基础/">
+            <div class="post-category">
+                <img src="/images/category-icon.png" alt="分类icon" class="category-icon">
+                <div class="category-name"> 编程基础
+                </div>
+            </div>
+        </a>
+        
+        
+        <div class="post-title">
+            Git 常用命令
+        </div>
+        <div class="post-info">
+            <span>2020-05-02</span> ·
+            <span>吾儿滨滨</span>
+        </div>
+        <div class="post-line"></div>
     </div>
+
+    <div id="article">
+        <p>Git 易学难精。</p>
+<p>Git 只在乎文件内容，不在乎文件名称。</p>
+<p>Git 分支廉价好用。</p>
+<a id="more"></a>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre><code class="bash"># 查看信息
+git config user.name
+git config user.email
+
+# 修改信息
+git config --global user.name &quot;junbin123&quot;
+git config --global user.email &quot;540965117@qq.com&quot;
+</code></pre>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><pre><code class="bash"># 显示一行显示所有commit
+git log --oneline
+
+# 显示统计信息
+git log --stat
+
+# 查看详细修改
+git log -p
+git show
+
+# 从暂存区和工作区删除index.html
+git rm index.html
+
+# 从暂存区删除index.html
+git rm -cached index.html
+
+# 修改最近一次 commit 的 msg，同时把暂存区的修改提交到仓库
+git commit --amend -m &quot;feature header&quot;
+
+# 重做上一次commit，并包括指定文件的新变化
+git commit --amend [file1] [file2] ...
+
+# 显示你已经保存但是尚未 commit 的更改
+git diff
+</code></pre>
+<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><pre><code class="bash"># 为当前commit添加v1.0的tag
+git tag v1.0.0
+
+#为当前commit添加v1.0的tag，带注释（标签创建者、标签创建日期、标签信息）
+git tag -a v1.0.0
+
+# 删除名称我v1.0的tag
+git tag -d v1.0
+
+# 删除SHA为a87984的tag
+git tag -a v1.0 a87984
+</code></pre>
+<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><pre><code class="bash"># 创建并切换到 footer 分支，同时分支的起点与 master 分支的一样
+git checkout -b footer master
+
+# 从 commit 为 ed5f0dd 上创建分支 sidebar
+git branch sidebar ed5f0dd
+
+# 删除本地 sidebar 分支（此时位于其他分支） 
+git branch -d sidebar
+
+# 删除远程 sidebar 分支
+git push origin -d sidebar
+
+# 合并sidebar分支（此时位于其他分支）
+git merge sidebar 
+</code></pre>
+<h3 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h3><p>git revert 用一次新的 commit 回滚之前的 commit，git reset 直接删除指定的 commit。 </p>
+<pre><code class="bash"># 撤销前一次 commit
+git revert HEAD
+
+# 撤销前前一次 commit
+git revert HEAD^
+
+# 撤销 commit 为 fa042c 的操作
+git revert fa042c
+
+# 撤回你最近一次的commit，把修改保存在暂存区
+git reset --soft HEAD^
+
+# 撤回你最近一次的commit，把修改也删除掉
+git reset --hard HEAD^
+</code></pre>
+<ul>
+<li><code>--hard</code>：清除 commit，回收站；</li>
+<li><code>--soft</code>：将 commit 的更改移至暂存区；</li>
+<li><code>--mixed</code>：取消暂存已被 commit 的更改，工作区。</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h3><p>希望 git 忽略一些文件，可以在 <em>.gitignore</em> 文件，使用通配符配置。</p>
+<pre><code># 忽略images文件夹中jpg格式的图片
+samples/*.jpg
+# 
+</code></pre><ul>
+<li>空白行作为空格</li>
+<li><code>#</code> - 将行标记为注释</li>
+<li><code>*</code> - 与 0 个或多个字符匹配</li>
+<li><code>?</code> - 与 1 个字符匹配</li>
+<li><code>[abc]</code> - 与 a、b 或 c 匹配</li>
+</ul>
+<h3 id="Vim编辑"><a href="#Vim编辑" class="headerlink" title="Vim编辑"></a>Vim编辑</h3><ul>
+<li>退出：:q</li>
+<li>保存并退出v：ese→:wq</li>
+</ul>
+<h3 id="一些场景"><a href="#一些场景" class="headerlink" title="一些场景"></a>一些场景</h3><ul>
+<li>设置本地 dev 分支跟踪远程 dev 分支，以后只需执行 <code>git pull</code> 就行了。</li>
+</ul>
+<pre><code class="bash">git branch --set-upstream-to=origin/dev dev
+</code></pre>
+<ul>
+<li>有时候同一个分支，远程的和本地的都被修改的面目全非了，如果想要把本地的替换成远程的，用下面的命令</li>
+</ul>
+<pre><code class="bash">git fetch --all
+# master为要修改的分支名
+git reset --hard origin/master
+git pull
+</code></pre>
+<ul>
+<li><p><code>-u</code> 指定 origin 为默认主机，后面可以不加任何参数，直接使用 <code>git push</code> 了。</p>
+<p>  <em>不带任何参数的 <code>git push</code>，默认只推送当前分支，这叫做 simple 方式。此外，还有一种 matching 方式，会推送所有有对应的远程分支的本地分支。Git 2.0 版本之前，默认采用 matching 方法，现在改为默认采用 simple 方式。</em></p>
+</li>
+</ul>
+<pre><code class="bash">git push -u origin master
+</code></pre>
+
+    </div>
+
+    <div class="post-line"></div>
+
     
-    <a href="/2020/01/16/最近面试的一些感想/">
-        <div class="animated archive-item">
-            <div class="archive-item__date">2020-01-16</div>
-            <div class="archive-item__title"> 最近面试的一些感想</div>
+    
+    <a href="https://junbin123.github.io/tags/编程/">
+        <div class="post-tag animated">
+            # 编程
         </div>
     </a>
     
-</section>
-
-
-
-
-
-<!-- 辅助函数，参考 https://hexo.io/zh-cn/docs/helpers#paginator -->
-<div id="page-nav-box"></div>
-
-
-<div id="page-count">
-  <p>当前第 <span style="color: #BF4033;">1</span> 页</p>
-  <p>共 1 页</p>
+    <a href="https://junbin123.github.io/tags/Git/">
+        <div class="post-tag animated">
+            # Git
+        </div>
+    </a>
+    
+    <a href="https://junbin123.github.io/tags/基础/">
+        <div class="post-tag animated">
+            # 基础
+        </div>
+    </a>
+    
+    <a href="https://junbin123.github.io/tags/版本管理/">
+        <div class="post-tag animated">
+            # 版本管理
+        </div>
+    </a>
+    
+    
 </div>            </div>
         </div>
         <!-- 引入侧边栏 -->
