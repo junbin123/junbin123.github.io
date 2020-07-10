@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junbin123.github.io/"/>
-  <updated>2020-05-01T19:00:49.197Z</updated>
+  <updated>2020-07-10T22:36:01.902Z</updated>
   <id>https://junbin123.github.io/</id>
   
   <author>
@@ -17,13 +17,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="https://junbin123.github.io/2020/07/11/iTerm%20%E7%BE%8E%E5%8C%96%E6%8C%87%E5%8D%97/"/>
+    <id>https://junbin123.github.io/2020/07/11/iTerm 美化指南/</id>
+    <published>2020-07-10T22:36:01.902Z</published>
+    <updated>2020-07-10T22:36:01.902Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Git 常用命令</title>
     <link href="https://junbin123.github.io/2020/05/02/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     <id>https://junbin123.github.io/2020/05/02/Git常用命令/</id>
     <published>2020-05-01T16:00:00.000Z</published>
-    <updated>2020-05-01T19:00:49.197Z</updated>
+    <updated>2020-07-10T22:34:58.866Z</updated>
     
-    <content type="html"><![CDATA[<p>Git 易学难精。</p><p>Git 只在乎文件内容，不在乎文件名称。</p><p>Git 分支廉价好用。</p><a id="more"></a><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre><code class="bash"># 查看信息git config user.namegit config user.email# 修改信息git config --global user.name &quot;junbin123&quot;git config --global user.email &quot;540965117@qq.com&quot;</code></pre><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><pre><code class="bash"># 显示一行显示所有commitgit log --oneline# 显示统计信息git log --stat# 查看详细修改git log -pgit show# 从暂存区和工作区删除index.htmlgit rm index.html# 从暂存区删除index.htmlgit rm -cached index.html# 修改最近一次 commit 的 msg，同时把暂存区的修改提交到仓库git commit --amend -m &quot;feature header&quot;# 重做上一次commit，并包括指定文件的新变化git commit --amend [file1] [file2] ...# 显示你已经保存但是尚未 commit 的更改git diff</code></pre><h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><pre><code class="bash"># 为当前commit添加v1.0的taggit tag v1.0.0#为当前commit添加v1.0的tag，带注释（标签创建者、标签创建日期、标签信息）git tag -a v1.0.0# 删除名称我v1.0的taggit tag -d v1.0# 删除SHA为a87984的taggit tag -a v1.0 a87984</code></pre><h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><pre><code class="bash"># 创建并切换到 footer 分支，同时分支的起点与 master 分支的一样git checkout -b footer master# 从 commit 为 ed5f0dd 上创建分支 sidebargit branch sidebar ed5f0dd# 删除本地 sidebar 分支（此时位于其他分支） git branch -d sidebar# 删除远程 sidebar 分支git push origin -d sidebar# 合并sidebar分支（此时位于其他分支）git merge sidebar </code></pre><h3 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h3><p>git revert 用一次新的 commit 回滚之前的 commit，git reset 直接删除指定的 commit。 </p><pre><code class="bash"># 撤销前一次 commitgit revert HEAD# 撤销前前一次 commitgit revert HEAD^# 撤销 commit 为 fa042c 的操作git revert fa042c# 撤回你最近一次的commit，把修改保存在暂存区git reset --soft HEAD^# 撤回你最近一次的commit，把修改也删除掉git reset --hard HEAD^</code></pre><ul><li><code>--hard</code>：清除 commit，回收站；</li><li><code>--soft</code>：将 commit 的更改移至暂存区；</li><li><code>--mixed</code>：取消暂存已被 commit 的更改，工作区。</li></ul><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h3><p>希望 git 忽略一些文件，可以在 <em>.gitignore</em> 文件，使用通配符配置。</p><pre><code># 忽略images文件夹中jpg格式的图片samples/*.jpg# </code></pre><ul><li>空白行作为空格</li><li><code>#</code> - 将行标记为注释</li><li><code>*</code> - 与 0 个或多个字符匹配</li><li><code>?</code> - 与 1 个字符匹配</li><li><code>[abc]</code> - 与 a、b 或 c 匹配</li></ul><h3 id="Vim编辑"><a href="#Vim编辑" class="headerlink" title="Vim编辑"></a>Vim编辑</h3><ul><li>退出：:q</li><li>保存并退出v：ese→:wq</li></ul><h3 id="一些场景"><a href="#一些场景" class="headerlink" title="一些场景"></a>一些场景</h3><ul><li>设置本地 dev 分支跟踪远程 dev 分支，以后只需执行 <code>git pull</code> 就行了。</li></ul><pre><code class="bash">git branch --set-upstream-to=origin/dev dev</code></pre><ul><li>有时候同一个分支，远程的和本地的都被修改的面目全非了，如果想要把本地的替换成远程的，用下面的命令</li></ul><pre><code class="bash">git fetch --all# master为要修改的分支名git reset --hard origin/mastergit pull</code></pre><ul><li><p><code>-u</code> 指定 origin 为默认主机，后面可以不加任何参数，直接使用 <code>git push</code> 了。</p><p>  <em>不带任何参数的 <code>git push</code>，默认只推送当前分支，这叫做 simple 方式。此外，还有一种 matching 方式，会推送所有有对应的远程分支的本地分支。Git 2.0 版本之前，默认采用 matching 方法，现在改为默认采用 simple 方式。</em></p></li></ul><pre><code class="bash">git push -u origin master</code></pre>]]></content>
+    <content type="html"><![CDATA[<p>Git 易学难精。</p><p>Git 只在乎文件内容，不在乎文件名称。</p><p>Git 分支廉价好用。</p><a id="more"></a><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre><code class="bash"># 查看信息git config user.namegit config user.email# 修改信息git config --global user.name &quot;junbin123&quot;git config --global user.email &quot;540965117@qq.com&quot;</code></pre><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><pre><code class="bash"># 显示一行显示所有commitgit log --oneline# 显示统计信息git log --stat# 查看详细修改git log -pgit show# 从暂存区和工作区删除index.htmlgit rm index.html# 从暂存区删除index.htmlgit rm -cached index.html# 修改最近一次 commit 的 msg，同时把暂存区的修改提交到仓库git commit --amend -m &quot;feature header&quot;# 重做上一次commit，并包括指定文件的新变化git commit --amend [file1] [file2] ...# 显示你已经保存但是尚未 commit 的更改git diff</code></pre><h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><pre><code class="bash"># 为当前commit添加v1.0的taggit tag v1.0.0#为当前commit添加v1.0的tag，带注释（标签创建者、标签创建日期、标签信息）git tag -a v1.0.0# 删除名称我v1.0的taggit tag -d v1.0# 删除SHA为a87984的taggit tag -a v1.0 a87984</code></pre><h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><pre><code class="bash"># 创建并切换到 footer 分支，同时分支的起点与 master 分支的一样git checkout -b footer master# 从 commit 为 ed5f0dd 上创建分支 sidebargit branch sidebar ed5f0dd# 删除本地 sidebar 分支（此时位于其他分支） git branch -d sidebar# 删除远程 sidebar 分支git push origin -d sidebar# 合并sidebar分支（此时位于其他分支）git merge sidebar </code></pre><h3 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h3><p>git revert 用一次新的 commit 回滚之前的 commit，git reset 直接删除指定的 commit。 </p><pre><code class="bash"># 撤销前一次 commitgit revert HEAD# 撤销前前一次 commitgit revert HEAD^# 撤销 commit 为 fa042c 的操作git revert fa042c# 撤回你最近一次的commit，把修改保存在暂存区git reset --soft HEAD^# 撤回你最近一次的commit，把修改也删除掉git reset --hard HEAD^</code></pre><ul><li><code>--hard</code>：清除 commit，回收站；</li><li><code>--soft</code>：将 commit 的更改移至暂存区；</li><li><code>--mixed</code>：取消暂存已被 commit 的更改，工作区。</li></ul><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h3><p>希望 git 忽略一些文件，可以在 <em>.gitignore</em> 文件，使用通配符配置。</p><pre><code># 忽略images文件夹中jpg格式的图片samples/*.jpg# </code></pre><ul><li>空白行作为空格</li><li><code>#</code> - 将行标记为注释</li><li><code>*</code> - 与 0 个或多个字符匹配</li><li><code>?</code> - 与 1 个字符匹配</li><li><code>[abc]</code> - 与 a、b 或 c 匹配</li></ul><h3 id="Vim编辑"><a href="#Vim编辑" class="headerlink" title="Vim编辑"></a>Vim编辑</h3><ul><li>退出：:q</li><li>保存并退出v：ese→:wq</li></ul><h3 id="一些场景"><a href="#一些场景" class="headerlink" title="一些场景"></a>一些场景</h3><ul><li>设置本地 dev 分支跟踪远程 dev 分支，以后只需执行 <code>git pull</code> 就行了。</li></ul><pre><code class="bash">git branch --set-upstream-to=origin/dev dev</code></pre><ul><li>有时候同一个分支，远程的和本地的都被修改的面目全非了，如果想要把本地的替换成远程的，用下面的命令</li></ul><pre><code class="bash">git fetch --all# master为要修改的分支名git reset --hard origin/mastergit pull</code></pre><ul><li><p><code>-u</code> 指定 origin 为默认主机，后面可以不加任何参数，直接使用 <code>git push</code> 了。</p><p>  <em>不带任何参数的 <code>git push</code>，默认只推送当前分支，这叫做 simple 方式。此外，还有一种 matching 方式，会推送所有有对应的远程分支的本地分支。Git 2.0 版本之前，默认采用 matching 方法，现在改为默认采用 simple 方式。</em></p></li></ul><pre><code class="bash">git push -u origin master</code></pre><ul><li>拉取远程分支 dev 到本地</li></ul><pre><code>git checkout -b dev oriign/dev</code></pre>]]></content>
     
     <summary type="html">
     
@@ -292,33 +306,6 @@
       <category term="编程" scheme="https://junbin123.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
       <category term="JavaScript" scheme="https://junbin123.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自学编程，写了个小程序，用起来！</title>
-    <link href="https://junbin123.github.io/2019/11/30/%E8%87%AA%E5%AD%A6%E7%BC%96%E7%A8%8B%EF%BC%8C%E5%86%99%E4%BA%86%E4%B8%AA%E5%B0%8F%E7%A8%8B%E5%BA%8F%EF%BC%8C%E7%94%A8%E8%B5%B7%E6%9D%A5%EF%BC%81/"/>
-    <id>https://junbin123.github.io/2019/11/30/自学编程，写了个小程序，用起来！/</id>
-    <published>2019-11-29T16:00:00.000Z</published>
-    <updated>2019-12-14T10:03:46.035Z</updated>
-    
-    <content type="html"><![CDATA[<p>想着在生命凋零前，能够给自己留点遗产。</p><p>由于太贫穷，金钱是不可能的了！</p><p>于是我自学了前端编程，写了个小程序，一个简单漂亮的倒数日工具。</p><p>顺便在 GitHub 开源了，手动 star 一下。</p><a id="more"></a><p><strong><a href="https://github.com/junbin123/likeday" target="_blank" rel="noopener">https://github.com/junbin123/likeday</a></strong></p><p>想了解这个小程序的的诞生过程，接着往下看，不想听我叨叨的，直接长按体验。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191202162629.png" alt=""></p><h3 id="自学编程阶段"><a href="#自学编程阶段" class="headerlink" title="自学编程阶段"></a>自学编程阶段</h3><p>由于不是计算机专业，之前也只是简单学过 Python！</p><p>抱歉，这两年 Python 真的好火，但由于没法实现我做一个独立、线上、能面向大众的产品，我也学的好火。</p><p>所以，前端的东西，还得从头开始学习。</p><p>断断续续大概花了 2 个多月的时间，入门了 HTML、CSS、JavaScript 最基本的语言。</p><p>嗯，很好，会写那种会自己动的界面了，就像这种轮播图。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNbRwgy1g9g195sui7g30hs07l7pd.gif" alt=""></p><p>emmm~~~</p><p>还差什么？写个网站吧，但是一想到又是买域名，又是搭建服务器，还有后端一堆杂七杂八的事情。于是我成功被劝退了。</p><p>这时（也不是这时，只是为了过渡），看到了微信小程序的云开发，不用自己搭建服务器，还是免费的，贫穷人家的第一选择。</p><p>开干！</p><h3 id="开发前准备"><a href="#开发前准备" class="headerlink" title="开发前准备"></a>开发前准备</h3><p>做个小工具吧，也符合小程序的载体。</p><p>从我在使用的倒数日工具开始，以解决自己的需求出发。</p><p>不过我还是在微信找了一圈，很满意，没有发现好看且好用的同类产品，也符合产品经理改变世界的梦想。</p><p>没有产品草图，更没有交互原型，直接上手设计图，它长什么样子，在我脑子里有画面。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNbRwgy1g9g2b35d4bj30kg0f0jt2.jpg" alt="image-20191130144429441"></p><p>怎么做出（对，谈不上设计）不难看界面，提供两条思路：</p><p>① 照官方提供的设计指南来开发，或者使用第三方 UI 框架。</p><p>微信小程序设计指南：<strong><a href="https://developers.weixin.qq.com/miniprogram/design/" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/design/</a></strong></p><p>② 去 Dribbble 找类似设计稿，上面有好多在大众审美之上的作品。尤其是<strong>配色，值得借鉴</strong>！</p><p>Dribbble：<strong><a href="https://dribbble.com/" target="_blank" rel="noopener">https://dribbble.com/</a></strong></p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNbRwgy1g9g2wqcc9hj312h0nnkbs.jpg" alt="image-20191130150517110"></p><p>什么？图标！</p><p>马上就到很像科幻小说的一个年份了，图标还自己设计啊。是 iconfont 不香了吗？</p><p>话说回来，iconfont 的图标是很齐全，但风格不统一的问题，还是影响到了我使用他的决心（用 iconfont 管理图标依旧很香）。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNbRwgy1g9g37owj2pj30x10fpdhg.jpg" alt="image-20191130151549185"></p><p>于是，所以我用了<strong>谷歌家 Material Design 的图标，图标齐全，风格统一。</strong></p><p>最重要的，不像苹果有一段时间，图标的线条细细的，很像娘炮。</p><p>iconfont：<strong><a href="https://www.iconfont.cn/" target="_blank" rel="noopener">https://www.iconfont.cn/</a></strong></p><p>Material Design：<strong><a href="https://material.io/resources/icons/" target="_blank" rel="noopener">https://material.io/resources/icons/</a></strong></p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNbRwgy1g9g3bu8cbtj30tf0h8jt3.jpg" alt="image-20191130151948439"></p><h3 id="开发过程中"><a href="#开发过程中" class="headerlink" title="开发过程中"></a>开发过程中</h3><p>总算开始打代码了！</p><p>没有用流行的小程序框架（mpvue、wepy、taro），实际上，小程序本身就是一个框架。</p><p><strong>原生小程序由专业的小程序团队维护更新，这是社区开源项目无法比拟的。</strong></p><p>尤其想到 mpvue 已经半年没更新了。</p><p>小程序 MVP 的开发过程还算顺利，但坑不算少，大部分我都消灭了，不过，有些留有余孽。</p><p>比如我觉得用默认字体来显示首页的天数，不好看。</p><p>找了还不错的字体，发现小程序对外部加载的字体，着实不友好，在这上面花费了不少时间，至今 iOS 字体显示还时好时坏。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/006tNbRwgy1g9g3yv2vs4j30ed07ijt5.jpg" alt="image-20191130154156676"></p><p>因为是个倒数日工具，我主要的精力放在处理日期上，毕竟这是产品的主要功能，不能出错。</p><h3 id="第一版发布"><a href="#第一版发布" class="headerlink" title="第一版发布"></a>第一版发布</h3><p>写完第一版，肯定要发布。</p><p>这就不得不说个人主体的小程序了，真的非常受限。</p><p>原本想着我这个产品，应该是比较符合微信小程序口味：工具类，用完即走。</p><p>没想到，第一次提交审核通过后，后面修复 bug，再提交，不给通过了。</p><p>转腾着换了个企业主体，审核速度快多了，所以有条件，还是<strong>建议搞个企业主体的小程序</strong>。</p><p>显然，这里需要放一个小程序的二维码。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191202162629.png" alt=""></p><p>最后，使用过程遇到任何问题，欢迎反馈给我。</p><p>开发小程序遇问题也可以反馈，虽然我一般也问谷歌。</p><p><img src="https://raw.githubusercontent.com/junbin123/blog-img/master/img/20191202162721.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;想着在生命凋零前，能够给自己留点遗产。&lt;/p&gt;
-&lt;p&gt;由于太贫穷，金钱是不可能的了！&lt;/p&gt;
-&lt;p&gt;于是我自学了前端编程，写了个小程序，一个简单漂亮的倒数日工具。&lt;/p&gt;
-&lt;p&gt;顺便在 GitHub 开源了，手动 star 一下。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="分享创造" scheme="https://junbin123.github.io/categories/%E5%88%86%E4%BA%AB%E5%88%9B%E9%80%A0/"/>
-    
-    
-      <category term="前端" scheme="https://junbin123.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="小程序" scheme="https://junbin123.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
