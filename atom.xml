@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junbin123.github.io/"/>
-  <updated>2020-07-10T22:58:21.472Z</updated>
+  <updated>2020-07-10T23:12:11.435Z</updated>
   <id>https://junbin123.github.io/</id>
   
   <author>
@@ -21,15 +21,13 @@
     <link href="https://junbin123.github.io/2020/07/09/iTerm%20%E7%BE%8E%E5%8C%96%E6%8C%87%E5%8D%97/"/>
     <id>https://junbin123.github.io/2020/07/09/iTerm 美化指南/</id>
     <published>2020-07-08T16:00:00.000Z</published>
-    <updated>2020-07-10T22:58:21.472Z</updated>
+    <updated>2020-07-10T23:12:11.435Z</updated>
     
-    <content type="html"><![CDATA[<p>Git 易学难精。</p><p>Git 只在乎文件内容，不在乎文件名称。</p><p>Git 分支廉价好用。</p><a id="more"></a><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre><code class="bash"># 查看信息git config user.namegit config user.email# 修改信息git config --global user.name &quot;junbin123&quot;git config --global user.email &quot;540965117@qq.com&quot;</code></pre><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3>]]></content>
+    <content type="html"><![CDATA[<p>iTerm2 是非常优秀的 Mac 终端</p><a id="more"></a><ol><li>基本配置</li></ol><p>配置顶部状态</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Git 易学难精。&lt;/p&gt;
-&lt;p&gt;Git 只在乎文件内容，不在乎文件名称。&lt;/p&gt;
-&lt;p&gt;Git 分支廉价好用。&lt;/p&gt;
+      &lt;p&gt;iTerm2 是非常优秀的 Mac 终端&lt;/p&gt;
     
     </summary>
     
